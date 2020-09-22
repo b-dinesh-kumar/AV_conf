@@ -147,7 +147,12 @@
             },
             "in": "query",
             "name": "orderBy",
-            "description": "To order the page"
+            "description": "Order the page by startTime"
+          }
+        ],
+        "security": [
+          {
+            "API Key - 1": []
           }
         ]
       },
@@ -216,13 +221,18 @@
                   "userId": {
                     "type": "string",
                     "example": "ff34d-dff4r"
+                  },
+                  "meetingName": {
+                    "type": "string",
+                    "example": "SprintMeeting"
                   }
                 },
                 "required": [
                   "meetingDesc",
                   "schStartTime",
                   "schEndTime",
-                  "userId"
+                  "userId",
+                  "meetingName"
                 ]
               },
               "examples": {
@@ -231,7 +241,8 @@
                     "meetingDesc": "This is a meeting about API documentation",
                     "schStartTime": "2020-09-22T23:30:52.123Z",
                     "schEndTime": "2020-09-22T25:30:52.123Z",
-                    "userId": "ff34ddff4r"
+                    "userId": "ff34d-dff4r",
+                    "meetingName": "SprintMeeting"
                   }
                 }
               }
@@ -250,52 +261,6 @@
             "API Key - 1": []
           }
         ],
-        "parameters": []
-      },
-      "patch": {
-        "summary": "updateMeeting",
-        "operationId": "patch-meeting",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "description": "To update the meeting",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "meetingId": {
-                    "type": "string",
-                    "example": "we23rer34"
-                  },
-                  "meetingDesc": {
-                    "type": "string",
-                    "example": "This is meeting about updation"
-                  },
-                  "schStartTime": {
-                    "type": "string"
-                  },
-                  "schEndTime": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "meetingId"
-                ]
-              },
-              "examples": {}
-            }
-          },
-          "description": ""
-        },
         "parameters": []
       }
     },
@@ -402,7 +367,7 @@
         "summary": "deleteMeetingById",
         "operationId": "delete-meeting-id",
         "responses": {
-          "200": {
+          "204": {
             "description": "OK",
             "content": {
               "application/json": {
@@ -427,6 +392,54 @@
           }
         },
         "description": "Delete the meeting by id."
+      },
+      "patch": {
+        "summary": "updateMeetingById",
+        "operationId": "patch-meeting-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Updated successfully"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To update the meeting by id.",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "meetingName": {
+                    "type": "string",
+                    "example": "FirstMeeting"
+                  },
+                  "meetingDesc": {
+                    "type": "string",
+                    "example": "This is a meeting about updation"
+                  }
+                }
+              },
+              "examples": {}
+            }
+          }
+        }
       }
     }
   },
