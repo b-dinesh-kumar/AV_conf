@@ -25,11 +25,92 @@
       "get": {
         "summary": "Your GET endpoint",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "meetingId": {
+                        "type": "string",
+                        "example": "aw4feefer35",
+                        "format": "uuid"
+                      },
+                      "meetingDescription": {
+                        "type": "string",
+                        "example": "This meeting is about API documentation",
+                        "format": "uuid"
+                      }
+                    },
+                    "required": [
+                      "meetingId",
+                      "meetingDescription"
+                    ]
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
         "operationId": "get-meeting",
-        "description": ""
+        "description": "Get all the meeting details."
       },
-      "parameters": []
+      "parameters": [],
+      "post": {
+        "summary": "",
+        "operationId": "post-meeting",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "To create the meeting.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "meetingDesc": {
+                    "type": "string",
+                    "example": "This is a meeting about API documentation"
+                  },
+                  "isScreenshareUsed": {
+                    "type": "boolean"
+                  },
+                  "schStartTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "meetingDesc",
+                  "isScreenshareUsed"
+                ]
+              },
+              "examples": {}
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "description": "Details to create the meeting."
+        },
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": []
+      }
     }
   },
   "components": {
