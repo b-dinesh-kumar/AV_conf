@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "AV_conf",
+    "title": "AV_conf API",
     "version": "1.0",
     "description": "API documentation for AV_conference",
     "contact": {
@@ -23,7 +23,7 @@
   "paths": {
     "/meeting": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "getAllMeeting",
         "tags": [],
         "responses": {
           "200": {
@@ -37,36 +37,159 @@
                     "properties": {
                       "meetingId": {
                         "type": "string",
-                        "example": "aw4feefer35",
-                        "format": "uuid"
+                        "example": "ad45e34er35"
                       },
-                      "meetingDescription": {
+                      "meetingDesc": {
                         "type": "string",
-                        "example": "This meeting is about API documentation",
-                        "format": "uuid"
+                        "example": "This meeting is about API documentation"
+                      },
+                      "isScreenshareUsed": {
+                        "type": "boolean"
+                      },
+                      "schStartTime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2020-09-22T23:30:52.123Z"
+                      },
+                      "schEndTime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2020-09-22T25:30:52.123Z"
+                      },
+                      "isWaitRoomEnabled": {
+                        "type": "boolean"
+                      },
+                      "actStartTime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2020-09-22T24:30:52.123Z"
+                      },
+                      "actEndTime": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2020-09-22T26:30:52.123Z"
+                      },
+                      "isAudioUsed": {
+                        "type": "boolean"
+                      },
+                      "isVideoUsed": {
+                        "type": "boolean"
+                      },
+                      "isRecordingUsed": {
+                        "type": "boolean"
+                      },
+                      "meetingUrl": {
+                        "type": "string",
+                        "example": " https://av-meet.com/idc-vshh-vkp"
+                      },
+                      "meetingStatus": {
+                        "type": "string"
                       }
-                    },
-                    "required": [
-                      "meetingId",
-                      "meetingDescription"
-                    ]
+                    }
                   }
                 },
-                "examples": {}
+                "examples": {
+                  "example-1": {
+                    "value": [
+                      {
+                        "meetingId": "ad45e34er35",
+                        "meetingDesc": "This meeting is about API documentation",
+                        "isScreenshareUsed": true,
+                        "schStartTime": "2020-09-22T23:30:52.123Z",
+                        "schEndTime": "2020-09-22T25:30:52.123Z",
+                        "isWaitRoomEnabled": true,
+                        "actStartTime": "2020-09-22T24:30:52.123Z",
+                        "actEndTime": "2020-09-22T26:30:52.123Z",
+                        "isAudioUsed": true,
+                        "isVideoUsed": true,
+                        "isRecordingUsed": true,
+                        "meetingUrl": " https://av-meet.com/idc-vshh-vkp",
+                        "meetingStatus": "string"
+                      }
+                    ]
+                  }
+                }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "operationId": "get-meeting",
-        "description": "Get all the meeting details."
+        "description": "Get all the meeting details.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number",
+              "example": 1
+            },
+            "in": "query",
+            "name": "page",
+            "description": "page_no"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "2020-09-22T18:30:52.123Z"
+            },
+            "in": "query",
+            "name": "startTime",
+            "description": "meeting_strat_time"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "0"
+            },
+            "in": "query",
+            "name": "orderBy",
+            "description": "To order the page"
+          }
+        ]
       },
       "parameters": [],
       "post": {
-        "summary": "",
+        "summary": "createMeeting",
         "operationId": "post-meeting",
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Meeting created successfully."
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "message": "Meeting created successfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "description": "To create the meeting.",
@@ -80,20 +203,38 @@
                     "type": "string",
                     "example": "This is a meeting about API documentation"
                   },
-                  "isScreenshareUsed": {
-                    "type": "boolean"
-                  },
                   "schStartTime": {
                     "type": "string",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "example": "2020-09-22T23:30:52.123Z"
+                  },
+                  "schEndTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-09-22T25:30:52.123Z"
+                  },
+                  "userId": {
+                    "type": "string",
+                    "example": "ff34d-dff4r"
                   }
                 },
                 "required": [
                   "meetingDesc",
-                  "isScreenshareUsed"
+                  "schStartTime",
+                  "schEndTime",
+                  "userId"
                 ]
               },
-              "examples": {}
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "meetingDesc": "This is a meeting about API documentation",
+                    "schStartTime": "2020-09-22T23:30:52.123Z",
+                    "schEndTime": "2020-09-22T25:30:52.123Z",
+                    "userId": "ff34ddff4r"
+                  }
+                }
+              }
             },
             "application/xml": {
               "schema": {
@@ -110,6 +251,182 @@
           }
         ],
         "parameters": []
+      },
+      "patch": {
+        "summary": "updateMeeting",
+        "operationId": "patch-meeting",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "To update the meeting",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "meetingId": {
+                    "type": "string",
+                    "example": "we23rer34"
+                  },
+                  "meetingDesc": {
+                    "type": "string",
+                    "example": "This is meeting about updation"
+                  },
+                  "schStartTime": {
+                    "type": "string"
+                  },
+                  "schEndTime": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "meetingId"
+                ]
+              },
+              "examples": {}
+            }
+          },
+          "description": ""
+        },
+        "parameters": []
+      }
+    },
+    "/meeting/{id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "meeting_Id"
+        }
+      ],
+      "get": {
+        "summary": "getMeetingById",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meetingId": {
+                      "type": "string",
+                      "example": "ad45e34er35"
+                    },
+                    "meetingDesc": {
+                      "type": "string",
+                      "example": "This meeting is about API documentation"
+                    },
+                    "isScreenshareUsed": {
+                      "type": "boolean"
+                    },
+                    "schStartTime": {
+                      "type": "string",
+                      "example": "2020-09-22T23:30:52.123Z"
+                    },
+                    "schEndTime": {
+                      "type": "string",
+                      "example": "2020-09-22T23:30:52.123Z"
+                    },
+                    "isWaitRoomEnabled": {
+                      "type": "boolean"
+                    },
+                    "actStartTime": {
+                      "type": "string",
+                      "example": "2020-09-22T24:30:52.123Z"
+                    },
+                    "actEndTime": {
+                      "type": "string",
+                      "example": "2020-09-22T26:30:52.123Z"
+                    },
+                    "isAudioUsed": {
+                      "type": "boolean"
+                    },
+                    "isVideoUsed": {
+                      "type": "boolean"
+                    },
+                    "isRecordingUsed": {
+                      "type": "boolean"
+                    },
+                    "meetingUrl": {
+                      "type": "string",
+                      "example": "https://av-meet.com/idc-vshh-vkp"
+                    },
+                    "meetingStatus": {
+                      "type": "string",
+                      "example": "ended"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "meetingId": "ad45e34er35",
+                      "meetingDesc": "This meeting is about API documentation",
+                      "isScreenshareUsed": true,
+                      "schStartTime": "2020-09-22T23:30:52.123Z",
+                      "schEndTime": "2020-09-22T23:30:52.123Z",
+                      "isWaitRoomEnabled": true,
+                      "actStartTime": "2020-09-22T24:30:52.123Z",
+                      "actEndTime": "2020-09-22T26:30:52.123Z",
+                      "isAudioUsed": true,
+                      "isVideoUsed": true,
+                      "isRecordingUsed": true,
+                      "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
+                      "meetingStatus": "ended"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-id",
+        "description": "Get the meeting details by id."
+      },
+      "delete": {
+        "summary": "deleteMeetingById",
+        "operationId": "delete-meeting-id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "messgae": {
+                      "type": "string",
+                      "example": "Deleted successfully."
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "messgae": "Deleted successfully."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Delete the meeting by id."
       }
     }
   },
