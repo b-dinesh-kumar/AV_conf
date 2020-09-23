@@ -84,6 +84,10 @@
                       },
                       "meetingStatus": {
                         "type": "string"
+                      },
+                      "meetingName": {
+                        "type": "string",
+                        "example": "General Meeting"
                       }
                     }
                   }
@@ -104,7 +108,8 @@
                         "isVideoUsed": true,
                         "isRecordingUsed": true,
                         "meetingUrl": " https://av-meet.com/idc-vshh-vkp",
-                        "meetingStatus": "string"
+                        "meetingStatus": "string",
+                        "meetingName": "General Meeting"
                       }
                     ]
                   }
