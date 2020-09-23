@@ -83,7 +83,8 @@
                         "example": " https://av-meet.com/idc-vshh-vkp"
                       },
                       "meetingStatus": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "Completed"
                       },
                       "meetingName": {
                         "type": "string",
@@ -338,7 +339,11 @@
                     },
                     "meetingStatus": {
                       "type": "string",
-                      "example": "ended"
+                      "example": "Completed"
+                    },
+                    "meetingName": {
+                      "type": "string",
+                      "example": "General Meeting"
                     }
                   }
                 },
