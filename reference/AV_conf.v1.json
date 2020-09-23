@@ -362,7 +362,8 @@
                       "isVideoUsed": true,
                       "isRecordingUsed": true,
                       "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
-                      "meetingStatus": "ended"
+                      "meetingStatus": "Completed",
+                      "meetingName": "General Meeting"
                     }
                   }
                 }
