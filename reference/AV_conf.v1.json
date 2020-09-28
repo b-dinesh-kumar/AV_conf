@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:9090/v1"
+      "url": "http://localhost:9090/focus/v1"
     }
   ],
   "paths": {
@@ -95,24 +95,28 @@
                 },
                 "examples": {
                   "example-1": {
-                    "value": [
-                      {
-                        "meetingId": "ad45e34er35",
-                        "meetingDesc": "This meeting is about API documentation",
-                        "isScreenshareUsed": true,
-                        "schStartTime": "2020-09-22T23:30:52.123Z",
-                        "schEndTime": "2020-09-22T25:30:52.123Z",
-                        "isWaitRoomEnabled": true,
-                        "actStartTime": "2020-09-22T24:30:52.123Z",
-                        "actEndTime": "2020-09-22T26:30:52.123Z",
-                        "isAudioUsed": true,
-                        "isVideoUsed": true,
-                        "isRecordingUsed": true,
-                        "meetingUrl": " https://av-meet.com/idc-vshh-vkp",
-                        "meetingStatus": "string",
-                        "meetingName": "General Meeting"
-                      }
-                    ]
+                    "value": {
+                      "data": [
+                        {
+                          "actEndTime": "",
+                          "meetingId": "8a526b3a-19b6-4cf0-ac92-c1b28ea7f004",
+                          "schEndTime": "2020-10-01T11:30:00Z",
+                          "schStartTime": "2020-10-01T10:30:00Z",
+                          "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
+                          "isScreenshareUsed": false,
+                          "isWaitRoomEnabled": false,
+                          "actStartTime": "",
+                          "meetingName": "General meeting",
+                          "statusId": 4,
+                          "statusName": "Cancelled",
+                          "isRecordingUsed": false,
+                          "isAudioUsed": false,
+                          "meetingDesc": "This is a General meeting",
+                          "isVideoUsed": false
+                        }
+                      ],
+                      "status": "success"
+                    }
                   }
                 }
               }
@@ -135,25 +139,46 @@
             },
             "in": "query",
             "name": "page",
-            "description": "page_no"
+            "description": "Page No"
           },
           {
             "schema": {
-              "type": "string",
-              "example": "2020-09-22T18:30:52.123Z"
+              "type": "number",
+              "example": 10
+            },
+            "in": "query",
+            "name": "size",
+            "description": "Size of the content"
+          },
+          {
+            "schema": {
+              "type": "number",
+              "maximum": 1,
+              "minimum": 0,
+              "example": 1
+            },
+            "in": "query",
+            "name": "sort",
+            "description": "Order the page by startTime"
+          },
+          {
+            "schema": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 4,
+              "example": 1
+            },
+            "in": "query",
+            "name": "status",
+            "description": "Meeting Status"
+          },
+          {
+            "schema": {
+              "type": "string"
             },
             "in": "query",
             "name": "startTime",
-            "description": "meeting_strat_time"
-          },
-          {
-            "schema": {
-              "type": "string",
-              "example": "0"
-            },
-            "in": "query",
-            "name": "orderBy",
-            "description": "Order the page by startTime"
+            "description": "Meeting start time"
           }
         ],
         "security": [
@@ -350,20 +375,24 @@
                 "examples": {
                   "example-1": {
                     "value": {
-                      "meetingId": "ad45e34er35",
-                      "meetingDesc": "This meeting is about API documentation",
-                      "isScreenshareUsed": true,
-                      "schStartTime": "2020-09-22T23:30:52.123Z",
-                      "schEndTime": "2020-09-22T23:30:52.123Z",
-                      "isWaitRoomEnabled": true,
-                      "actStartTime": "2020-09-22T24:30:52.123Z",
-                      "actEndTime": "2020-09-22T26:30:52.123Z",
-                      "isAudioUsed": true,
-                      "isVideoUsed": true,
-                      "isRecordingUsed": true,
-                      "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
-                      "meetingStatus": "Completed",
-                      "meetingName": "General Meeting"
+                      "data": {
+                        "actEndTime": "",
+                        "meetingId": "8a526b3a-19b6-4cf0-ac92-c1b28ea7f004",
+                        "schEndTime": "2020-10-01T11:30:00Z",
+                        "schStartTime": "2020-10-01T10:30:00Z",
+                        "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
+                        "isScreenshareUsed": false,
+                        "isWaitRoomEnabled": false,
+                        "actStartTime": "",
+                        "meetingName": "General meeting",
+                        "statusId": 4,
+                        "statusName": "Cancelled",
+                        "isRecordingUsed": false,
+                        "isAudioUsed": false,
+                        "meetingDesc": "This is a General meeting",
+                        "isVideoUsed": false
+                      },
+                      "status": "success"
                     }
                   }
                 }
