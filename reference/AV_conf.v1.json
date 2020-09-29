@@ -457,22 +457,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Deleted successfully"
-                        }
-                      }
-                    },
-                    "staus": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Delete-response"
                 },
                 "examples": {
                   "application/json": {
@@ -499,22 +484,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Updated successfully"
-                        }
-                      }
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Update-response"
                 },
                 "examples": {
                   "application/json": {
@@ -746,22 +716,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Updated successfully"
-                        }
-                      }
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Update-response"
                 },
                 "examples": {
                   "application/json": {
@@ -835,22 +790,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "message": {
-                          "type": "string",
-                          "example": "Deleted successfully"
-                        }
-                      }
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Delete-response"
                 },
                 "examples": {
                   "application/json": {
@@ -899,7 +839,64 @@
     }
   },
   "components": {
-    "schemas": {},
+    "schemas": {
+      "Update-response": {
+        "title": "Update-response",
+        "type": "object",
+        "description": "Response object of UPDATE operaion",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "example": "Updated successfully"
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "example": "success"
+          }
+        },
+        "x-examples": {
+          "application/json": {
+            "data": {
+              "message": "Updated successfully"
+            },
+            "status": "success"
+          }
+        }
+      },
+      "Delete-response": {
+        "title": "Delete-response",
+        "type": "object",
+        "description": "Response object of DELETE operaion",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "example": "Deleted successfully"
+              },
+              "status": {
+                "type": "string",
+                "example": "success"
+              }
+            }
+          }
+        },
+        "x-examples": {
+          "application/json": {
+            "data": {
+              "message": "Deleted successfully",
+              "status": "success"
+            }
+          }
+        }
+      }
+    },
     "securitySchemes": {
       "API Key - 1": {
         "type": "oauth2"
