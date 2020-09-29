@@ -107,7 +107,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": [
                         {
@@ -225,7 +225,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": {
                         "meetingId": "342a7e48-8626-40e2-8e16-547c2a1c49c8"
@@ -266,7 +266,7 @@
                 }
               },
               "examples": {
-                "example-1": {
+                "application/json": {
                   "value": {
                     "schEndTime": "2020-10-03T16:00:00.000Z",
                     "schStartTime": "2020-10-03T15:00:00.000Z",
@@ -389,7 +389,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": {
                         "actEndTime": "2020-10-01T11:30:00Z",
@@ -475,7 +475,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": {
                         "message": "Deleted successfully"
@@ -517,7 +517,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": {
                         "message": "Updated successfully"
@@ -562,7 +562,16 @@
                   }
                 }
               },
-              "examples": {}
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "meetingName": "FirstMeeting",
+                    "meetingDesc": "This is a meeting about updation",
+                    "schStartTime": "2020-10-01T10:30:00Z",
+                    "schEndTime": "2020-10-01T11:30:00Z"
+                  }
+                }
+              }
             }
           }
         }
@@ -621,7 +630,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": [
                         {
@@ -713,7 +722,7 @@
                 }
               },
               "examples": {
-                "example-1": {
+                "application/json": {
                   "value": {
                     "user": [
                       {
@@ -755,7 +764,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": {
                         "message": "Updated successfully"
@@ -801,7 +810,7 @@
                 }
               },
               "examples": {
-                "example-1": {
+                "application/json": {
                   "value": {
                     "users": [
                       {
@@ -844,7 +853,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "application/json": {
                     "value": {
                       "data": {
                         "message": "Deleted successfully"
