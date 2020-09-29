@@ -302,7 +302,7 @@
           "name": "id",
           "in": "path",
           "required": true,
-          "description": "meeting_Id"
+          "description": "Meeting id"
         }
       ],
       "get": {
@@ -576,7 +576,8 @@
           },
           "name": "id",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "Meeting id"
         }
       ],
       "get": {
