@@ -96,7 +96,7 @@
             },
             "in": "query",
             "name": "page",
-            "description": "Page No"
+            "description": "Filter based on given page no"
           },
           {
             "schema": {
@@ -105,18 +105,22 @@
             },
             "in": "query",
             "name": "size",
-            "description": "Size of the content"
+            "description": "Filter based on given size"
           },
           {
             "schema": {
-              "type": "number",
+              "type": "string",
               "maximum": 1,
               "minimum": 0,
-              "example": 1
+              "example": "desc",
+              "enum": [
+                "asc",
+                "desc"
+              ]
             },
             "in": "query",
             "name": "sort",
-            "description": "Sort the page by Meeting start Time"
+            "description": "Sort the page by ascending or descending order based on meeting start time\nEg: asc - sort by ascending\n    dsc- sort by descending"
           },
           {
             "schema": {
@@ -131,11 +135,22 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date-time",
+              "example": "2020-10-07T10:30:00Z"
             },
             "in": "query",
-            "name": "startTime",
-            "description": "Meeting start time"
+            "name": "from",
+            "description": "Filter based on given start date"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "2020-10-07T10:30:00Z"
+            },
+            "in": "query",
+            "name": "to",
+            "description": "Filter based on given start date"
           }
         ],
         "security": [
