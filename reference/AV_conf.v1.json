@@ -131,7 +131,7 @@
             },
             "in": "query",
             "name": "status",
-            "description": "Meeting Status"
+            "description": "Filter based on given status id \nEg: 1 - Scheduled,\n    2 - In progress,\n    3 - Completed,\n    4 - Cancelled"
           },
           {
             "schema": {
