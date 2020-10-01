@@ -1,0 +1,31 @@
+{
+  "title": "Filter-response",
+  "type": "object",
+  "description": "",
+  "properties": {
+    "totalRecords": {
+      "type": "number",
+      "example": 25
+    },
+    "size": {
+      "type": "number",
+      "example": 30
+    },
+    "page": {
+      "type": "number",
+      "example": 1
+    }
+  },
+  "required": [
+    "totalRecords",
+    "size",
+    "page"
+  ],
+  "x-examples": {
+    "application/json": {
+      "totalRecords": 25,
+      "size": 30,
+      "page": 1
+    }
+  }
+}
