@@ -120,7 +120,7 @@
             },
             "in": "query",
             "name": "sort",
-            "description": "Sort the page by ascending or descending order based on meeting start time\nEg: asc - sort by ascending\n    dsc- sort by descending"
+            "description": "Sort the page by ascending or descending order based on meeting start time\nEg: asc - sort by ascending,\n    desc- sort by descending"
           },
           {
             "schema": {
