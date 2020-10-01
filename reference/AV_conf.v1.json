@@ -36,68 +36,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "actEndTime": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2020-10-01T10:30:00Z"
-                          },
-                          "meetingId": {
-                            "type": "string",
-                            "example": "8a526b3a-19b6-4cf0-ac92-c1b28ea7f004"
-                          },
-                          "schEndTime": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2020-10-01T11:30:00Z"
-                          },
-                          "schStartTime": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2020-10-01T10:30:00Z"
-                          },
-                          "meetingUrl": {
-                            "type": "string",
-                            "example": " https://av-meet.com/idc-vshh-vkp"
-                          },
-                          "isScreenshareUsed": {
-                            "type": "boolean"
-                          },
-                          "isWaitRoomEnabled": {
-                            "type": "boolean"
-                          },
-                          "actStartTime": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2020-10-01T10:30:00Z"
-                          },
-                          "meetingName": {
-                            "type": "string",
-                            "example": "General meeting"
-                          },
-                          "statusId": {
-                            "type": "number",
-                            "example": 1
-                          },
-                          "statusName": {
-                            "type": "string",
-                            "example": "Scheduled"
-                          },
-                          "isRecordingUsed": {
-                            "type": "boolean"
-                          },
-                          "isAudioUsed": {
-                            "type": "boolean"
-                          },
-                          "meetingDesc": {
-                            "type": "string",
-                            "example": "This is a General meeting"
-                          },
-                          "isVideoUsed": {
-                            "type": "boolean"
-                          }
-                        }
+                        "$ref": "../common/Meeting-response.v1.json"
                       }
                     },
                     "status": {
@@ -318,69 +257,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "type": "object",
-                      "properties": {
-                        "actEndTime": {
-                          "type": "string",
-                          "format": "date-time",
-                          "example": "2020-10-01T11:30:00Z"
-                        },
-                        "meetingId": {
-                          "type": "string",
-                          "format": "uuid",
-                          "example": "8a526b3a-19b6-4cf0-ac92-c1b28ea7f004"
-                        },
-                        "schEndTime": {
-                          "type": "string",
-                          "format": "date-time",
-                          "example": "2020-10-01T11:30:00Z"
-                        },
-                        "schStartTime": {
-                          "type": "string",
-                          "format": "date-time",
-                          "example": "2020-10-01T10:30:00Z"
-                        },
-                        "meetingUrl": {
-                          "type": "string",
-                          "example": "https://av-meet.com/idc-vshh-vkp"
-                        },
-                        "isScreenshareUsed": {
-                          "type": "boolean"
-                        },
-                        "isWaitRoomEnabled": {
-                          "type": "boolean"
-                        },
-                        "actStartTime": {
-                          "type": "string",
-                          "format": "date-time",
-                          "example": "2020-10-01T10:30:00Z"
-                        },
-                        "meetingName": {
-                          "type": "string",
-                          "example": "General meeting"
-                        },
-                        "statusId": {
-                          "type": "number",
-                          "example": 1
-                        },
-                        "statusName": {
-                          "type": "string",
-                          "example": "Scheduled"
-                        },
-                        "isRecordingUsed": {
-                          "type": "boolean"
-                        },
-                        "isAudioUsed": {
-                          "type": "boolean"
-                        },
-                        "meetingDesc": {
-                          "type": "string",
-                          "example": "This is a General meeting"
-                        },
-                        "isVideoUsed": {
-                          "type": "boolean"
-                        }
-                      }
+                      "$ref": "../common/Meeting-response.v1.json"
                     },
                     "status": {
                       "type": "string",
@@ -388,30 +265,7 @@
                     }
                   }
                 },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "actEndTime": "2020-10-01T11:30:00Z",
-                        "meetingId": "8a526b3a-19b6-4cf0-ac92-c1b28ea7f004",
-                        "schEndTime": "2020-10-01T11:30:00Z",
-                        "schStartTime": "2020-10-01T10:30:00Z",
-                        "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
-                        "isScreenshareUsed": true,
-                        "isWaitRoomEnabled": true,
-                        "actStartTime": "2020-10-01T10:30:00Z",
-                        "meetingName": "General meeting",
-                        "statusId": 1,
-                        "statusName": "Scheduled",
-                        "isRecordingUsed": true,
-                        "isAudioUsed": true,
-                        "meetingDesc": "This is a General meeting",
-                        "isVideoUsed": true
-                      },
-                      "status": "success"
-                    }
-                  }
-                }
+                "examples": {}
               },
               "application/xml": {
                 "schema": {
