@@ -739,7 +739,7 @@
     },
     "/meeting/statistics": {
       "get": {
-        "summary": "Your GET endpoint",
+        "summary": "getMeetingStatistics",
         "tags": [],
         "responses": {
           "200": {
@@ -804,7 +804,8 @@
         "parameters": [
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "2019"
             },
             "in": "query",
             "name": "year",
@@ -812,7 +813,8 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "12"
             },
             "in": "query",
             "name": "month",
