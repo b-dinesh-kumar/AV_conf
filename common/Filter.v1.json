@@ -2,14 +2,21 @@
   "title": "Filter-response",
   "type": "object",
   "description": "",
+  "x-examples": {
+    "application/json": {
+      "totalRecords": 25,
+      "limit": 30,
+      "page": 1
+    }
+  },
   "properties": {
     "totalRecords": {
       "type": "number",
       "example": 25
     },
-    "size": {
+    "limit": {
       "type": "number",
-      "example": 30
+      "example": 20
     },
     "page": {
       "type": "number",
@@ -18,14 +25,7 @@
   },
   "required": [
     "totalRecords",
-    "size",
+    "limit",
     "page"
-  ],
-  "x-examples": {
-    "application/json": {
-      "totalRecords": 25,
-      "size": 30,
-      "page": 1
-    }
-  }
+  ]
 }

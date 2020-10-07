@@ -36,14 +36,14 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "../common/Meeting.v1.json"
+                        "$ref": "../common/Meeting-list.v1.json"
                       }
                     },
                     "status": {
                       "type": "string",
                       "example": "success"
                     },
-                    "filter": {
+                    "pagination": {
                       "$ref": "../common/Filter.v1.json"
                     }
                   }
@@ -54,6 +54,7 @@
                       "data": [
                         {
                           "actEndTime": "2020-10-04T16:30:00Z",
+                          "businessEntityId": "1",
                           "meetingId": "9021020e-fab7-44f1-85bb-6ad0032ac641",
                           "schEndTime": "2020-10-04T16:30:00Z",
                           "schStartTime": "2020-10-04T15:30:00Z",
@@ -62,7 +63,7 @@
                           "isWaitRoomEnabled": true,
                           "actStartTime": "2020-10-04T15:30:00Z",
                           "meetingName": "API meeting",
-                          "statusId": 1,
+                          "statusId": "1",
                           "statusName": "Scheduled",
                           "isRecordingUsed": true,
                           "isAudioUsed": true,
@@ -71,9 +72,9 @@
                         }
                       ],
                       "status": "success",
-                      "filter": {
+                      "pagination": {
                         "totalRecords": 25,
-                        "size": 30,
+                        "limit": 20,
                         "page": 1
                       }
                     }
@@ -150,7 +151,25 @@
             },
             "in": "query",
             "name": "to",
-            "description": "Filter based on given start date"
+            "description": "Filter based on given end date"
+          },
+          {
+            "schema": {
+              "type": "number",
+              "example": 2019
+            },
+            "in": "query",
+            "name": "year",
+            "description": "Filter based on given year"
+          },
+          {
+            "schema": {
+              "type": "number",
+              "example": 10
+            },
+            "in": "query",
+            "name": "month",
+            "description": "Filter based on given month"
           }
         ],
         "security": [
@@ -210,7 +229,8 @@
                   "schEndTime": {
                     "type": "string",
                     "format": "date-time",
-                    "example": "2020-10-03T16:00:00.000Z"
+                    "example": "2020-10-03T16:00:00.000Z",
+                    "description": ""
                   },
                   "schStartTime": {
                     "type": "string",
@@ -306,7 +326,10 @@
                         "isRecordingUsed": true,
                         "isAudioUsed": true,
                         "meetingDesc": "This is a meeting about API documentation",
-                        "isVideoUsed": true
+                        "isVideoUsed": true,
+                        "businessEntityId": 1,
+                        "businessEntityName": "Focus",
+                        "logo": "focus.jpg"
                       },
                       "status": "success"
                     }
@@ -735,92 +758,6 @@
           },
           "description": ""
         }
-      }
-    },
-    "/meeting/statistics": {
-      "get": {
-        "summary": "getMeetingStatistics",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "../common/Meeting.v1.json"
-                    },
-                    "filter": {
-                      "$ref": "../common/Filter.v1.json"
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "actEndTime": "2020-10-04T16:30:00Z",
-                        "meetingId": "9021020e-fab7-44f1-85bb-6ad0032ac641",
-                        "schEndTime": "2020-10-04T16:30:00Z",
-                        "schStartTime": "2020-10-04T15:30:00Z",
-                        "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
-                        "isScreenshareUsed": true,
-                        "isWaitRoomEnabled": true,
-                        "actStartTime": "2020-10-04T15:30:00Z",
-                        "meetingName": "API meeting",
-                        "statusId": 1,
-                        "statusName": "Scheduled",
-                        "isRecordingUsed": true,
-                        "isAudioUsed": true,
-                        "meetingDesc": "This is a meeting about API documentation",
-                        "isVideoUsed": true
-                      },
-                      "filter": {
-                        "totalRecords": 25,
-                        "size": 30,
-                        "page": 1
-                      },
-                      "status": "success"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-meeting-statistics",
-        "description": "Retrieve all the meeting details.",
-        "security": [
-          {
-            "API Key - 1": []
-          }
-        ],
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "example": "2019"
-            },
-            "in": "query",
-            "name": "year",
-            "description": "Filter the meeting based on given year"
-          },
-          {
-            "schema": {
-              "type": "string",
-              "example": "12"
-            },
-            "in": "query",
-            "name": "month",
-            "description": "Filter the meeting based on given month"
-          }
-        ]
       }
     }
   },
