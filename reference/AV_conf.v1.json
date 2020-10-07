@@ -110,21 +110,6 @@
           },
           {
             "schema": {
-              "type": "string",
-              "maximum": 1,
-              "minimum": 0,
-              "example": "desc",
-              "enum": [
-                "asc",
-                "desc"
-              ]
-            },
-            "in": "query",
-            "name": "sort",
-            "description": "Sort the page by ascending or descending order based on meeting start time\nEg: asc - sort by ascending,\n    desc- sort by descending"
-          },
-          {
-            "schema": {
               "type": "number",
               "minimum": 1,
               "maximum": 4,
@@ -137,8 +122,8 @@
           {
             "schema": {
               "type": "string",
-              "format": "date-time",
-              "example": "2020-10-07T10:30:00Z"
+              "format": "date",
+              "example": "2020-10-07"
             },
             "in": "query",
             "name": "from",
@@ -147,7 +132,8 @@
           {
             "schema": {
               "type": "string",
-              "example": "2020-10-07T10:30:00Z"
+              "example": "2020-10-15",
+              "format": "date"
             },
             "in": "query",
             "name": "to",
@@ -170,6 +156,19 @@
             "in": "query",
             "name": "month",
             "description": "Filter based on given month"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "example": "asc"
+            },
+            "in": "query",
+            "name": "sort",
+            "description": "Sort the page by ascending or descending order based on meeting start date\nEg: asc - sort by ascending,\n    desc- sort by descending"
           }
         ],
         "security": [
