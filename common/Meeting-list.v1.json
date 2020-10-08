@@ -2,6 +2,28 @@
   "title": "Meeting-list",
   "type": "object",
   "description": "",
+  "x-examples": {
+    "application/json": {
+      "actEndTime": "2020-10-04T16:30:00Z",
+      "businessEntityId": "1",
+      "meetingId": "9021020e-fab7-44f1-85bb-6ad0032ac641",
+      "schEndTime": "2020-10-04T16:30:00Z",
+      "schStartTime": "2020-10-04T15:30:00Z",
+      "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
+      "isScreenshareUsed": true,
+      "isWaitRoomEnabled": true,
+      "actStartTime": "2020-10-04T15:30:00Z",
+      "meetingName": "API meeting",
+      "isRecordingUsed": true,
+      "isAudioUsed": true,
+      "meetingDesc": "This is a meeting about API documentation",
+      "isVideoUsed": true,
+      "status": {
+        "statusId": 1,
+        "statusName": "Scheduled"
+      }
+    }
+  },
   "properties": {
     "actEndTime": {
       "type": "string",
@@ -45,14 +67,6 @@
       "type": "string",
       "example": "API meeting"
     },
-    "statusId": {
-      "type": "string",
-      "example": "1"
-    },
-    "statusName": {
-      "type": "string",
-      "example": "Scheduled"
-    },
     "isRecordingUsed": {
       "type": "boolean"
     },
@@ -65,26 +79,9 @@
     },
     "isVideoUsed": {
       "type": "boolean"
-    }
-  },
-  "x-examples": {
-    "application/json": {
-      "actEndTime": "2020-10-04T16:30:00Z",
-      "businessEntityId": "1",
-      "meetingId": "9021020e-fab7-44f1-85bb-6ad0032ac641",
-      "schEndTime": "2020-10-04T16:30:00Z",
-      "schStartTime": "2020-10-04T15:30:00Z",
-      "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
-      "isScreenshareUsed": true,
-      "isWaitRoomEnabled": true,
-      "actStartTime": "2020-10-04T15:30:00Z",
-      "meetingName": "API meeting",
-      "statusId": "1",
-      "statusName": "Scheduled",
-      "isRecordingUsed": true,
-      "isAudioUsed": true,
-      "meetingDesc": "This is a meeting about API documentation",
-      "isVideoUsed": true
+    },
+    "status": {
+      "$ref": "./Status.v1.json"
     }
   }
 }

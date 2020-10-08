@@ -1,0 +1,14 @@
+{
+  "title": "Reason",
+  "type": "object",
+  "properties": {
+    "reasonId": {
+      "type": "number",
+      "example": 1
+    },
+    "reasonName": {
+      "type": "string",
+      "example": "Network issue"
+    }
+  }
+}

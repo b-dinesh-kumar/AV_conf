@@ -1,0 +1,57 @@
+{
+  "title": "User-session",
+  "type": "object",
+  "description": "",
+  "x-examples": {
+    "application/json": {
+      "meeetingUserId": "2",
+      "exitTime": "2020-10-07T10:50:00Z",
+      "downloadSpeed": 5048,
+      "joinTime": "2020-10-07T10:30:00Z",
+      "uploadSpeed": 5048,
+      "userSessionId": "5",
+      "reason": {
+        "reasonId": 1,
+        "reasonName": "Network issue"
+      },
+      "device": {
+        "deviceId": 3,
+        "deviceName": "Mobile"
+      }
+    }
+  },
+  "properties": {
+    "meeetingUserId": {
+      "type": "string",
+      "example": "2"
+    },
+    "exitTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-10-07T10:50:00Z"
+    },
+    "downloadSpeed": {
+      "type": "number",
+      "example": 5048
+    },
+    "joinTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-10-07T10:30:00Z"
+    },
+    "uploadSpeed": {
+      "type": "number",
+      "example": 5048
+    },
+    "userSessionId": {
+      "type": "string",
+      "example": "5"
+    },
+    "reason": {
+      "$ref": "./Reason.v1.json"
+    },
+    "device": {
+      "$ref": "./Device.v1.json"
+    }
+  }
+}

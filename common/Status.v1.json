@@ -1,0 +1,14 @@
+{
+  "title": "Status",
+  "type": "object",
+  "properties": {
+    "statusId": {
+      "type": "number",
+      "example": 1
+    },
+    "statusName": {
+      "type": "string",
+      "example": "Scheduled"
+    }
+  }
+}

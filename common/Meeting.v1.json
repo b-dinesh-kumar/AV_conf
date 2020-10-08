@@ -1,27 +1,31 @@
 {
   "title": "Meeting-response",
   "type": "object",
-  "description": "Response object of Meeting",
+  "description": "",
   "x-examples": {
     "application/json": {
       "actEndTime": "2020-10-04T16:30:00Z",
       "meetingId": "9021020e-fab7-44f1-85bb-6ad0032ac641",
-      "schEndTime": "2020-10-04T16:30:00Z",
-      "schStartTime": "2020-10-04T15:30:00Z",
+      "schEndTime": "2020-10-07T10:30:00Z",
+      "schStartTime": "2020-10-07T09:30:00Z",
+      "businessEntity": {
+        "businessEntityId": 1,
+        "logo": "business/focus2343.jpg",
+        "businessEntityName": "Focus"
+      },
       "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
       "isScreenshareUsed": true,
       "isWaitRoomEnabled": true,
-      "actStartTime": "2020-10-04T15:30:00Z",
-      "meetingName": "API meeting",
-      "statusId": 1,
-      "statusName": "Scheduled",
+      "actStartTime": "2020-10-07T09:30:00Z",
+      "meetingName": "Sprint meeting",
       "isRecordingUsed": true,
       "isAudioUsed": true,
-      "meetingDesc": "This is a meeting about API documentation",
+      "meetingDesc": "This is a sprint meeting",
       "isVideoUsed": true,
-      "businessEntityId": 1,
-      "businessEntityName": "Focus",
-      "logo": "focus.jpg"
+      "status": {
+        "statusId": 1,
+        "statusName": "Scheduled"
+      }
     }
   },
   "properties": {
@@ -38,12 +42,28 @@
     "schEndTime": {
       "type": "string",
       "format": "date-time",
-      "example": "2020-10-04T16:30:00Z"
+      "example": "2020-10-07T10:30:00Z"
     },
     "schStartTime": {
       "type": "string",
-      "format": "date-time",
-      "example": "2020-10-04T15:30:00Z"
+      "example": "2020-10-07T09:30:00Z"
+    },
+    "businessEntity": {
+      "type": "object",
+      "properties": {
+        "businessEntityId": {
+          "type": "number",
+          "example": 1
+        },
+        "logo": {
+          "type": "string",
+          "example": "business/focus2343.jpg"
+        },
+        "businessEntityName": {
+          "type": "string",
+          "example": "Focus"
+        }
+      }
     },
     "meetingUrl": {
       "type": "string",
@@ -58,19 +78,11 @@
     "actStartTime": {
       "type": "string",
       "format": "date-time",
-      "example": "2020-10-04T15:30:00Z"
+      "example": "2020-10-07T09:30:00Z"
     },
     "meetingName": {
       "type": "string",
-      "example": "API meeting"
-    },
-    "statusId": {
-      "type": "number",
-      "example": 1
-    },
-    "statusName": {
-      "type": "string",
-      "example": "Scheduled"
+      "example": "Sprint meeting"
     },
     "isRecordingUsed": {
       "type": "boolean"
@@ -80,22 +92,23 @@
     },
     "meetingDesc": {
       "type": "string",
-      "example": "This is a meeting about API documentation"
+      "example": "This is a sprint meeting"
     },
     "isVideoUsed": {
       "type": "boolean"
     },
-    "businessEntityId": {
-      "type": "number",
-      "example": 1
-    },
-    "businessEntityName": {
-      "type": "string",
-      "example": "Focus"
-    },
-    "logo": {
-      "type": "string",
-      "example": "focus.jpg"
+    "status": {
+      "type": "object",
+      "properties": {
+        "statusId": {
+          "type": "number",
+          "example": 1
+        },
+        "statusName": {
+          "type": "string",
+          "example": "Scheduled"
+        }
+      }
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "title": "Device",
+  "type": "object",
+  "properties": {
+    "deviceId": {
+      "type": "number",
+      "example": 3
+    },
+    "deviceName": {
+      "type": "string",
+      "example": "Mobile"
+    }
+  }
+}
