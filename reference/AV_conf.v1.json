@@ -36,7 +36,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "../common/Meeting-list.v1.json"
+                        "$ref": "../model/Meeting-list.v1.json"
                       }
                     },
                     "status": {
@@ -44,7 +44,7 @@
                       "example": "success"
                     },
                     "pagination": {
-                      "$ref": "../common/Pagination.v1.json"
+                      "$ref": "../model/Pagination.v1.json"
                     }
                   }
                 },
@@ -289,7 +289,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "../common/Meeting.v1.json"
+                      "$ref": "../model/Meeting.v1.json"
                     },
                     "status": {
                       "type": "string",
@@ -778,7 +778,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "../common/User-session.v1.json"
+                        "$ref": "../model/User-session.v1.json"
                       }
                     },
                     "status": {
@@ -1020,7 +1020,7 @@
                           "sessionDetails": {
                             "type": "array",
                             "items": {
-                              "$ref": "../common/Session-Details.v1.json"
+                              "$ref": "../model/Session-Details.v1.json"
                             }
                           },
                           "emailId": {
