@@ -1,0 +1,35 @@
+{
+  "title": "Session-Details",
+  "type": "object",
+  "properties": {
+    "reason": {
+      "type": "string",
+      "example": "Disconnected"
+    },
+    "timeSpent": {
+      "type": "number",
+      "example": 1200
+    },
+    "uploadSpeed": {
+      "type": "number",
+      "example": 5048
+    },
+    "downloadSpedd": {
+      "type": "number",
+      "example": 5048
+    },
+    "device": {
+      "type": "string",
+      "example": "Mobile"
+    }
+  },
+  "x-examples": {
+    "application/json": {
+      "reason": "Disconnected",
+      "timeSpent": 1200,
+      "uploadSpeed": 5048,
+      "downloadSpedd": 5048,
+      "device": "Mobile"
+    }
+  }
+}

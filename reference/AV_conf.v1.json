@@ -981,6 +981,95 @@
           "description": ""
         }
       }
+    },
+    "/meeting/{id}/statistics": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        }
+      ],
+      "get": {
+        "summary": "getMeetingStatistics",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "meetingUserId": {
+                            "type": [
+                              "string",
+                              "number"
+                            ],
+                            "example": 2
+                          },
+                          "sessionDetails": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "../common/Session-Details.v1.json"
+                            }
+                          },
+                          "emailId": {
+                            "type": "string",
+                            "example": "christian.b@tra-augment.com"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "example": "430810f6-a2bb-4eb4-a1ab-526629892e78"
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "meetingUserId": 2,
+                          "sessionDetails": [
+                            {
+                              "reason": "Disconnected",
+                              "timeSpent": 1200,
+                              "uploadSpeed": 5048,
+                              "downloadSpedd": 5048,
+                              "device": "Mobile"
+                            }
+                          ],
+                          "emailId": "christian.b@tra-augment.com",
+                          "userId": "430810f6-a2bb-4eb4-a1ab-526629892e78"
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-id-statistics",
+        "description": "Retrieve the meeting statistics"
+      }
     }
   },
   "components": {
