@@ -761,7 +761,7 @@
           "name": "uId",
           "in": "path",
           "required": true,
-          "description": "meetingUserId[GET,POST], userSessionId[PATCH]"
+          "description": "[GET,POST]-Meeting user id, [PATCH] - User session id"
         }
       ],
       "get": {
