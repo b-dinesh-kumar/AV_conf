@@ -14,5 +14,13 @@
       "type": "string",
       "example": "/business/focus.jpg"
     }
-  }
+  },
+  "x-examples": {
+    "application/json": {
+      "businessEnitytId": 1,
+      "businessEnityName": "Focus",
+      "logo": "/business/focus.jpg"
+    }
+  },
+  "description": ""
 }

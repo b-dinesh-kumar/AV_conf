@@ -36,7 +36,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "../model/Meeting-list.v1.json"
+                        "$ref": "../model/request/Meetings.v1.json"
                       }
                     },
                     "status": {
@@ -44,7 +44,7 @@
                       "example": "success"
                     },
                     "pagination": {
-                      "$ref": "../model/Pagination.v1.json"
+                      "$ref": "../model/request/Pagination.v1.json"
                     }
                   }
                 },
@@ -289,7 +289,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "../model/Meeting.v1.json"
+                      "$ref": "../model/request/Meeting.v1.json"
                     },
                     "status": {
                       "type": "string",
@@ -778,7 +778,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "../model/User-session.v1.json"
+                        "$ref": "../model/request/User-session.v1.json"
                       }
                     },
                     "status": {
@@ -1020,7 +1020,7 @@
                           "sessionDetails": {
                             "type": "array",
                             "items": {
-                              "$ref": "../model/Session-Details.v1.json"
+                              "$ref": "../model/request/Session-Details.v1.json"
                             }
                           },
                           "emailId": {
@@ -1131,10 +1131,6 @@
         }
       }
     },
-    "securitySchemes": {
-      "API Key - 1": {
-        "type": "oauth2"
-      }
-    }
+    "securitySchemes": {}
   }
 }
