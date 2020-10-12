@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "AV conf API",
+    "title": "AV conference API",
     "version": "1.0",
-    "description": "API documentation for AV conference",
+    "description": "API documentation for the AV conference",
     "contact": {
       "name": "Dineshkumar",
       "email": "dineshkumar.b@tra-augment.com",
