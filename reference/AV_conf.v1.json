@@ -991,10 +991,7 @@
                         "type": "object",
                         "properties": {
                           "meetingUserId": {
-                            "type": [
-                              "string",
-                              "number"
-                            ],
+                            "type": "number",
                             "example": 2
                           },
                           "sessionDetails": {
