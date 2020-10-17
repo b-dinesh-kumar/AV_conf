@@ -1,0 +1,59 @@
+{
+  "title": "Recording",
+  "type": "object",
+  "x-examples": {
+    "application/json": {
+      "bookmark": [
+        {
+          "bookmarkId": 31,
+          "meetingUserId": 7,
+          "bookmarkTime": "11:15:45"
+        }
+      ],
+      "fileName": "recording14345.mp4",
+      "domain": "https://www.azure.com",
+      "filePath": "/focus/meeting/recoring/video",
+      "startTime": "2020-10-13T11:15:29Z",
+      "endTime": "2020-10-13T11:30:15Z",
+      "recordingId": 22,
+      "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530"
+    }
+  },
+  "properties": {
+    "bookmark": {
+      "type": "array",
+      "items": {
+        "$ref": "./Bookmark.v1.json"
+      }
+    },
+    "fileName": {
+      "type": "string",
+      "example": "recording14345.mp4"
+    },
+    "domain": {
+      "type": "string",
+      "example": "https://www.azure.com"
+    },
+    "filePath": {
+      "type": "string",
+      "example": "/focus/meeting/recoring/video"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-10-13T11:15:29Z"
+    },
+    "endTime": {
+      "type": "string",
+      "example": "2020-10-13T11:30:15Z"
+    },
+    "recordingId": {
+      "type": "number",
+      "example": 22
+    },
+    "meetingId": {
+      "type": "string",
+      "example": "a1c88018-4b28-45b0-aa66-dc3886442530"
+    }
+  }
+}

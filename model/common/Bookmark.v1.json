@@ -1,0 +1,27 @@
+{
+  "title": "Bookmark",
+  "type": "object",
+  "properties": {
+    "bookmarkId": {
+      "type": "number",
+      "example": 31
+    },
+    "meetingUserId": {
+      "type": "number",
+      "example": 7
+    },
+    "bookmarkTime": {
+      "type": "string",
+      "format": "time",
+      "example": "11:15:45"
+    }
+  },
+  "x-examples": {
+    "application/json": {
+      "bookmarkId": 31,
+      "meetingUserId": 7,
+      "bookmarkTime": "11:15:45"
+    }
+  },
+  "description": ""
+}
