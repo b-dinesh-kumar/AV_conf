@@ -110,7 +110,7 @@
             },
             "in": "query",
             "name": "size",
-            "description": "Filter based on given size"
+            "description": "Limit the size of the content"
           },
           {
             "schema": {
