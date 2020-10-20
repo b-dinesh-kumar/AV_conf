@@ -223,13 +223,13 @@
                   "schEndTime": {
                     "type": "string",
                     "format": "date-time",
-                    "example": "2020-10-03T16:00:00.000Z",
+                    "example": "2020-10-03T16:00:00Z",
                     "description": ""
                   },
                   "schStartTime": {
                     "type": "string",
                     "format": "date-time",
-                    "example": "2020-10-03T15:00:00.000Z"
+                    "example": "2020-10-03T15:00:00Z"
                   },
                   "meetingName": {
                     "type": "string",
@@ -244,8 +244,8 @@
               "examples": {
                 "application/json": {
                   "value": {
-                    "schEndTime": "2020-10-03T16:00:00.000Z",
-                    "schStartTime": "2020-10-03T15:00:00.000Z",
+                    "schEndTime": "2020-10-03T16:00:00Z",
+                    "schStartTime": "2020-10-03T15:00:00Z",
                     "meetingName": "Sprint meeting",
                     "meetingDesc": "This is a Sprint meeting"
                   }
