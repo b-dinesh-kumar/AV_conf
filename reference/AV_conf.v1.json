@@ -17,10 +17,10 @@
   },
   "servers": [
     {
-      "url": "http://localhost:9090/focus/v1"
+      "url": "http://localhost:5001/conference/v1"
     },
     {
-      "url": "http://8.39.235.41:5001/Jitsi/v1",
+      "url": "http://8.39.235.41:5001/conference/v1",
       "description": ""
     }
   ],
