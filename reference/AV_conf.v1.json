@@ -15,7 +15,12 @@
       "url": "https://github.com/b-dinesh-kumar/AV_conf/"
     }
   },
-  "servers": [],
+  "servers": [
+    {
+      "url": "http://8.39.235.41:5001/conference/v2",
+      "description": ""
+    }
+  ],
   "paths": {
     "/meeting": {
       "get": {
