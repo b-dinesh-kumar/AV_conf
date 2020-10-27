@@ -22,6 +22,10 @@
     {
       "url": "http://8.39.235.41:5001/conference/v1",
       "description": ""
+    },
+    {
+      "url": "http://8.39.235.41:5001/conference/v2",
+      "description": ""
     }
   ],
   "paths": {
