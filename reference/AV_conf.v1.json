@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "AV conference API",
-    "version": "1.0",
+    "version": "2.0",
     "description": "API documentation for the AV conference",
     "contact": {
       "name": "Dineshkumar",
@@ -17,10 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:9090/focus/v1"
-    },
-    {
-      "url": "http://8.39.235.41:5001/Jitsi/v1",
+      "url": "http://8.39.235.41:5001/conference/v2",
       "description": ""
     }
   ],
@@ -721,8 +718,8 @@
                   "users": {
                     "type": "array",
                     "items": {
-                      "type": "string",
-                      "example": "45"
+                      "type": "number",
+                      "example": 45
                     }
                   }
                 }
@@ -731,7 +728,7 @@
                 "application/json": {
                   "value": {
                     "users": [
-                      "45"
+                      45
                     ]
                   }
                 }
