@@ -660,14 +660,10 @@
                         "meetingUserId": {
                           "type": "string",
                           "example": "12"
-                        },
-                        "emailId": {
-                          "type": "string",
-                          "format": "email",
-                          "example": "christian.b@tra-augment.com"
                         }
                       },
                       "required": [
+                        "isOrganizer",
                         "meetingUserId"
                       ]
                     }
@@ -680,8 +676,7 @@
                     "users": [
                       {
                         "isOrganizer": true,
-                        "meetingUserId": "12",
-                        "emailId": "christian.b@tra-augment.com"
+                        "meetingUserId": "12"
                       }
                     ]
                   }
