@@ -655,8 +655,8 @@
                           "type": "boolean"
                         },
                         "meetingUserId": {
-                          "type": "string",
-                          "example": "12"
+                          "type": "number",
+                          "example": 12
                         }
                       },
                       "required": [
@@ -673,7 +673,7 @@
                     "users": [
                       {
                         "isOrganizer": true,
-                        "meetingUserId": "12"
+                        "meetingUserId": 12
                       }
                     ]
                   }
