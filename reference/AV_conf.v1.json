@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "http://8.39.235.41:5001/conference/v2",
+      "url": "https://jitsitomcat3edge.freemyip.com:5001/conference/v2",
       "description": ""
     }
   ],
