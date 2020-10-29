@@ -260,7 +260,7 @@
               }
             }
           },
-          "description": "Details to create the meeting."
+          "description": "Details to create a meeting"
         },
         "parameters": []
       }
