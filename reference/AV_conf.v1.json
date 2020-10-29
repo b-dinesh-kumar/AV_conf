@@ -214,7 +214,7 @@
             }
           }
         },
-        "description": "To create the meeting.",
+        "description": "To create a meeting",
         "requestBody": {
           "content": {
             "application/json": {
