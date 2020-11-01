@@ -10,5 +10,11 @@
       "type": "string",
       "example": "Mobile"
     }
+  },
+  "x-examples": {
+    "application/json": {
+      "deviceId": 3,
+      "deviceName": "Mobile"
+    }
   }
 }

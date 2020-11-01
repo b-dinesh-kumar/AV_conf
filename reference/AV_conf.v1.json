@@ -115,7 +115,7 @@
             },
             "in": "query",
             "name": "size",
-            "description": "Limit the size of the content"
+            "description": "Limit the size of the data"
           },
           {
             "schema": {
@@ -935,35 +935,43 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "description": "",
                   "type": "object",
                   "properties": {
                     "data": {
                       "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
                       "items": {
                         "$ref": "../model/common/User-session.v1.json"
                       }
                     },
                     "status": {
                       "type": "string",
+                      "minLength": 1,
                       "example": "success"
                     }
-                  }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
                 },
                 "examples": {
                   "application/json": {
                     "value": {
                       "data": [
                         {
-                          "meeetingUserId": "2",
-                          "exitTime": "2020-10-07T10:50:00Z",
-                          "downloadSpeed": 5048,
-                          "joinTime": "2020-10-07T10:30:00Z",
-                          "uploadSpeed": 5048,
-                          "userSessionId": "2",
+                          "meeetingUserId": 66,
                           "reason": {
                             "reasonId": 1,
                             "reasonName": "Disconnected"
                           },
+                          "exitTime": "2020-10-28T15:32:32Z",
+                          "downloadSpeed": 5048,
+                          "joinTime": "2020-10-28T15:22:32Z",
+                          "uploadSpeed": 5048,
+                          "userSessionId": 69,
                           "device": {
                             "deviceId": 3,
                             "deviceName": "Mobile"
@@ -1021,7 +1029,7 @@
             }
           }
         },
-        "description": "Create the user session.",
+        "description": "Create the user session",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1145,57 +1153,136 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "description": "",
                   "type": "object",
                   "properties": {
                     "data": {
                       "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
                       "items": {
                         "type": "object",
                         "properties": {
+                          "isOrganizer": {
+                            "type": "boolean"
+                          },
                           "meetingUserId": {
                             "type": "number",
-                            "example": 2
+                            "example": 87
                           },
                           "sessionDetails": {
                             "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
                             "items": {
                               "$ref": "../model/common/Session-Details.v1.json"
                             }
                           },
-                          "emailId": {
-                            "type": "string",
-                            "example": "christian.b@tra-augment.com"
+                          "anonymousUser": {
+                            "type": "object",
+                            "properties": {
+                              "anonymousUserId": {
+                                "type": "number",
+                                "example": 90
+                              },
+                              "emailId": {
+                                "type": "string",
+                                "example": "sathish.a@gamil.com"
+                              },
+                              "userName": {
+                                "type": "string",
+                                "example": "Sathish"
+                              }
+                            }
                           },
-                          "userId": {
-                            "type": "string",
-                            "example": "430810f6-a2bb-4eb4-a1ab-526629892e78"
+                          "user": {
+                            "type": "object",
+                            "properties": {
+                              "emailId": {
+                                "type": "string",
+                                "minLength": 1,
+                                "example": "brad.p@tra-augment.com"
+                              },
+                              "userName": {
+                                "type": "string",
+                                "minLength": 1,
+                                "example": "Brad Pitt"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "minLength": 1,
+                                "example": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                              }
+                            }
                           }
-                        }
+                        },
+                        "required": [
+                          "isOrganizer",
+                          "meetingUserId"
+                        ]
                       }
                     },
                     "status": {
                       "type": "string",
+                      "minLength": 1,
                       "example": "success"
                     }
-                  }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
                 },
                 "examples": {
-                  "application/json": {
+                  "application/json (1)": {
                     "value": {
                       "data": [
                         {
-                          "meetingUserId": 2,
+                          "isOrganizer": true,
+                          "meetingUserId": 87,
                           "sessionDetails": [
                             {
                               "reason": "Disconnected",
-                              "timeSpent": 1200,
+                              "exitTime": "2020-10-07T10:50:00Z",
+                              "joinTime": "2020-10-07T10:30:00Z",
                               "uploadSpeed": 5048,
-                              "downloadSpedd": 5048,
-                              "device": "Mobile"
+                              "downloadSpeed": 5048,
+                              "device": "PC"
                             }
                           ],
-                          "emailId": "christian.b@tra-augment.com",
-                          "userId": "430810f6-a2bb-4eb4-a1ab-526629892e78"
+                          "anonymousUser": {},
+                          "user": {
+                            "emailId": "brad.p@tra-augment.com",
+                            "userName": "Brad Pitt",
+                            "userId": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                          }
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": [
+                        {
+                          "isOrganizer": true,
+                          "meetingUserId": 87,
+                          "sessionDetails": [
+                            {
+                              "reason": "Disconnected",
+                              "exitTime": "2020-10-07T10:50:00Z",
+                              "joinTime": "2020-10-07T10:30:00Z",
+                              "uploadSpeed": 5048,
+                              "downloadSpeed": 5048,
+                              "device": "PC"
+                            }
+                          ],
+                          "anonymousUser": {
+                            "anonymousUserId": 90,
+                            "emailId": "sathish.a@gamil.com",
+                            "userName": "Sathish"
+                          },
+                          "user": {}
                         }
                       ],
                       "status": "success"
@@ -1646,6 +1733,771 @@
           }
         },
         "description": "Delete the bookmark by bookmar id"
+      }
+    },
+    "/meeting/{id}/timing": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        }
+      ],
+      "post": {
+        "summary": "createMeetingTiming",
+        "operationId": "post-meeting-id-timing",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "timingId"
+                      ],
+                      "properties": {
+                        "timingId": {
+                          "type": "number",
+                          "example": 92
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "timingId": 92
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create the actual start time of the meeting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-10-28T16:15:00Z"
+                  }
+                }
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "startTime": "2020-10-28T16:15:00Z"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "patch": {
+        "summary": "updateMeetingTiming",
+        "operationId": "patch-meeting-id-timing",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Update-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "message": "Updated successfully"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create the actual end time of the meeting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "endTime": {
+                    "type": "string",
+                    "minLength": 1,
+                    "format": "date-time",
+                    "example": "2020-11-01T14:25:00Z"
+                  },
+                  "timingId": {
+                    "type": "number",
+                    "example": 92
+                  }
+                },
+                "required": [
+                  "endTime",
+                  "timingId"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "endTime": "2020-11-01T14:25:00Z",
+                    "timingId": 92
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{beId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "beId",
+          "in": "path",
+          "required": true,
+          "description": "Business entity id"
+        }
+      ],
+      "get": {
+        "summary": "getAllUsers",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "role": {
+                            "type": "object",
+                            "properties": {
+                              "roleId": {
+                                "type": "number",
+                                "example": 2
+                              },
+                              "roleName": {
+                                "type": "string",
+                                "minLength": 1,
+                                "example": "admin"
+                              }
+                            },
+                            "required": [
+                              "roleId",
+                              "roleName"
+                            ]
+                          },
+                          "profileImagePath": {
+                            "type": "string",
+                            "example": "https://www.azure.com/focus/profileImages/3fer34d3rffd.jpeg"
+                          },
+                          "emailId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "hugh.j@tra-augment.com"
+                          },
+                          "userName": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Hugh jackman"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "6a2097f6-4d1b-4a44-a232-fb73db138ee9"
+                          }
+                        },
+                        "required": [
+                          "profileImagePath",
+                          "emailId",
+                          "userName",
+                          "userId"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "role": {
+                            "roleId": 2,
+                            "roleName": "admin"
+                          },
+                          "profileImagePath": "https://www.azure.com/focus/profileImages/3fer34d3rffd.jpeg",
+                          "emailId": "hugh.j@tra-augment.com",
+                          "userName": "Hugh jackman",
+                          "userId": "6a2097f6-4d1b-4a44-a232-fb73db138ee9"
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-users-beId",
+        "description": "Retrieve all the users in the entity",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number",
+              "example": 1
+            },
+            "in": "query",
+            "name": "page",
+            "description": "Filter the data by the given page no"
+          },
+          {
+            "schema": {
+              "type": "number",
+              "example": 10
+            },
+            "in": "query",
+            "name": "size",
+            "description": "Limit the size of the data"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "hugh.j@tra-augment.com"
+            },
+            "in": "query",
+            "name": "startsWith",
+            "description": "Filter the data by the email id"
+          },
+          {
+            "schema": {
+              "type": "boolean"
+            },
+            "in": "query",
+            "name": "isAdmin",
+            "description": "To get all the admins"
+          },
+          {
+            "schema": {
+              "type": "boolean"
+            },
+            "in": "query",
+            "name": "isOrganizer",
+            "description": "To get all the organizers"
+          }
+        ]
+      }
+    },
+    "/meeting/generateToken": {
+      "post": {
+        "summary": "generateToken",
+        "operationId": "post-meeting-generateToken",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "meeting",
+                        "token"
+                      ],
+                      "properties": {
+                        "meeting": {
+                          "type": "object",
+                          "required": [
+                            "allowAnonymousUsers",
+                            "meetingId",
+                            "schEndTime",
+                            "schStartTime",
+                            "businessEntity",
+                            "meetingUrl",
+                            "isScreenshareUsed",
+                            "isWaitRoomEnabled",
+                            "meetingName",
+                            "isRecordingUsed",
+                            "isAudioUsed",
+                            "meetingDesc",
+                            "isVideoUsed",
+                            "allowUsersInWaitRoom",
+                            "status"
+                          ],
+                          "properties": {
+                            "allowAnonymousUsers": {
+                              "type": "boolean"
+                            },
+                            "meetingId": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "b5773f64-c054-4871-b8e1-abcd6bf4ec00"
+                            },
+                            "schEndTime": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "2020-11-02T16:30:00Z"
+                            },
+                            "schStartTime": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "2020-11-02T15:30:00Z"
+                            },
+                            "businessEntity": {
+                              "$ref": "../model/common/Business-entity.v1.json"
+                            },
+                            "meetingUrl": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "https://video.3edge.in:5000/c22936942"
+                            },
+                            "isScreenshareUsed": {
+                              "type": "boolean"
+                            },
+                            "isWaitRoomEnabled": {
+                              "type": "boolean"
+                            },
+                            "meetingName": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "Sprint meeting"
+                            },
+                            "isRecordingUsed": {
+                              "type": "boolean"
+                            },
+                            "isAudioUsed": {
+                              "type": "boolean"
+                            },
+                            "meetingDesc": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "This meeting is about sprint 2"
+                            },
+                            "isVideoUsed": {
+                              "type": "boolean"
+                            },
+                            "allowUsersInWaitRoom": {
+                              "type": "boolean"
+                            },
+                            "status": {
+                              "$ref": "../model/common/Status.v1.json"
+                            }
+                          }
+                        },
+                        "token": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjMjI5MzY5NDIiLCJleHAiOjE2MDQyNDAyNDIsInVzZXJJZCI6ImQwMzVjY2JiLWU0Y2MtNDRlMi1hZTIxLWI2MTkyODgxM2YwNCIsImlhdCI6MTYwNDIzOTM0Mn0.jx713wF6bOjktogIT_njJXochHsPHVUova045Glhe4J4Uxmpk3dE3xfU60OibACZk8sG6bkmRLbMjUB0SNlpWg"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "meeting": {
+                          "allowAnonymousUsers": true,
+                          "meetingId": "b5773f64-c054-4871-b8e1-abcd6bf4ec00",
+                          "schEndTime": "2020-11-02T16:30:00Z",
+                          "schStartTime": "2020-11-02T15:30:00Z",
+                          "businessEntity": {
+                            "businessEnitytId": 1,
+                            "businessEnityName": "Focus",
+                            "logo": "/business/focus.jpg"
+                          },
+                          "meetingUrl": "https://video.3edge.in:5000/c22936942",
+                          "isScreenshareUsed": true,
+                          "isWaitRoomEnabled": true,
+                          "meetingName": "Sprint meeting",
+                          "isRecordingUsed": true,
+                          "isAudioUsed": true,
+                          "meetingDesc": "This meeting is about sprint 2",
+                          "isVideoUsed": true,
+                          "allowUsersInWaitRoom": true,
+                          "status": {
+                            "statusId": 1,
+                            "statusName": "Scheduled"
+                          }
+                        },
+                        "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjMjI5MzY5NDIiLCJleHAiOjE2MDQyNDAyNDIsInVzZXJJZCI6ImQwMzVjY2JiLWU0Y2MtNDRlMi1hZTIxLWI2MTkyODgxM2YwNCIsImlhdCI6MTYwNDIzOTM0Mn0.jx713wF6bOjktogIT_njJXochHsPHVUova045Glhe4J4Uxmpk3dE3xfU60OibACZk8sG6bkmRLbMjUB0SNlpWg"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To generate auhtentication token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                  },
+                  "meetingToken": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "c22936942"
+                  },
+                  "userName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Dinesh kumar"
+                  },
+                  "emailId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "dineshkumar.b@gmail.com"
+                  }
+                }
+              },
+              "examples": {
+                "application/json (1)": {
+                  "value": {
+                    "userId": "d035ccbb-e4cc-44e2-ae21-b61928813f04",
+                    "meetingToken": "c22936942"
+                  }
+                },
+                "application/json (2)": {
+                  "value": {
+                    "meetingToken": "c22936942",
+                    "userName": "Dinesh kumar",
+                    "emailId": "dineshkumar.b@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/meeting/validateUser": {
+      "post": {
+        "summary": "validateUser",
+        "operationId": "post-meeting-validateUser",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "meeting",
+                        "meetingUser"
+                      ],
+                      "properties": {
+                        "meeting": {
+                          "type": "object",
+                          "required": [
+                            "allowAnonymousUsers",
+                            "meetingId",
+                            "schEndTime",
+                            "schStartTime",
+                            "businessEntity",
+                            "meetingUrl",
+                            "isScreenshareUsed",
+                            "isWaitRoomEnabled",
+                            "meetingName",
+                            "waitRoomId",
+                            "isRecordingUsed",
+                            "isAudioUsed",
+                            "meetingDesc",
+                            "isVideoUsed",
+                            "allowUsersInWaitRoom",
+                            "status"
+                          ],
+                          "properties": {
+                            "allowAnonymousUsers": {
+                              "type": "boolean"
+                            },
+                            "meetingId": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "b5773f64-c054-4871-b8e1-abcd6bf4ec00"
+                            },
+                            "schEndTime": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "2020-11-02T16:30:00Z"
+                            },
+                            "schStartTime": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "2020-11-02T15:30:00Z"
+                            },
+                            "businessEntity": {
+                              "$ref": "../model/common/Business-entity.v1.json"
+                            },
+                            "meetingUrl": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "https://video.3edge.in:5000/c22936942"
+                            },
+                            "isScreenshareUsed": {
+                              "type": "boolean"
+                            },
+                            "isWaitRoomEnabled": {
+                              "type": "boolean"
+                            },
+                            "meetingName": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "Sprint meeting"
+                            },
+                            "waitRoomId": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "9bd5fc2e6bd"
+                            },
+                            "isRecordingUsed": {
+                              "type": "boolean"
+                            },
+                            "isAudioUsed": {
+                              "type": "boolean"
+                            },
+                            "meetingDesc": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "This meeting is about  sprint 2"
+                            },
+                            "isVideoUsed": {
+                              "type": "boolean"
+                            },
+                            "allowUsersInWaitRoom": {
+                              "type": "boolean"
+                            },
+                            "status": {
+                              "$ref": "../model/common/Status.v1.json"
+                            }
+                          }
+                        },
+                        "meetingUser": {
+                          "type": "object",
+                          "required": [
+                            "isOrganizer",
+                            "meetingUserId",
+                            "emailId",
+                            "userName"
+                          ],
+                          "properties": {
+                            "isOrganizer": {
+                              "type": "boolean"
+                            },
+                            "meetingUserId": {
+                              "type": "number",
+                              "example": 92
+                            },
+                            "anonymousUserId": {
+                              "anyOf": []
+                            },
+                            "emailId": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "brad.p@tra-augment.com"
+                            },
+                            "userName": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "Brad Pitt"
+                            },
+                            "userId": {
+                              "anyOf": []
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json (1)": {
+                    "value": {
+                      "data": {
+                        "meeting": {
+                          "allowAnonymousUsers": true,
+                          "meetingId": "b5773f64-c054-4871-b8e1-abcd6bf4ec00",
+                          "schEndTime": "2020-11-02T16:30:00Z",
+                          "schStartTime": "2020-11-02T15:30:00Z",
+                          "businessEntity": {
+                            "businessEnitytId": 1,
+                            "businessEnityName": "Focus",
+                            "logo": "/business/focus.jpg"
+                          },
+                          "meetingUrl": "https://video.3edge.in:5000/c22936942",
+                          "isScreenshareUsed": true,
+                          "isWaitRoomEnabled": true,
+                          "meetingName": "Sprint meeting",
+                          "waitRoomId": "9bd5fc2e6bd",
+                          "isRecordingUsed": true,
+                          "isAudioUsed": true,
+                          "meetingDesc": "This meeting is about  sprint 2",
+                          "isVideoUsed": true,
+                          "allowUsersInWaitRoom": true,
+                          "status": {
+                            "statusId": 3,
+                            "statusName": "Completed"
+                          }
+                        },
+                        "meetingUser": {
+                          "isOrganizer": true,
+                          "meetingUserId": 92,
+                          "anonymousUserId": 112,
+                          "emailId": "brad.p@tra-augment.com",
+                          "userName": "Brad Pitt",
+                          "userId": null
+                        }
+                      },
+                      "status": "success"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": {
+                        "meeting": {
+                          "allowAnonymousUsers": true,
+                          "meetingId": "b5773f64-c054-4871-b8e1-abcd6bf4ec00",
+                          "schEndTime": "2020-11-02T16:30:00Z",
+                          "schStartTime": "2020-11-02T15:30:00Z",
+                          "businessEntity": {
+                            "businessEnitytId": 1,
+                            "businessEnityName": "Focus",
+                            "logo": "/business/focus.jpg"
+                          },
+                          "meetingUrl": "https://video.3edge.in:5000/c22936942",
+                          "isScreenshareUsed": true,
+                          "isWaitRoomEnabled": true,
+                          "meetingName": "Sprint meeting",
+                          "waitRoomId": "9bd5fc2e6bd",
+                          "isRecordingUsed": true,
+                          "isAudioUsed": true,
+                          "meetingDesc": "This meeting is about  sprint 2",
+                          "isVideoUsed": true,
+                          "allowUsersInWaitRoom": true,
+                          "status": {
+                            "statusId": 3,
+                            "statusName": "Completed"
+                          }
+                        },
+                        "meetingUser": {
+                          "isOrganizer": true,
+                          "meetingUserId": 92,
+                          "anonymousUserId": null,
+                          "emailId": "brad.p@tra-augment.com",
+                          "userName": "Brad Pitt",
+                          "userId": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                        }
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To validate the user by the given token",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer token"
+          }
+        ]
       }
     }
   },

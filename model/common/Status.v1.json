@@ -10,5 +10,11 @@
       "type": "string",
       "example": "Completed"
     }
+  },
+  "x-examples": {
+    "application/json": {
+      "statusId": 3,
+      "statusName": "Completed"
+    }
   }
 }
