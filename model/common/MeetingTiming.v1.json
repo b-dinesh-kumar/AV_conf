@@ -1,0 +1,23 @@
+{
+  "title": "MeetingTiming",
+  "type": "object",
+  "properties": {
+    "actStartTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-10-28T15:20:00Z"
+    },
+    "actEndTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-10-28T16:15:00Z"
+    }
+  },
+  "x-examples": {
+    "application/json": {
+      "actStartTime": "2020-10-28T15:20:00Z",
+      "actEndTime": "2020-10-28T16:15:00Z"
+    }
+  },
+  "description": ""
+}

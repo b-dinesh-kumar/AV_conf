@@ -1,71 +1,82 @@
 {
-  "title": "Meeting-list",
-  "type": "object",
   "description": "",
+  "type": "object",
   "x-examples": {
     "application/json": {
-      "actEndTime": "2020-10-04T16:30:00Z",
-      "businessEntityId": "1",
-      "meetingId": "9021020e-fab7-44f1-85bb-6ad0032ac641",
-      "schEndTime": "2020-10-04T16:30:00Z",
-      "schStartTime": "2020-10-04T15:30:00Z",
-      "meetingUrl": "https://av-meet.com/idc-vshh-vkp",
+      "allowAnonymousUsers": true,
+      "businessEntityId": 1,
+      "meetingId": "0e63df57-a21b-4264-bd90-2657ce94d2d1",
+      "schEndTime": "2020-10-28T16:20:00Z",
+      "schStartTime": "2020-10-28T15:20:00Z",
+      "meetingUrl": "https://video.3edge.in:5000/a4acb29d5",
       "isScreenshareUsed": true,
+      "meetingTimings": [
+        {
+          "actStartTime": "2020-10-28T15:20:00Z",
+          "actEndTime": "2020-10-28T16:15:00Z"
+        }
+      ],
       "isWaitRoomEnabled": true,
-      "actStartTime": "2020-10-04T15:30:00Z",
-      "meetingName": "API meeting",
+      "meetingName": "Sprint Meeting",
       "isRecordingUsed": true,
       "isAudioUsed": true,
-      "meetingDesc": "This is a meeting about API documentation",
+      "meetingDesc": "This  meeting is about Sprint 2",
       "isVideoUsed": true,
+      "allowUsersInWaitRoom": true,
       "status": {
-        "statusId": 1,
-        "statusName": "Scheduled"
+        "statusId": 3,
+        "statusName": "Completed"
       }
     }
   },
   "properties": {
-    "actEndTime": {
-      "type": "string",
-      "format": "date-time",
-      "example": "2020-10-04T16:30:00Z"
+    "allowAnonymousUsers": {
+      "type": "boolean"
     },
     "businessEntityId": {
-      "type": "string",
-      "example": "1"
+      "type": "number",
+      "example": 1
     },
     "meetingId": {
       "type": "string",
-      "example": "9021020e-fab7-44f1-85bb-6ad0032ac641"
+      "minLength": 1,
+      "example": "0e63df57-a21b-4264-bd90-2657ce94d2d1"
     },
     "schEndTime": {
       "type": "string",
+      "minLength": 1,
       "format": "date-time",
-      "example": "2020-10-04T16:30:00Z"
+      "example": "2020-10-28T16:20:00Z"
     },
     "schStartTime": {
       "type": "string",
+      "minLength": 1,
       "format": "date-time",
-      "example": "2020-10-04T15:30:00Z"
+      "example": "2020-10-28T15:20:00Z"
     },
     "meetingUrl": {
       "type": "string",
-      "example": "https://av-meet.com/idc-vshh-vkp"
+      "minLength": 1,
+      "example": "https://video.3edge.in:5000/a4acb29d5"
     },
     "isScreenshareUsed": {
       "type": "boolean"
     },
+    "meetingTimings": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "$ref": "./MeetingTiming.v1.json"
+      }
+    },
     "isWaitRoomEnabled": {
       "type": "boolean"
     },
-    "actStartTime": {
-      "type": "string",
-      "format": "date-time",
-      "example": "2020-10-04T15:30:00Z"
-    },
     "meetingName": {
       "type": "string",
-      "example": "API meeting"
+      "minLength": 1,
+      "example": "Sprint Meeting"
     },
     "isRecordingUsed": {
       "type": "boolean"
@@ -75,13 +86,35 @@
     },
     "meetingDesc": {
       "type": "string",
-      "example": "This is a meeting about API documentation"
+      "minLength": 1,
+      "example": "This  meeting is about Sprint 2"
     },
     "isVideoUsed": {
+      "type": "boolean"
+    },
+    "allowUsersInWaitRoom": {
       "type": "boolean"
     },
     "status": {
       "$ref": "./Status.v1.json"
     }
-  }
+  },
+  "required": [
+    "allowAnonymousUsers",
+    "businessEntityId",
+    "meetingId",
+    "schEndTime",
+    "schStartTime",
+    "meetingUrl",
+    "isScreenshareUsed",
+    "meetingTimings",
+    "isWaitRoomEnabled",
+    "meetingName",
+    "isRecordingUsed",
+    "isAudioUsed",
+    "meetingDesc",
+    "isVideoUsed",
+    "allowUsersInWaitRoom",
+    "status"
+  ]
 }

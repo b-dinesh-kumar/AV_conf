@@ -4,11 +4,11 @@
   "properties": {
     "statusId": {
       "type": "number",
-      "example": 1
+      "example": 3
     },
     "statusName": {
       "type": "string",
-      "example": "Scheduled"
+      "example": "Completed"
     }
   }
 }

@@ -1,6 +1,12 @@
 {
   "title": "Reason",
   "type": "object",
+  "x-examples": {
+    "application/json": {
+      "reasonId": 1,
+      "reasonName": "Disconnected"
+    }
+  },
   "properties": {
     "reasonId": {
       "type": "number",
@@ -8,7 +14,7 @@
     },
     "reasonName": {
       "type": "string",
-      "example": "Network issue"
+      "example": "Disconnected"
     }
   }
 }
