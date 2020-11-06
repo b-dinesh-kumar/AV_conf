@@ -1,0 +1,64 @@
+{
+  "description": "",
+  "type": "object",
+  "properties": {
+    "allowAutoSignUp": {
+      "type": "boolean"
+    },
+    "loginUrl": {
+      "type": "string",
+      "minLength": 1,
+      "example": "https://test.sso.3edge.in"
+    },
+    "domainName": {
+      "type": "string",
+      "minLength": 1,
+      "example": "focus"
+    },
+    "businessEntityId": {
+      "type": "number",
+      "example": 1
+    },
+    "logo": {
+      "type": "string",
+      "minLength": 1,
+      "example": "/conference/images/default.jpg"
+    },
+    "businessEntityName": {
+      "type": "string",
+      "minLength": 1,
+      "example": "Focus"
+    },
+    "domainUrl": {
+      "type": "string",
+      "minLength": 1,
+      "example": "video.3edge.in"
+    },
+    "autoApproveUser": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowAutoSignUp",
+    "loginUrl",
+    "domainName",
+    "businessEntityId",
+    "logo",
+    "businessEntityName",
+    "domainUrl",
+    "autoApproveUser"
+  ],
+  "x-examples": {
+    "application/json": {
+      "allowAutoSignUp": true,
+      "loginUrl": "https://test.sso.3edge.in",
+      "domainName": "focus",
+      "businessEntityId": 1,
+      "logo": "/conference/images/default.jpg",
+      "businessEntityName": "Focus",
+      "domainUrl": "video.3edge.in",
+      "autoApproveUser": true
+    }
+  },
+  "title": ""
+}

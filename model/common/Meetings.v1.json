@@ -5,22 +5,24 @@
     "application/json": {
       "allowAnonymousUsers": true,
       "businessEntityId": 1,
-      "meetingId": "0e63df57-a21b-4264-bd90-2657ce94d2d1",
-      "schEndTime": "2020-10-28T16:20:00Z",
-      "schStartTime": "2020-10-28T15:20:00Z",
-      "meetingUrl": "https://video.3edge.in:5000/a4acb29d5",
+      "meetingId": "85571e49-aa3e-4a0f-aa95-15b87793d01b",
+      "schEndTime": "2020-11-04T11:30:00Z",
+      "showRecording": true,
+      "schStartTime": "2020-11-04T10:30:00Z",
+      "isAutoRecEnabled": true,
+      "meetingUrl": "https://video.3edge.in:5000/a2f987292",
       "isScreenshareUsed": true,
       "meetingTimings": [
         {
-          "actStartTime": "2020-10-28T15:20:00Z",
-          "actEndTime": "2020-10-28T16:15:00Z"
+          "actStartTime": "2020-11-04T10:30:00Z",
+          "actEndTime": "2020-11-04T11:30:00Z"
         }
       ],
       "isWaitRoomEnabled": true,
-      "meetingName": "Sprint Meeting",
+      "meetingName": "Sprin meeting",
       "isRecordingUsed": true,
       "isAudioUsed": true,
-      "meetingDesc": "This  meeting is about Sprint 2",
+      "meetingDesc": "This meeting is about sprint 2",
       "isVideoUsed": true,
       "allowUsersInWaitRoom": true,
       "status": {
@@ -40,32 +42,36 @@
     "meetingId": {
       "type": "string",
       "minLength": 1,
-      "example": "0e63df57-a21b-4264-bd90-2657ce94d2d1"
+      "example": "85571e49-aa3e-4a0f-aa95-15b87793d01b"
     },
     "schEndTime": {
       "type": "string",
       "minLength": 1,
       "format": "date-time",
-      "example": "2020-10-28T16:20:00Z"
+      "example": "2020-11-04T11:30:00Z"
+    },
+    "showRecording": {
+      "type": "boolean"
     },
     "schStartTime": {
       "type": "string",
       "minLength": 1,
       "format": "date-time",
-      "example": "2020-10-28T15:20:00Z"
+      "example": "2020-11-04T10:30:00Z"
+    },
+    "isAutoRecEnabled": {
+      "type": "boolean"
     },
     "meetingUrl": {
       "type": "string",
       "minLength": 1,
-      "example": "https://video.3edge.in:5000/a4acb29d5"
+      "example": "https://video.3edge.in:5000/a2f987292"
     },
     "isScreenshareUsed": {
       "type": "boolean"
     },
     "meetingTimings": {
       "type": "array",
-      "uniqueItems": true,
-      "minItems": 1,
       "items": {
         "$ref": "./MeetingTiming.v1.json"
       }
@@ -76,7 +82,7 @@
     "meetingName": {
       "type": "string",
       "minLength": 1,
-      "example": "Sprint Meeting"
+      "example": "Sprin meeting"
     },
     "isRecordingUsed": {
       "type": "boolean"
@@ -87,7 +93,7 @@
     "meetingDesc": {
       "type": "string",
       "minLength": 1,
-      "example": "This  meeting is about Sprint 2"
+      "example": "This meeting is about sprint 2"
     },
     "isVideoUsed": {
       "type": "boolean"
@@ -104,7 +110,9 @@
     "businessEntityId",
     "meetingId",
     "schEndTime",
+    "showRecording",
     "schStartTime",
+    "isAutoRecEnabled",
     "meetingUrl",
     "isScreenshareUsed",
     "meetingTimings",
