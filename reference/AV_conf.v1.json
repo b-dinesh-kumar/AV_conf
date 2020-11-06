@@ -283,6 +283,12 @@
                   },
                   "isVideoUsed": {
                     "type": "boolean"
+                  },
+                  "isAutoRecEnabled": {
+                    "type": "boolean"
+                  },
+                  "showRecording": {
+                    "type": "boolean"
                   }
                 },
                 "required": [
@@ -305,7 +311,9 @@
                     "isRecordingUsed": true,
                     "isAudioUsed": true,
                     "allowUsersInWaitRoom": true,
-                    "isVideoUsed": true
+                    "isVideoUsed": true,
+                    "isAutoRecEnabled": true,
+                    "showRecording": true
                   }
                 }
               }
@@ -532,6 +540,12 @@
                   },
                   "isVideoUsed": {
                     "type": "boolean"
+                  },
+                  "isAutoRecEnabled": {
+                    "type": "boolean"
+                  },
+                  "showRecording": {
+                    "type": "boolean"
                   }
                 }
               },
@@ -548,7 +562,9 @@
                     "isRecordingUsed": true,
                     "isAudioUsed": true,
                     "allowUsersInWaitRoom": true,
-                    "isVideoUsed": true
+                    "isVideoUsed": true,
+                    "isAutoRecEnabled": true,
+                    "showRecording": true
                   }
                 }
               }
