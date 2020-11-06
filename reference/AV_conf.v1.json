@@ -2689,6 +2689,265 @@
         "operationId": "get-meeting-details-token",
         "description": "Retrive meeting details by meeting token"
       }
+    },
+    "/user": {
+      "get": {
+        "summary": "getUserByKeycloakId",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "role",
+                        "profileImagePath",
+                        "emailId",
+                        "businessEntity",
+                        "userName",
+                        "userId"
+                      ],
+                      "properties": {
+                        "role": {
+                          "type": "object",
+                          "required": [
+                            "roleId",
+                            "roleName"
+                          ],
+                          "properties": {
+                            "roleId": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "roleName": {
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "user"
+                            }
+                          }
+                        },
+                        "profileImagePath": {
+                          "type": "string",
+                          "example": "/conference/images/default.jpg"
+                        },
+                        "emailId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "peter.p@tra-augment.com"
+                        },
+                        "businessEntity": {
+                          "$ref": "../model/common/Business-entity.v1.json"
+                        },
+                        "userName": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Peter Parker"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "ab468ec3-0571-4bd4-a57e-cfadf234140c"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "role": {
+                          "roleId": 3,
+                          "roleName": "user"
+                        },
+                        "profileImagePath": "/conference/images/default.jpg",
+                        "emailId": "peter.p@tra-augment.com",
+                        "businessEntity": {
+                          "businessEnitytId": 1,
+                          "businessEnityName": "Focus",
+                          "logo": "/business/focus.jpg"
+                        },
+                        "userName": "Peter Parker",
+                        "userId": "ab468ec3-0571-4bd4-a57e-cfadf234140c"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-user",
+        "description": "Retrive user details by keycloak user id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "keycloakId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "peter parker"
+                  }
+                },
+                "required": [
+                  "keycloakId"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "keycloakId": "peter parker"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/entity/{beId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "beId",
+          "in": "path",
+          "required": true,
+          "description": "Entity id"
+        }
+      ],
+      "get": {
+        "summary": "getEntityById",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/Entity.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "allowAutoSignUp": true,
+                        "loginUrl": "https://test.sso.3edge.in",
+                        "domainName": "focus",
+                        "businessEntityId": 1,
+                        "logo": "/conference/images/default.jpg",
+                        "businessEntityName": "Focus",
+                        "domainUrl": "video.3edge.in",
+                        "autoApproveUser": true
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-entity-beId",
+        "description": "Retrive business entity details by id"
+      }
+    },
+    "/entity": {
+      "get": {
+        "summary": "getEntityByDomainURL",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/Entity.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "allowAutoSignUp": true,
+                        "loginUrl": "https://test.sso.3edge.in",
+                        "domainName": "focus",
+                        "businessEntityId": 1,
+                        "logo": "/conference/images/default.jpg",
+                        "businessEntityName": "Focus",
+                        "domainUrl": "video.3edge.in",
+                        "autoApproveUser": true
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-entity",
+        "description": "Retrive business entity details by domain URL",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "domainUrl",
+            "description": "Domain url "
+          }
+        ]
+      }
     }
   },
   "components": {
