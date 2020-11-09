@@ -209,6 +209,15 @@
             "in": "query",
             "name": "organizer",
             "description": "Filter the meetings by the organizer"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "keycloak user name",
+            "required": true
           }
         ]
       },
@@ -393,7 +402,17 @@
           },
           "description": "Details to create a meeting."
         },
-        "parameters": []
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "keycloak user name",
+            "required": true
+          }
+        ]
       }
     },
     "/meeting/{id}": {
