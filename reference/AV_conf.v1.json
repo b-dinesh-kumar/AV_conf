@@ -269,12 +269,34 @@
                   "$ref": "#/components/schemas/Error-response"
                 },
                 "examples": {
-                  "application/json": {
+                  "application/json (1)": {
                     "value": {
                       "data": [
                         {
                           "errorMessage": "Meeting name already present in the mentioned time",
                           "errorCode": "101"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "End time should be greater than Start time",
+                          "errorCode": "102"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (3)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Start date cannot be past date",
+                          "errorCode": "103"
                         }
                       ],
                       "status": "error"
