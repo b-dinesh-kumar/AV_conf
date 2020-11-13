@@ -2357,25 +2357,29 @@
                 "description": "",
                 "type": "object",
                 "properties": {
+                  "anonymousUserId": {
+                    "type": "number",
+                    "example": 180
+                  },
                   "userId": {
                     "type": "string",
                     "minLength": 1,
-                    "example": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                    "example": "6a2097f6-4d1b-4a44-a232-fb73db138ee9"
                   },
                   "meetingToken": {
                     "type": "string",
                     "minLength": 1,
-                    "example": "c22936942"
+                    "example": "1b12a1273"
                   },
-                  "userName": {
+                  "firstName": {
                     "type": "string",
                     "minLength": 1,
-                    "example": "Dinesh kumar"
+                    "example": "Rajesh"
                   },
-                  "emailId": {
+                  "lastName": {
                     "type": "string",
                     "minLength": 1,
-                    "example": "dineshkumar.b@gmail.com"
+                    "example": "Mohanan"
                   }
                 }
               },
@@ -2389,8 +2393,14 @@
                 "application/json (2)": {
                   "value": {
                     "meetingToken": "c22936942",
-                    "userName": "Dinesh kumar",
-                    "emailId": "dineshkumar.b@gmail.com"
+                    "firstName": "Dinesh",
+                    "lastName": "kumar"
+                  }
+                },
+                "application/json (3)": {
+                  "value": {
+                    "anonymousUserId": 180,
+                    "meetingToken": "1b12a1273"
                   }
                 }
               }
