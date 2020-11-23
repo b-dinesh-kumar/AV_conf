@@ -3148,7 +3148,7 @@
         }
       ],
       "post": {
-        "summary": "addParticipants",
+        "summary": "addMeetingParticipants",
         "operationId": "post-meeting-id-addParticipants",
         "responses": {
           "201": {
