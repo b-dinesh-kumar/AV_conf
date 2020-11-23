@@ -3197,7 +3197,7 @@
             }
           }
         },
-        "description": "",
+        "description": "To add participants to the meeting",
         "requestBody": {
           "content": {
             "application/json": {
@@ -3255,7 +3255,7 @@
                 ]
               },
               "examples": {
-                "application/json": {
+                "application/json (1)": {
                   "value": {
                     "users": [
                       {
@@ -3269,10 +3269,23 @@
                       }
                     ]
                   }
+                },
+                "application/json (2)": {
+                  "value": {
+                    "users": [
+                      {
+                        "beUserId": "dineshkumar",
+                        "isOrganizer": true,
+                        "stealthMode": true,
+                        "isAdmin": true
+                      }
+                    ]
+                  }
                 }
               }
             }
-          }
+          },
+          "description": ""
         }
       }
     }
