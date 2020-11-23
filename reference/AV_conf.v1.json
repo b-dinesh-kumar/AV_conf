@@ -3134,6 +3134,147 @@
           }
         ]
       }
+    },
+    "/meeting/{id}/addParticipants": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        }
+      ],
+      "post": {
+        "summary": "addParticipants",
+        "operationId": "post-meeting-id-addParticipants",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "message"
+                      ],
+                      "properties": {
+                        "message": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Participants added successfully"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "message": "Participants added successfully"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "users": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "firstName": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Dinesh"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Kumar"
+                        },
+                        "email": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "dinesh.k@tra-augment.com"
+                        },
+                        "beUserId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "dineshkumar"
+                        },
+                        "isOrganizer": {
+                          "type": "boolean"
+                        },
+                        "stealthMode": {
+                          "type": "boolean"
+                        },
+                        "isAdmin": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "beUserId",
+                        "isOrganizer",
+                        "stealthMode"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "users"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "users": [
+                      {
+                        "firstName": "Dinesh",
+                        "lastName": "Kumar",
+                        "email": "dinesh.k@tra-augment.com",
+                        "beUserId": "dineshkumar",
+                        "isOrganizer": true,
+                        "stealthMode": true,
+                        "isAdmin": true
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
