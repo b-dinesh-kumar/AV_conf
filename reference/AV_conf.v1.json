@@ -3133,6 +3133,211 @@
             "description": "Domain url "
           }
         ]
+      },
+      "post": {
+        "summary": "createBusinessEntity",
+        "operationId": "post-entity",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "businessEntityId"
+                      ],
+                      "properties": {
+                        "businessEntityId": {
+                          "type": "number",
+                          "example": 300
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "businessEntityId": 300
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "errorMessage",
+                        "errorCode"
+                      ],
+                      "properties": {
+                        "errorMessage": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "An entity already exists with the given entity name"
+                        },
+                        "errorCode": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "110"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "error"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "errorMessage": "An entity already exists with the given entity name",
+                        "errorCode": "110"
+                      },
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create a business entity",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "businessEntityName",
+                      "domainName",
+                      "domainUrl",
+                      "user"
+                    ],
+                    "properties": {
+                      "businessEntityName": {
+                        "type": "string",
+                        "minLength": 1,
+                        "example": "Scribe EMR cloud"
+                      },
+                      "domainName": {
+                        "type": "string",
+                        "minLength": 1,
+                        "example": "https://sandbox2.focusedumatics.com/ScribingSoftware1"
+                      },
+                      "domainUrl": {
+                        "type": "string",
+                        "minLength": 1,
+                        "example": "scribecloud.admin.3edge.in"
+                      },
+                      "loginUrl": {
+                        "type": "string",
+                        "minLength": 1,
+                        "example": "https://sandbox2.focusedumatics.com/ScribingSoftware1/"
+                      },
+                      "allowAutoSignUp": {
+                        "type": "boolean"
+                      },
+                      "autoApproveUser": {
+                        "type": "boolean"
+                      },
+                      "user": {
+                        "type": "object",
+                        "required": [
+                          "firstName",
+                          "lastName",
+                          "emailId"
+                        ],
+                        "properties": {
+                          "firstName": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Dinesh"
+                          },
+                          "lastName": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Kumar"
+                          },
+                          "emailId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "dinesh.k@tra-augment.com"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "logo": {
+                    "type": "string",
+                    "example": "File upload"
+                  }
+                },
+                "required": [
+                  "data",
+                  "logo"
+                ]
+              },
+              "examples": {
+                "multipart/form-data": {
+                  "value": {
+                    "data": {
+                      "businessEntityName": "Scribe EMR cloud",
+                      "domainName": "https://sandbox2.focusedumatics.com/ScribingSoftware1",
+                      "domainUrl": "scribecloud.admin.3edge.in",
+                      "loginUrl": "https://sandbox2.focusedumatics.com/ScribingSoftware1/",
+                      "allowAutoSignUp": true,
+                      "autoApproveUser": true,
+                      "user": {
+                        "firstName": "Dinesh",
+                        "lastName": "Kumar",
+                        "emailId": "dinesh.k@tra-augment.com"
+                      }
+                    },
+                    "logo": "File upload"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/meeting/{id}/addParticipants": {
