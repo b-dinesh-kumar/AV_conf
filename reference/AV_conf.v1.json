@@ -3600,6 +3600,291 @@
           }
         }
       }
+    },
+    "/handleVerification": {
+      "get": {
+        "summary": "validateVerficationId",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "userID",
+                        "firstName",
+                        "lastName",
+                        "email",
+                        "responseId",
+                        "sessionExpiry"
+                      ],
+                      "properties": {
+                        "userID": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "christianbale"
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Christian"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Bale"
+                        },
+                        "email": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "christian.b@tra-augment.com"
+                        },
+                        "responseId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "5da775f8-42f5-4ef1-8b55-8993d23589a0"
+                        },
+                        "sessionExpiry": {
+                          "type": "object",
+                          "required": [
+                            "nano",
+                            "epochSecond"
+                          ],
+                          "properties": {
+                            "nano": {
+                              "type": "number",
+                              "example": 22000000
+                            },
+                            "epochSecond": {
+                              "type": "number",
+                              "example": 1606767221
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "userID": "christianbale",
+                        "firstName": "Christian",
+                        "lastName": "Bale",
+                        "email": "christian.b@tra-augment.com",
+                        "responseId": "5da775f8-42f5-4ef1-8b55-8993d23589a0",
+                        "sessionExpiry": {
+                          "nano": 22000000,
+                          "epochSecond": 1606767221
+                        }
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "errorMessage",
+                        "errorCode"
+                      ],
+                      "properties": {
+                        "errorMessage": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Invalid Credential!"
+                        },
+                        "errorCode": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "401"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "error"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "errorMessage": "Invalid Credential!",
+                        "errorCode": "401"
+                      },
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-handleVerification",
+        "description": "To validate verification id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "b8326caec71f479ea336dd76991b32c5"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "verificationId"
+          }
+        ]
+      },
+      "post": {
+        "summary": "generateVerficationId",
+        "operationId": "post-handleVerification",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "verificationId"
+                      ],
+                      "properties": {
+                        "verificationId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "2319f7e0e58045bdab1d680cbc94c05d"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "verificationId": "2319f7e0e58045bdab1d680cbc94c05d"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "userID": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "christianbale"
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Christian"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Bale"
+                  },
+                  "email": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "christian.b@tra-augment.com"
+                  },
+                  "responseId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "5da775f8-42f5-4ef1-8b55-8993d23589a0"
+                  },
+                  "sessionExpiry": {
+                    "type": "object",
+                    "properties": {
+                      "nano": {
+                        "type": "number",
+                        "example": 22000000
+                      },
+                      "epochSecond": {
+                        "type": "number",
+                        "example": 1606767221
+                      }
+                    }
+                  }
+                }
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "userID": "christianbale",
+                    "firstName": "Christian",
+                    "lastName": "Bale",
+                    "email": "christian.b@tra-augment.com",
+                    "responseId": "5da775f8-42f5-4ef1-8b55-8993d23589a0",
+                    "sessionExpiry": {
+                      "nano": 22000000,
+                      "epochSecond": 1606767221
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To generate verification id "
+      }
     }
   },
   "components": {
