@@ -2877,9 +2877,9 @@
       }
     },
     "/user": {
-      "get": {
-        "summary": "getUserByKeycloakId",
-        "tags": [],
+      "post": {
+        "summary": "getUserDetails",
+        "operationId": "post-user",
         "responses": {
           "200": {
             "description": "OK",
@@ -2897,7 +2897,8 @@
                         "emailId",
                         "businessEntity",
                         "userName",
-                        "userId"
+                        "userId",
+                        "token"
                       ],
                       "properties": {
                         "role": {
@@ -2909,23 +2910,23 @@
                           "properties": {
                             "roleId": {
                               "type": "number",
-                              "example": 3
+                              "example": 2
                             },
                             "roleName": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "user"
+                              "example": "BE admin"
                             }
                           }
                         },
                         "profileImagePath": {
                           "type": "string",
-                          "example": "/conference/images/default.jpg"
+                          "example": "/conference/images/user_images/profile_1605178865334.jpg"
                         },
                         "emailId": {
                           "type": "string",
                           "minLength": 1,
-                          "example": "peter.p@tra-augment.com"
+                          "example": "dinesh.k@tra-augment.com"
                         },
                         "businessEntity": {
                           "$ref": "../model/common/Business-entity.v1.json"
@@ -2933,12 +2934,17 @@
                         "userName": {
                           "type": "string",
                           "minLength": 1,
-                          "example": "Peter Parker"
+                          "example": "Dinesh kumar"
                         },
                         "userId": {
                           "type": "string",
                           "minLength": 1,
-                          "example": "ab468ec3-0571-4bd4-a57e-cfadf234140c"
+                          "example": "19428b05-4da5-45e2-b3ae-91022084c234"
+                        },
+                        "token": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwNzYyMjMsImlhdCI6MTYwNjkwMzQyM30.LQgcuRMsDRM-YMXpWowEbIMzvPLoVIlaxprjgane03Gl1HL5b58TGOQUefSaBA0zMPLUna8TBz854BDeWqSvEQ"
                         }
                       }
                     },
@@ -2958,18 +2964,19 @@
                     "value": {
                       "data": {
                         "role": {
-                          "roleId": 3,
-                          "roleName": "user"
+                          "roleId": 2,
+                          "roleName": "BE admin"
                         },
-                        "profileImagePath": "/conference/images/default.jpg",
-                        "emailId": "peter.p@tra-augment.com",
+                        "profileImagePath": "/conference/images/user_images/profile_1605178865334.jpg",
+                        "emailId": "dinesh.k@tra-augment.com",
                         "businessEntity": {
                           "businessEnitytId": 1,
                           "businessEnityName": "Focus",
                           "logo": "/business/focus.jpg"
                         },
-                        "userName": "Peter Parker",
-                        "userId": "ab468ec3-0571-4bd4-a57e-cfadf234140c"
+                        "userName": "Dinesh kumar",
+                        "userId": "19428b05-4da5-45e2-b3ae-91022084c234",
+                        "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwNzYyMjMsImlhdCI6MTYwNjkwMzQyM30.LQgcuRMsDRM-YMXpWowEbIMzvPLoVIlaxprjgane03Gl1HL5b58TGOQUefSaBA0zMPLUna8TBz854BDeWqSvEQ"
                       },
                       "status": "success"
                     }
@@ -2977,10 +2984,61 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "errorMessage",
+                        "errorCode"
+                      ],
+                      "properties": {
+                        "errorMessage": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "Invalid Credential!"
+                        },
+                        "errorCode": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "401"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "error"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "errorMessage": "Invalid Credential!",
+                        "errorCode": "401"
+                      },
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
-        "operationId": "get-user",
-        "description": "Retrive user details by keycloak user id",
+        "description": "Retrive the user details by keycloak user id and business entity id",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2988,20 +3046,26 @@
                 "description": "",
                 "type": "object",
                 "properties": {
+                  "businessEntityId": {
+                    "type": "number",
+                    "example": 1
+                  },
                   "keycloakId": {
                     "type": "string",
                     "minLength": 1,
-                    "example": "peter parker"
+                    "example": "dineshkumar"
                   }
                 },
                 "required": [
+                  "businessEntityId",
                   "keycloakId"
                 ]
               },
               "examples": {
                 "application/json": {
                   "value": {
-                    "keycloakId": "peter parker"
+                    "businessEntityId": 1,
+                    "keycloakId": "dineshkumar"
                   }
                 }
               }
