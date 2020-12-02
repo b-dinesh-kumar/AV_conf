@@ -855,10 +855,25 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "operationId": "get-meeting-id-participants",
-        "description": "Retrieve list of participants of the meeting"
+        "description": "Retrieve list of participants of the meeting",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       },
       "post": {
         "summary": "addPartcipants",
@@ -898,6 +913,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "description": "Add participants to the meeting",
@@ -946,8 +964,21 @@
                 }
               }
             }
+          },
+          "description": ""
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
           }
-        }
+        ]
       },
       "patch": {
         "summary": "updateParticipants",
@@ -972,6 +1003,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "description": "Update the details of the participants",
@@ -1021,7 +1055,19 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       },
       "delete": {
         "summary": "deleteParticipants",
@@ -1046,6 +1092,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "description": "Delete the participants of the meeting",
@@ -1076,7 +1125,19 @@
             }
           },
           "description": ""
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       }
     },
     "/meeting/{id}/participants/{uId}": {
@@ -1158,10 +1219,25 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "operationId": "get-meeting-id-participants-meetingUserId",
-        "description": "Retrieve the user session details"
+        "description": "Retrieve the user session details",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       },
       "post": {
         "summary": "createUserSession",
@@ -1201,6 +1277,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "description": "Create the user session",
@@ -1248,7 +1327,19 @@
             }
           },
           "description": ""
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       },
       "patch": {
         "summary": "updateUserSession",
@@ -1302,8 +1393,23 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       }
     },
     "/meeting/{id}/statistics": {
@@ -1465,10 +1571,25 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "operationId": "get-meeting-id-statistics",
-        "description": "Retrieve the meeting statistics"
+        "description": "Retrieve the meeting statistics",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       }
     },
     "/meeting/{id}/timing": {
@@ -1530,6 +1651,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "description": "To create the actual start time of the meeting",
@@ -1556,7 +1680,19 @@
             }
           },
           "description": ""
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       },
       "patch": {
         "summary": "updateMeetingTiming",
@@ -1581,6 +1717,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "description": "To create the actual end time of the meeting",
@@ -1617,7 +1756,19 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       }
     },
     "/users/{beId}": {
@@ -1729,6 +1880,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "operationId": "get-users-beId",
@@ -1776,6 +1930,16 @@
             "in": "query",
             "name": "isOrganizer",
             "description": "To get all the organizers"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
           }
         ]
       }
