@@ -212,11 +212,12 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
             },
             "in": "header",
             "name": "Authorization",
-            "description": "keycloak user name",
+            "description": "bearer token",
             "required": true
           }
         ]
@@ -427,11 +428,12 @@
         "parameters": [
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
             },
             "in": "header",
             "name": "Authorization",
-            "description": "keycloak user name",
+            "description": "bearer token",
             "required": true
           }
         ]
@@ -540,10 +542,25 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "operationId": "get-meeting-id",
-        "description": "Retrieve the meeting details by id"
+        "description": "Retrieve the meeting details by id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       },
       "delete": {
         "summary": "deleteMeetingById",
@@ -568,9 +585,24 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
-        "description": "Delete the meeting by id."
+        "description": "Delete the meeting by id.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       },
       "patch": {
         "summary": "updateMeetingById",
@@ -595,6 +627,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "description": "Update the meeting by id.",
@@ -677,7 +712,19 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
       }
     },
     "/meeting/{id}/participants": {
@@ -1422,444 +1469,6 @@
         },
         "operationId": "get-meeting-id-statistics",
         "description": "Retrieve the meeting statistics"
-      }
-    },
-    "/meeting/recording": {
-      "get": {
-        "summary": "getAllMeetingRecordings",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "pagination": {
-                      "$ref": "../model/common/Pagination.v1.json"
-                    },
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "../model/common/Recording.v1.json"
-                      }
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "pagination": {
-                        "totalRecords": 25,
-                        "limit": 20,
-                        "page": 1
-                      },
-                      "data": [
-                        {
-                          "bookmark": [
-                            {
-                              "bookmarkId": 31,
-                              "meetingUserId": 7,
-                              "bookmarkTime": "11:15:45"
-                            }
-                          ],
-                          "fileName": "recording14345.mp4",
-                          "domain": "https://www.azure.com",
-                          "filePath": "/focus/meeting/recoring/video",
-                          "startTime": "2020-10-13T11:15:29Z",
-                          "endTime": "2020-10-13T11:30:15Z",
-                          "recordingId": 22,
-                          "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530"
-                        }
-                      ],
-                      "status": "success"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-meeting-recording",
-        "description": "Retrieve all the meeting recordings."
-      },
-      "post": {
-        "summary": "createMeetingRecording",
-        "operationId": "post-meeting-recording",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "recordingId": {
-                          "type": "number",
-                          "example": 35
-                        },
-                        "status": {
-                          "type": "string",
-                          "example": "success"
-                        }
-                      }
-                    }
-                  }
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "recordingId": 35,
-                        "status": "success"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "Create meeting recording",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "meetingId": {
-                    "type": "string",
-                    "example": "68eeec02-b723-41fb-94c2-7ad1e5502b0d"
-                  }
-                }
-              },
-              "examples": {
-                "application/json": {
-                  "value": {
-                    "meetingId": "68eeec02-b723-41fb-94c2-7ad1e5502b0d"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/meeting/recording/{recId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "number"
-          },
-          "name": "recId",
-          "in": "path",
-          "required": true,
-          "description": "Meeting recoring id"
-        }
-      ],
-      "get": {
-        "summary": "getMeetingRecording",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "../model/common/Recording.v1.json"
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
-                },
-                "examples": {
-                  "appication/json": {
-                    "value": {
-                      "data": {
-                        "bookmark": [
-                          {
-                            "bookmarkId": 31,
-                            "meetingUserId": 7,
-                            "bookmarkTime": "11:15:45"
-                          }
-                        ],
-                        "fileName": "recording14345.mp4",
-                        "domain": "https://www.azure.com",
-                        "filePath": "/focus/meeting/recoring/video",
-                        "startTime": "2020-10-13T11:15:29Z",
-                        "endTime": "2020-10-13T11:30:15Z",
-                        "recordingId": 22,
-                        "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530"
-                      },
-                      "status": "success"
-                    }
-                  }
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "bookmark": {
-                          "$ref": "../model/common/Bookmark.v1.json"
-                        },
-                        "": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-meeting-recording-recId",
-        "description": "Retrieve the meeting recording by the id"
-      },
-      "patch": {
-        "summary": "updateMeetingRecording",
-        "operationId": "patch-meeting-recording-recId",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Update-response"
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "message": "Updated successfully"
-                      },
-                      "status": "success"
-                    }
-                  }
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Update-response"
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "message": "Updated successfully"
-                      },
-                      "status": "success"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "Update the meeting recording by the recording id",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "fileName": {
-                    "type": "string",
-                    "example": "recording14345.mp4"
-                  },
-                  "domain": {
-                    "type": "string",
-                    "example": "https://www.azure.com"
-                  },
-                  "filePath": {
-                    "type": "string",
-                    "example": "/focus/meeting/recoring/video"
-                  },
-                  "endTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2020-10-13T13:20:15Z"
-                  }
-                }
-              },
-              "examples": {
-                "application/json": {
-                  "value": {
-                    "fileName": "recording14345.mp4",
-                    "domain": "https://www.azure.com",
-                    "filePath": "/focus/meeting/recoring/video",
-                    "endTime": "2020-10-13T13:20:15Z"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "deleteMeetingRecording",
-        "operationId": "delete-meeting-recording-recId",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Delete-response"
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "message": "Deleted successfully",
-                        "status": "success"
-                      }
-                    }
-                  }
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                }
-              }
-            }
-          }
-        },
-        "description": "Delete the meeting recording by the recording id"
-      }
-    },
-    "/meeting/recording/{recId}/bookmark/{muId}": {
-      "parameters": [
-        {
-          "schema": {
-            "type": "number"
-          },
-          "name": "recId",
-          "in": "path",
-          "required": true,
-          "description": "Recording id"
-        },
-        {
-          "schema": {
-            "type": "number"
-          },
-          "name": "muId",
-          "in": "path",
-          "required": true,
-          "description": "[POST] - Meeting user id and [DELETE] - Bookmark id"
-        }
-      ],
-      "post": {
-        "summary": "createBookmark",
-        "operationId": "post-meeting-recording-recId-bookmark-muId",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "bookmarkId": {
-                          "type": "number",
-                          "example": 15
-                        }
-                      }
-                    },
-                    "status": {
-                      "type": "string",
-                      "example": "success"
-                    }
-                  }
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "bookmarkId": 15
-                      },
-                      "status": "success"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "Create boomark for the meeting recording",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "bookmarkTime": {
-                    "type": "string",
-                    "format": "time",
-                    "example": "11:22:45"
-                  }
-                }
-              },
-              "examples": {
-                "application/json": {
-                  "value": {
-                    "bookmarkTime": "11:22:45"
-                  }
-                }
-              }
-            }
-          },
-          "description": ""
-        }
-      },
-      "delete": {
-        "summary": "deleteBookmark",
-        "operationId": "delete-meeting-recording-recId-bookmark-muId",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Delete-response"
-                },
-                "examples": {
-                  "application/json": {
-                    "value": {
-                      "data": {
-                        "message": "Deleted successfully",
-                        "status": "success"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "Delete the bookmark by bookmar id"
       }
     },
     "/meeting/{id}/timing": {
