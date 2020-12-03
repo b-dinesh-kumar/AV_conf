@@ -2821,12 +2821,12 @@
                 "properties": {
                   "businessEntityId": {
                     "type": "number",
-                    "example": 1
+                    "example": 150
                   },
                   "keycloakId": {
                     "type": "string",
                     "minLength": 1,
-                    "example": "dineshkumar"
+                    "example": "dinesh"
                   }
                 },
                 "required": [
