@@ -3333,7 +3333,7 @@
     },
     "/handleVerification": {
       "get": {
-        "summary": "Validate verfication id",
+        "summary": "Validate verification id",
         "tags": [],
         "responses": {
           "200": {
@@ -3499,7 +3499,7 @@
         ]
       },
       "post": {
-        "summary": "Generate verfication id",
+        "summary": "Generate verification id",
         "operationId": "post-handleVerification",
         "responses": {
           "201": {
