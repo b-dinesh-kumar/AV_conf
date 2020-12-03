@@ -876,7 +876,7 @@
         ]
       },
       "post": {
-        "summary": "Add partcipants",
+        "summary": "Add participants",
         "operationId": "post-meeting-id-participants",
         "responses": {
           "201": {
