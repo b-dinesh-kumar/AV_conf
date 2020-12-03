@@ -24,7 +24,7 @@
   "paths": {
     "/meeting": {
       "get": {
-        "summary": "getAllMeeting",
+        "summary": "Get all the meeting details",
         "tags": [],
         "responses": {
           "200": {
@@ -224,7 +224,7 @@
       },
       "parameters": [],
       "post": {
-        "summary": "createMeeting",
+        "summary": "Create Meeting",
         "operationId": "post-meeting",
         "responses": {
           "201": {
@@ -452,7 +452,7 @@
         }
       ],
       "get": {
-        "summary": "getMeetingById",
+        "summary": "Get meeting details by id",
         "tags": [],
         "responses": {
           "200": {
@@ -563,7 +563,7 @@
         ]
       },
       "delete": {
-        "summary": "deleteMeetingById",
+        "summary": "Delete meeting details by id",
         "operationId": "delete-meeting-id",
         "responses": {
           "204": {
@@ -605,7 +605,7 @@
         ]
       },
       "patch": {
-        "summary": "updateMeetingById",
+        "summary": "Update meeting details by id",
         "operationId": "patch-meeting-id",
         "responses": {
           "200": {
@@ -740,7 +740,7 @@
         }
       ],
       "get": {
-        "summary": "getAllParticipants",
+        "summary": "Get all the participants",
         "tags": [],
         "responses": {
           "200": {
@@ -876,7 +876,7 @@
         ]
       },
       "post": {
-        "summary": "addPartcipants",
+        "summary": "Add partcipants",
         "operationId": "post-meeting-id-participants",
         "responses": {
           "201": {
@@ -981,7 +981,7 @@
         ]
       },
       "patch": {
-        "summary": "updateParticipants",
+        "summary": "Update participants",
         "operationId": "patch-meeting-id-participants",
         "responses": {
           "200": {
@@ -1070,7 +1070,7 @@
         ]
       },
       "delete": {
-        "summary": "deleteParticipants",
+        "summary": "Delete participants",
         "operationId": "delete-meeting-id-participants",
         "responses": {
           "204": {
@@ -1162,7 +1162,7 @@
         }
       ],
       "get": {
-        "summary": "getUserSessions",
+        "summary": "Get user sessions",
         "tags": [],
         "responses": {
           "200": {
@@ -1240,7 +1240,7 @@
         ]
       },
       "post": {
-        "summary": "createUserSession",
+        "summary": "Create user session",
         "operationId": "post-meeting-id-participants-meetingUserId",
         "responses": {
           "201": {
@@ -1342,7 +1342,7 @@
         ]
       },
       "patch": {
-        "summary": "updateUserSession",
+        "summary": "Update user session",
         "operationId": "patch-meeting-id-participants-uId",
         "description": "Update the user session by user session id",
         "requestBody": {
@@ -1425,7 +1425,7 @@
         }
       ],
       "get": {
-        "summary": "getMeetingStatistics",
+        "summary": "Get meeting statistics",
         "tags": [],
         "responses": {
           "200": {
@@ -1605,7 +1605,7 @@
         }
       ],
       "post": {
-        "summary": "createMeetingTiming",
+        "summary": "Create meeting timing",
         "operationId": "post-meeting-id-timing",
         "responses": {
           "201": {
@@ -1695,7 +1695,7 @@
         ]
       },
       "patch": {
-        "summary": "updateMeetingTiming",
+        "summary": "Update meeting timing",
         "operationId": "patch-meeting-id-timing",
         "responses": {
           "200": {
@@ -1784,7 +1784,7 @@
         }
       ],
       "get": {
-        "summary": "getAllUsers",
+        "summary": "Get all the users",
         "tags": [],
         "responses": {
           "200": {
@@ -1946,7 +1946,7 @@
     },
     "/meeting/generateToken": {
       "post": {
-        "summary": "generateToken",
+        "summary": "Generate Token",
         "operationId": "post-meeting-generateToken",
         "responses": {
           "200": {
@@ -2207,7 +2207,7 @@
     },
     "/meeting/validateUser": {
       "post": {
-        "summary": "validateUser",
+        "summary": "Validate token",
         "operationId": "post-meeting-validateUser",
         "responses": {
           "200": {
@@ -2492,7 +2492,7 @@
         }
       ],
       "get": {
-        "summary": "getMeetingByToken",
+        "summary": "Get meeting details by token",
         "tags": [],
         "responses": {
           "200": {
@@ -2651,7 +2651,7 @@
     },
     "/user": {
       "post": {
-        "summary": "getUserDetails",
+        "summary": "Get user details",
         "operationId": "post-user",
         "responses": {
           "200": {
@@ -2860,7 +2860,7 @@
         }
       ],
       "get": {
-        "summary": "getEntityById",
+        "summary": "Get business entity details by id",
         "tags": [],
         "responses": {
           "200": {
@@ -2912,7 +2912,7 @@
     },
     "/entity": {
       "get": {
-        "summary": "getEntityByDomainURL",
+        "summary": "Get business entity details",
         "tags": [],
         "responses": {
           "200": {
@@ -2972,7 +2972,7 @@
         ]
       },
       "post": {
-        "summary": "createBusinessEntity",
+        "summary": "Create Business Entity",
         "operationId": "post-entity",
         "responses": {
           "201": {
@@ -3190,7 +3190,7 @@
         }
       ],
       "post": {
-        "summary": "addMeetingParticipants",
+        "summary": "Add meeting participants",
         "operationId": "post-meeting-id-addParticipants",
         "responses": {
           "201": {
@@ -3333,7 +3333,7 @@
     },
     "/handleVerification": {
       "get": {
-        "summary": "validateVerficationId",
+        "summary": "Validate verfication id",
         "tags": [],
         "responses": {
           "200": {
@@ -3499,7 +3499,7 @@
         ]
       },
       "post": {
-        "summary": "generateVerficationId",
+        "summary": "Generate verfication id",
         "operationId": "post-handleVerification",
         "responses": {
           "201": {
