@@ -758,12 +758,15 @@
                       "items": {
                         "type": "object",
                         "properties": {
+                          "stealthMode": {
+                            "type": "boolean"
+                          },
                           "isOrganizer": {
                             "type": "boolean"
                           },
                           "meetingUserId": {
                             "type": "number",
-                            "example": 83
+                            "example": 74
                           },
                           "meetingId": {
                             "type": "string",
@@ -774,12 +777,10 @@
                             "type": "object",
                             "properties": {
                               "anonymousUserId": {
-                                "type": "number",
-                                "example": 84
+                                "type": "number"
                               },
                               "emailId": {
-                                "type": "string",
-                                "example": "rajesh.a@gamil.com"
+                                "type": "string"
                               }
                             }
                           },
@@ -788,18 +789,17 @@
                             "properties": {
                               "emailId": {
                                 "type": "string",
-                                "minLength": 1,
-                                "example": "brad.p@tra-augment.com"
+                                "minLength": 1
                               },
                               "userId": {
                                 "type": "string",
-                                "minLength": 1,
-                                "example": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                                "minLength": 1
                               }
                             }
                           }
                         },
                         "required": [
+                          "stealthMode",
                           "isOrganizer",
                           "meetingUserId",
                           "meetingId"
@@ -813,8 +813,7 @@
                     }
                   },
                   "required": [
-                    "data",
-                    "status"
+                    "data"
                   ]
                 },
                 "examples": {
@@ -822,6 +821,7 @@
                     "value": {
                       "data": [
                         {
+                          "stealthMode": true,
                           "isOrganizer": true,
                           "meetingUserId": 83,
                           "meetingId": "b745a235-0036-4740-8c65-3113d9d5bb3b",
@@ -839,6 +839,7 @@
                     "value": {
                       "data": [
                         {
+                          "stealthMode": true,
                           "isOrganizer": false,
                           "meetingUserId": 83,
                           "meetingId": "b745a235-0036-4740-8c65-3113d9d5bb3b",
@@ -931,19 +932,25 @@
                     "uniqueItems": true,
                     "minItems": 1,
                     "items": {
-                      "required": [
-                        "isOrganizer",
-                        "userId"
-                      ],
+                      "type": "object",
                       "properties": {
+                        "stealthMode": {
+                          "type": "boolean"
+                        },
                         "isOrganizer": {
                           "type": "boolean"
                         },
                         "userId": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "example": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
                         }
-                      }
+                      },
+                      "required": [
+                        "stealthMode",
+                        "isOrganizer",
+                        "userId"
+                      ]
                     }
                   }
                 },
@@ -956,6 +963,7 @@
                   "value": {
                     "users": [
                       {
+                        "stealthMode": true,
                         "isOrganizer": true,
                         "userId": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
                       }
@@ -1013,41 +1021,47 @@
           "content": {
             "application/json": {
               "schema": {
+                "description": "",
                 "type": "object",
                 "properties": {
                   "users": {
                     "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
                     "items": {
                       "type": "object",
                       "properties": {
+                        "stealthMode": {
+                          "type": "boolean"
+                        },
                         "isOrganizer": {
                           "type": "boolean"
                         },
                         "meetingUserId": {
-                          "type": "string",
-                          "example": "12"
-                        },
-                        "emailId": {
-                          "type": "string",
-                          "format": "email",
-                          "example": "christian.b@tra-augment.com"
+                          "type": "number",
+                          "example": 45
                         }
                       },
                       "required": [
+                        "stealthMode",
+                        "isOrganizer",
                         "meetingUserId"
                       ]
                     }
                   }
-                }
+                },
+                "required": [
+                  "users"
+                ]
               },
               "examples": {
                 "application/json": {
                   "value": {
                     "users": [
                       {
+                        "stealthMode": true,
                         "isOrganizer": true,
-                        "meetingUserId": "12",
-                        "emailId": "christian.b@tra-augment.com"
+                        "meetingUserId": 45
                       }
                     ]
                   }
@@ -1518,6 +1532,7 @@
                     "value": {
                       "data": [
                         {
+                          "stealthMode": false,
                           "isOrganizer": true,
                           "meetingUserId": 87,
                           "sessionDetails": [
@@ -1545,6 +1560,7 @@
                     "value": {
                       "data": [
                         {
+                          "stealthMode": false,
                           "isOrganizer": true,
                           "meetingUserId": 87,
                           "sessionDetails": [
