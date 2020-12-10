@@ -1457,12 +1457,15 @@
                       "items": {
                         "type": "object",
                         "properties": {
+                          "stealthMode": {
+                            "type": "boolean"
+                          },
                           "isOrganizer": {
                             "type": "boolean"
                           },
                           "meetingUserId": {
                             "type": "number",
-                            "example": 87
+                            "example": 45
                           },
                           "sessionDetails": {
                             "type": "array",
@@ -1476,16 +1479,13 @@
                             "type": "object",
                             "properties": {
                               "anonymousUserId": {
-                                "type": "number",
-                                "example": 90
+                                "type": "number"
                               },
                               "emailId": {
-                                "type": "string",
-                                "example": "sathish.a@gamil.com"
+                                "type": "string"
                               },
                               "userName": {
-                                "type": "string",
-                                "example": "Sathish"
+                                "type": "string"
                               }
                             }
                           },
@@ -1495,24 +1495,23 @@
                               "emailId": {
                                 "type": "string",
                                 "minLength": 1,
-                                "example": "brad.p@tra-augment.com"
+                                "example": "christoper.n@tra-augment.com"
                               },
                               "userName": {
                                 "type": "string",
                                 "minLength": 1,
-                                "example": "Brad Pitt"
+                                "example": "Christoper Nolan"
                               },
                               "userId": {
                                 "type": "string",
                                 "minLength": 1,
-                                "example": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                                "example": "8478cab8-8070-4072-a893-299ebafd1a6f"
                               }
                             }
                           }
                         },
                         "required": [
-                          "isOrganizer",
-                          "meetingUserId"
+                          "stealthMode"
                         ]
                       }
                     },
@@ -1523,8 +1522,7 @@
                     }
                   },
                   "required": [
-                    "data",
-                    "status"
+                    "data"
                   ]
                 },
                 "examples": {
@@ -1542,7 +1540,7 @@
                               "joinTime": "2020-10-07T10:30:00Z",
                               "uploadSpeed": 5048,
                               "downloadSpeed": 5048,
-                              "device": "PC"
+                              "device": "Web"
                             }
                           ],
                           "anonymousUser": {},
@@ -1570,7 +1568,7 @@
                               "joinTime": "2020-10-07T10:30:00Z",
                               "uploadSpeed": 5048,
                               "downloadSpeed": 5048,
-                              "device": "PC"
+                              "device": "Web"
                             }
                           ],
                           "anonymousUser": {
