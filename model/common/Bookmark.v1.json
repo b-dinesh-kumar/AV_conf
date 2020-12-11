@@ -1,27 +1,51 @@
 {
-  "title": "Bookmark",
+  "description": "",
   "type": "object",
   "properties": {
     "bookmarkId": {
       "type": "number",
-      "example": 31
+      "example": 591
     },
     "meetingUserId": {
       "type": "number",
-      "example": 7
+      "example": 579
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "example": "some description"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "example": "some titles"
+    },
+    "userId": {
+      "type": "string",
+      "minLength": 1,
+      "example": "430810f6-a2bb-4eb4-a1ab-526629892e78"
     },
     "bookmarkTime": {
-      "type": "string",
-      "format": "time",
-      "example": "11:15:45"
+      "type": "number",
+      "example": 30
     }
   },
+  "required": [
+    "bookmarkId",
+    "meetingUserId",
+    "description",
+    "title",
+    "userId",
+    "bookmarkTime"
+  ],
   "x-examples": {
     "application/json": {
-      "bookmarkId": 31,
-      "meetingUserId": 7,
-      "bookmarkTime": "11:15:45"
+      "bookmarkId": 591,
+      "meetingUserId": 579,
+      "description": "some description",
+      "title": "some titles",
+      "userId": "430810f6-a2bb-4eb4-a1ab-526629892e78",
+      "bookmarkTime": 30
     }
-  },
-  "description": ""
+  }
 }

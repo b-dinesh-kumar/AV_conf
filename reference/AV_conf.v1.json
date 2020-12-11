@@ -219,6 +219,15 @@
             "name": "Authorization",
             "description": "bearer token",
             "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "%2B5:30"
+            },
+            "in": "query",
+            "name": "timeZone",
+            "description": "To convert the UTC time zone into given time zone ( use %2B for plus(+) symbol and use %2D for mius(-) symbol, Eg: %2B5:30)"
           }
         ]
       },
@@ -3628,6 +3637,547 @@
           }
         },
         "description": "To generate verification id "
+      }
+    },
+    "/meeting/{id}/recording": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "041113d9-0796-4567-86b9-33b14ecd6764"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        }
+      ],
+      "get": {
+        "summary": "Get all the recordings by meeting id",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bookmarks": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "../model/common/Bookmark.v1.json"
+                            }
+                          },
+                          "fileName": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "recording1233.mp4"
+                          },
+                          "durationTime": {
+                            "type": "number",
+                            "example": 350
+                          },
+                          "domain": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "https://www.azure.com"
+                          },
+                          "filePath": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "/conference/recording2/"
+                          },
+                          "meetingId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "31365cf8-53a5-4042-9a45-2db3f4815f06"
+                          },
+                          "recStartTime": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "recordingId": {
+                            "type": "number",
+                            "example": 589
+                          },
+                          "recEndTime": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2020-12-12T15:25:00Z"
+                          }
+                        },
+                        "required": [
+                          "fileName",
+                          "durationTime",
+                          "domain",
+                          "filePath",
+                          "meetingId",
+                          "recStartTime",
+                          "recordingId"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "bookmarks": [
+                            {
+                              "bookmarkId": 591,
+                              "meetingUserId": 579,
+                              "description": "some description",
+                              "title": "some titles",
+                              "userId": "430810f6-a2bb-4eb4-a1ab-526629892e78",
+                              "bookmarkTime": 30
+                            }
+                          ],
+                          "fileName": "recording1233.mp4",
+                          "durationTime": 350,
+                          "domain": "https://www.azure.com",
+                          "filePath": "/conference/recording2/",
+                          "meetingId": "31365cf8-53a5-4042-9a45-2db3f4815f06",
+                          "recStartTime": "string",
+                          "recordingId": 589,
+                          "recEndTime": "2020-12-12T15:25:00Z"
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-id-recording",
+        "description": "Retrieve all the recordings by meeting id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create meeting recording",
+        "operationId": "post-meeting-id-recording",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "recordingId"
+                      ],
+                      "properties": {
+                        "recordingId": {
+                          "type": "number",
+                          "example": 590
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "recordingId": 590
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create a meeting recording",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "recStartTime": {
+                    "type": "string",
+                    "minLength": 1,
+                    "format": "date-time",
+                    "example": "2020-12-13T14:25:00Z"
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "recording567.mp4"
+                  },
+                  "domain": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "https://www.azure.com"
+                  },
+                  "filePath": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "/conference/recording/"
+                  },
+                  "meetingUserId": {
+                    "type": "number",
+                    "example": 583
+                  }
+                },
+                "required": [
+                  "recStartTime",
+                  "fileName",
+                  "domain",
+                  "filePath",
+                  "meetingUserId"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "recStartTime": "2020-12-13T14:25:00Z",
+                    "fileName": "recording567.mp4",
+                    "domain": "https://www.azure.com",
+                    "filePath": "/conference/recording/",
+                    "meetingUserId": 583
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/meeting/{id}/recording/{recId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "041113d9-0796-4567-86b9-33b14ecd6764"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        },
+        {
+          "schema": {
+            "type": "string",
+            "example": "590"
+          },
+          "name": "recId",
+          "in": "path",
+          "required": true,
+          "description": "Recording id"
+        }
+      ],
+      "patch": {
+        "summary": "Update meeting recording",
+        "operationId": "patch-meeting-id-recording-recId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Update-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "message": "Updated successfully"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To update a meeting recording",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "recEndTime": {
+                    "type": "string",
+                    "minLength": 1,
+                    "format": "date-time",
+                    "example": "2020-12-13T15:25:00Z"
+                  },
+                  "durationTime": {
+                    "type": "number",
+                    "example": 350
+                  },
+                  "fileName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "recording133.mp4"
+                  },
+                  "domain": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "https://www.azure.com"
+                  },
+                  "filePath": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "/conference/recording/"
+                  }
+                }
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "recEndTime": "2020-12-13T15:25:00Z",
+                    "durationTime": 350,
+                    "fileName": "recording133.mp4",
+                    "domain": "https://www.azure.com",
+                    "filePath": "/conference/recording/"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recording/{recId}/bookmark": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "590"
+          },
+          "name": "recId",
+          "in": "path",
+          "required": true,
+          "description": "Recording id"
+        }
+      ],
+      "get": {
+        "summary": "Get all the bookmarks",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "$ref": "../model/common/Bookmark.v1.json"
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "bookmarkId": 591,
+                          "meetingUserId": 579,
+                          "description": "some description",
+                          "title": "some titles",
+                          "userId": "430810f6-a2bb-4eb4-a1ab-526629892e78",
+                          "bookmarkTime": 30
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-recording-recId-bookmark",
+        "description": "Retrieve all the bookmarks by recording id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create bookmark",
+        "operationId": "post-recording-recId-bookmark",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "bookmarkId"
+                      ],
+                      "properties": {
+                        "bookmarkId": {
+                          "type": "number",
+                          "example": 592
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "bookmarkId": 592
+                      },
+                      "status": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create a bookmark",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "bookmarkTime": {
+                    "type": "number",
+                    "example": 120
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "description"
+                  },
+                  "meetingUserId": {
+                    "type": "number",
+                    "example": 578
+                  },
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "some title"
+                  }
+                },
+                "required": [
+                  "bookmarkTime",
+                  "description",
+                  "meetingUserId",
+                  "title"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "bookmarkTime": 120,
+                    "description": "description",
+                    "meetingUserId": 578,
+                    "title": "some title"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
