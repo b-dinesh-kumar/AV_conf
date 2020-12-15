@@ -4179,6 +4179,372 @@
           }
         }
       }
+    },
+    "/meeting/recurring": {
+      "post": {
+        "summary": "Create recurring meeting",
+        "operationId": "post-meeting-recurring",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "meetingId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "8d7ed548-919d-4410-9e96-fd9a513951ae"
+                          },
+                          "schStartTime": {
+                            "type": "string",
+                            "minLength": 1,
+                            "format": "date-time",
+                            "example": "2020-12-15T10:30:00Z"
+                          }
+                        },
+                        "required": [
+                          "meetingId",
+                          "schStartTime"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "meetingId": "8d7ed548-919d-4410-9e96-fd9a513951ae",
+                          "schStartTime": "2020-12-15T10:30:00Z"
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "errorMessage": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Meeting name already present in the mentioned time"
+                          },
+                          "errorCode": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "101"
+                          }
+                        },
+                        "required": [
+                          "errorMessage",
+                          "errorCode"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "error"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json (1)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Meeting name already present in the mentioned time",
+                          "errorCode": "101"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "End time should be greater than Start time",
+                          "errorCode": "102"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (3)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Start date cannot be past date",
+                          "errorCode": "103"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "errorMessage": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Access denied"
+                          },
+                          "errorCode": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "403"
+                          }
+                        },
+                        "required": [
+                          "errorMessage",
+                          "errorCode"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Access denied",
+                          "errorCode": "403"
+                        }
+                      ],
+                      "status": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create a recurring meeting",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "bearer token",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "recurringTimings": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "schStartTime": {
+                          "type": "string",
+                          "minLength": 1,
+                          "format": "date-time",
+                          "example": "2020-12-16T11:30:00Z"
+                        },
+                        "schEndTime": {
+                          "type": "string",
+                          "minLength": 1,
+                          "format": "date-time",
+                          "example": "2020-12-16T12:30:00Z"
+                        }
+                      },
+                      "required": [
+                        "schStartTime",
+                        "schEndTime"
+                      ]
+                    }
+                  },
+                  "meetingName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Sprint meeting"
+                  },
+                  "meetingDesc": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "This meeting is about sprint 1"
+                  },
+                  "isWaitRoomEnabled": {
+                    "type": "boolean"
+                  },
+                  "allowAnonymousUsers": {
+                    "type": "boolean"
+                  },
+                  "isScreenshareUsed": {
+                    "type": "boolean"
+                  },
+                  "isRecordingUsed": {
+                    "type": "boolean"
+                  },
+                  "isAudioUsed": {
+                    "type": "boolean"
+                  },
+                  "allowUsersInWaitRoom": {
+                    "type": "boolean"
+                  },
+                  "isVideoUsed": {
+                    "type": "boolean"
+                  },
+                  "isAutoRecEnabled": {
+                    "type": "boolean"
+                  },
+                  "showRecording": {
+                    "type": "boolean"
+                  },
+                  "users": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "stealthMode": {
+                          "type": "boolean"
+                        },
+                        "isOrganizer": {
+                          "type": "boolean"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "430810f6-a2bb-4eb4-a1ab-526629892e78"
+                        }
+                      },
+                      "required": [
+                        "stealthMode",
+                        "isOrganizer",
+                        "userId"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "recurringTimings",
+                  "meetingName",
+                  "meetingDesc",
+                  "isWaitRoomEnabled",
+                  "allowAnonymousUsers",
+                  "isScreenshareUsed",
+                  "isRecordingUsed",
+                  "isAudioUsed",
+                  "allowUsersInWaitRoom",
+                  "isVideoUsed",
+                  "isAutoRecEnabled",
+                  "showRecording",
+                  "users"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "recurringTimings": [
+                      {
+                        "schStartTime": "2020-12-16T11:30:00Z",
+                        "schEndTime": "2020-12-16T12:30:00Z"
+                      }
+                    ],
+                    "meetingName": "Sprint meeting",
+                    "meetingDesc": "This meeting is about sprint 1",
+                    "isWaitRoomEnabled": true,
+                    "allowAnonymousUsers": true,
+                    "isScreenshareUsed": true,
+                    "isRecordingUsed": true,
+                    "isAudioUsed": true,
+                    "allowUsersInWaitRoom": true,
+                    "isVideoUsed": true,
+                    "isAutoRecEnabled": true,
+                    "showRecording": true,
+                    "users": [
+                      {
+                        "stealthMode": true,
+                        "isOrganizer": true,
+                        "userId": "430810f6-a2bb-4eb4-a1ab-526629892e78"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
