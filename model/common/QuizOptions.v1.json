@@ -1,0 +1,30 @@
+{
+  "description": "",
+  "type": "object",
+  "properties": {
+    "optionDesc": {
+      "type": "string",
+      "minLength": 1,
+      "example": "option-a"
+    },
+    "quizOptionId": {
+      "type": "number",
+      "example": 622
+    },
+    "isCorrectOption": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "optionDesc",
+    "quizOptionId",
+    "isCorrectOption"
+  ],
+  "x-examples": {
+    "application/json": {
+      "optionDesc": "option-a",
+      "quizOptionId": 622,
+      "isCorrectOption": true
+    }
+  }
+}

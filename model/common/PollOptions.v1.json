@@ -1,0 +1,25 @@
+{
+  "description": "",
+  "type": "object",
+  "x-examples": {
+    "application/json": {
+      "optionDesc": "option-1",
+      "pollOptionId": 0
+    }
+  },
+  "properties": {
+    "optionDesc": {
+      "type": "string",
+      "minLength": 1,
+      "example": "option-1"
+    },
+    "pollOptionId": {
+      "type": "number",
+      "example": 615
+    }
+  },
+  "required": [
+    "optionDesc",
+    "pollOptionId"
+  ]
+}
