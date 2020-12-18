@@ -92,7 +92,6 @@
     "meetingUserId",
     "meetingId",
     "pollQuestion",
-    "pollOptions",
-    "answerdBy"
+    "pollOptions"
   ]
 }

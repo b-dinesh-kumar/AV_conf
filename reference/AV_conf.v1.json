@@ -4666,16 +4666,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "type": "object",
-                      "required": [
-                        "quizId"
-                      ],
-                      "properties": {
-                        "quizId": {
-                          "type": "number",
-                          "example": 627
-                        }
-                      }
+                      "$ref": "../model/common/Quiz.v1.json"
                     },
                     "status": {
                       "type": "string",
@@ -4692,7 +4683,18 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "quizId": 627
+                        "quizQuestion": "sample quiz question ?",
+                        "quizId": 642,
+                        "meetingUserId": 606,
+                        "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+                        "quizOptions": [
+                          {
+                            "optionDesc": "option-1",
+                            "quizOptionId": 643,
+                            "isCorrectOption": true
+                          }
+                        ],
+                        "answerdBy": []
                       },
                       "status": "success"
                     }
@@ -4803,42 +4805,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "type": "object",
-                      "required": [
-                        "quizQuestion",
-                        "quizId",
-                        "meetingUserId",
-                        "meetingId",
-                        "quizOptions"
-                      ],
-                      "properties": {
-                        "quizQuestion": {
-                          "type": "string",
-                          "minLength": 1,
-                          "example": "sample quiz question 2?"
-                        },
-                        "quizId": {
-                          "type": "number",
-                          "example": 623
-                        },
-                        "meetingUserId": {
-                          "type": "number",
-                          "example": 606
-                        },
-                        "meetingId": {
-                          "type": "string",
-                          "minLength": 1,
-                          "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
-                        },
-                        "quizOptions": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "$ref": "../model/common/QuizOptions.v1.json"
-                          }
-                        }
-                      }
+                      "$ref": "../model/common/Quiz.v1.json"
                     },
                     "status": {
                       "type": "string",
@@ -4855,15 +4822,21 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "quizQuestion": "sample quiz question 2?",
-                        "quizId": 623,
+                        "quizQuestion": "sample quiz question ?",
+                        "quizId": 642,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
                         "quizOptions": [
                           {
-                            "optionDesc": "option-a",
-                            "quizOptionId": 622,
+                            "optionDesc": "option-1",
+                            "quizOptionId": 643,
                             "isCorrectOption": true
+                          }
+                        ],
+                        "answerdBy": [
+                          {
+                            "quizOptionId": 643,
+                            "meetingUserId": 608
                           }
                         ]
                       },
@@ -4998,16 +4971,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "type": "object",
-                      "required": [
-                        "pollId"
-                      ],
-                      "properties": {
-                        "pollId": {
-                          "type": "number",
-                          "example": 620
-                        }
-                      }
+                      "$ref": "../model/common/Poll.v1.json"
                     },
                     "status": {
                       "type": "string",
@@ -5024,7 +4988,17 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "pollId": 620
+                        "pollId": 635,
+                        "meetingUserId": 606,
+                        "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+                        "pollQuestion": "sample poll question ?",
+                        "pollOptions": [
+                          {
+                            "optionDesc": "option-a",
+                            "pollOptionId": 636
+                          }
+                        ],
+                        "answerdBy": []
                       },
                       "status": "success"
                     }
@@ -5117,42 +5091,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "type": "object",
-                      "required": [
-                        "pollId",
-                        "meetingUserId",
-                        "meetingId",
-                        "pollQuestion",
-                        "pollOptions"
-                      ],
-                      "properties": {
-                        "pollId": {
-                          "type": "number",
-                          "example": 620
-                        },
-                        "meetingUserId": {
-                          "type": "number",
-                          "example": 606
-                        },
-                        "meetingId": {
-                          "type": "string",
-                          "minLength": 1,
-                          "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
-                        },
-                        "pollQuestion": {
-                          "type": "string",
-                          "minLength": 1,
-                          "example": "sample poll question 2?"
-                        },
-                        "pollOptions": {
-                          "type": "array",
-                          "uniqueItems": true,
-                          "minItems": 1,
-                          "items": {
-                            "$ref": "../model/common/PollOptions.v1.json"
-                          }
-                        }
-                      }
+                      "$ref": "../model/common/Poll.v1.json"
                     },
                     "status": {
                       "type": "string",
@@ -5169,14 +5108,20 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "pollId": 620,
+                        "pollId": 635,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
-                        "pollQuestion": "sample poll question 2?",
+                        "pollQuestion": "sample poll question ?",
                         "pollOptions": [
                           {
-                            "optionDesc": "option-1",
-                            "pollOptionId": 615
+                            "optionDesc": "option-a",
+                            "pollOptionId": 636
+                          }
+                        ],
+                        "answerdBy": [
+                          {
+                            "meetingUserId": 608,
+                            "pollOptionId": 636
                           }
                         ]
                       },

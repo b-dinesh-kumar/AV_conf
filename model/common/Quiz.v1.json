@@ -1,0 +1,103 @@
+{
+  "description": "",
+  "type": "object",
+  "properties": {
+    "quizQuestion": {
+      "type": "string",
+      "minLength": 1,
+      "example": "sample quiz question ?"
+    },
+    "quizId": {
+      "type": "number",
+      "example": 642
+    },
+    "meetingUserId": {
+      "type": "number",
+      "example": 606
+    },
+    "meetingId": {
+      "type": "string",
+      "minLength": 1,
+      "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
+    },
+    "quizOptions": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "optionDesc": {
+            "type": "string",
+            "minLength": 1,
+            "example": "option-1"
+          },
+          "quizOptionId": {
+            "type": "number",
+            "example": 643
+          },
+          "isCorrectOption": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "optionDesc",
+          "quizOptionId",
+          "isCorrectOption"
+        ]
+      }
+    },
+    "answerdBy": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "quizOptionId": {
+            "type": "number",
+            "example": 643
+          },
+          "meetingUserId": {
+            "type": "number",
+            "example": 608
+          }
+        },
+        "required": [
+          "quizOptionId",
+          "meetingUserId"
+        ]
+      }
+    }
+  },
+  "required": [
+    "quizQuestion",
+    "quizId",
+    "meetingUserId",
+    "meetingId",
+    "quizOptions",
+    "answerdBy"
+  ],
+  "x-examples": {
+    "application/json": {
+      "quizQuestion": "sample quiz question ?",
+      "quizId": 642,
+      "meetingUserId": 606,
+      "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+      "quizOptions": [
+        {
+          "optionDesc": "option-1",
+          "quizOptionId": 643,
+          "isCorrectOption": true
+        }
+      ],
+      "answerdBy": [
+        {
+          "quizOptionId": 643,
+          "meetingUserId": 608
+        }
+      ]
+    }
+  },
+  "title": "Quiz"
+}
