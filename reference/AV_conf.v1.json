@@ -4580,8 +4580,12 @@
                         "properties": {
                           "quizQuestion": {
                             "type": "string",
-                            "minLength": 1,
                             "example": "sample quiz question?"
+                          },
+                          "createdDate": {
+                            "type": "string",
+                            "format": "date-time",
+                            "example": "2020-12-17T06:34:58Z"
                           },
                           "quizId": {
                             "type": "number",
@@ -4593,24 +4597,16 @@
                           },
                           "meetingId": {
                             "type": "string",
-                            "minLength": 1,
                             "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
                           },
                           "quizOptions": {
                             "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
                             "items": {
                               "$ref": "../model/common/QuizOptions.v1.json"
                             }
-                          }
-                        },
-                        "required": [
-                          "quizQuestion",
-                          "quizId",
-                          "meetingUserId",
-                          "meetingId"
-                        ]
+                          },
+                          "updatedDate": {}
+                        }
                       }
                     },
                     "status": {
@@ -4630,6 +4626,7 @@
                       "data": [
                         {
                           "quizQuestion": "sample quiz question?",
+                          "createdDate": "2020-12-17T06:34:58Z",
                           "quizId": 619,
                           "meetingUserId": 606,
                           "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
@@ -4639,7 +4636,8 @@
                               "quizOptionId": 622,
                               "isCorrectOption": true
                             }
-                          ]
+                          ],
+                          "updatedDate": null
                         }
                       ],
                       "status": "success"
@@ -4684,17 +4682,24 @@
                     "value": {
                       "data": {
                         "quizQuestion": "sample quiz question ?",
+                        "createdDate": "2020-12-18T08:52:39Z",
                         "quizId": 642,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
                         "quizOptions": [
                           {
-                            "optionDesc": "option-1",
-                            "quizOptionId": 643,
+                            "optionDesc": "option-a",
+                            "quizOptionId": 622,
                             "isCorrectOption": true
                           }
                         ],
-                        "answerdBy": []
+                        "updatedDate": null,
+                        "answerdBy": [
+                          {
+                            "quizOptionId": 643,
+                            "meetingUserId": 608
+                          }
+                        ]
                       },
                       "status": "success"
                     }
@@ -4823,16 +4828,18 @@
                     "value": {
                       "data": {
                         "quizQuestion": "sample quiz question ?",
+                        "createdDate": "2020-12-18T08:52:39Z",
                         "quizId": 642,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
                         "quizOptions": [
                           {
-                            "optionDesc": "option-1",
-                            "quizOptionId": 643,
+                            "optionDesc": "option-a",
+                            "quizOptionId": 622,
                             "isCorrectOption": true
                           }
                         ],
+                        "updatedDate": null,
                         "answerdBy": [
                           {
                             "quizOptionId": 643,
@@ -4884,6 +4891,12 @@
                       "items": {
                         "type": "object",
                         "properties": {
+                          "createdDate": {
+                            "type": "string",
+                            "minLength": 1,
+                            "format": "date-time",
+                            "example": "2020-12-17T06:33:48Z"
+                          },
                           "pollId": {
                             "type": "number",
                             "example": 611
@@ -4897,10 +4910,11 @@
                             "minLength": 1,
                             "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
                           },
+                          "updatedDate": {},
                           "pollQuestion": {
                             "type": "string",
                             "minLength": 1,
-                            "example": "sample question?"
+                            "example": "sample poll question 1?"
                           },
                           "pollOptions": {
                             "type": "array",
@@ -4912,6 +4926,7 @@
                           }
                         },
                         "required": [
+                          "createdDate",
                           "pollId",
                           "meetingUserId",
                           "meetingId",
@@ -4935,10 +4950,12 @@
                     "value": {
                       "data": [
                         {
+                          "createdDate": "2020-12-17T06:33:48Z",
                           "pollId": 611,
                           "meetingUserId": 606,
                           "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
-                          "pollQuestion": "sample question?",
+                          "updatedDate": null,
+                          "pollQuestion": "sample poll question 1?",
                           "pollOptions": [
                             {
                               "optionDesc": "option-1",
@@ -4988,17 +5005,24 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "pollId": 635,
+                        "createdDate": "2020-12-17T06:33:48Z",
+                        "pollId": 611,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+                        "updatedDate": null,
                         "pollQuestion": "sample poll question ?",
                         "pollOptions": [
                           {
-                            "optionDesc": "option-a",
-                            "pollOptionId": 636
+                            "optionDesc": "option-1",
+                            "pollOptionId": 615
                           }
                         ],
-                        "answerdBy": []
+                        "answerdBy": [
+                          {
+                            "meetingUserId": 608,
+                            "pollOptionId": 612
+                          }
+                        ]
                       },
                       "status": "success"
                     }
@@ -5108,20 +5132,22 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "pollId": 635,
+                        "createdDate": "2020-12-17T06:33:48Z",
+                        "pollId": 611,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+                        "updatedDate": null,
                         "pollQuestion": "sample poll question ?",
                         "pollOptions": [
                           {
-                            "optionDesc": "option-a",
-                            "pollOptionId": 636
+                            "optionDesc": "option-1",
+                            "pollOptionId": 615
                           }
                         ],
                         "answerdBy": [
                           {
                             "meetingUserId": 608,
-                            "pollOptionId": 636
+                            "pollOptionId": 612
                           }
                         ]
                       },
@@ -5180,20 +5206,22 @@
                     "value": {
                       "data": {
                         "quizQuestion": "sample quiz question ?",
+                        "createdDate": "2020-12-18T08:52:39Z",
                         "quizId": 642,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
                         "quizOptions": [
                           {
-                            "optionDesc": "option-1",
-                            "quizOptionId": 643,
+                            "optionDesc": "option-a",
+                            "quizOptionId": 622,
                             "isCorrectOption": true
                           }
                         ],
+                        "updatedDate": null,
                         "answerdBy": [
                           {
                             "quizOptionId": 643,
-                            "meetingUserId": 610
+                            "meetingUserId": 608
                           }
                         ]
                       },
@@ -5282,20 +5310,22 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "pollId": 635,
+                        "createdDate": "2020-12-17T06:33:48Z",
+                        "pollId": 611,
                         "meetingUserId": 606,
                         "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+                        "updatedDate": null,
                         "pollQuestion": "sample poll question ?",
                         "pollOptions": [
                           {
-                            "optionDesc": "option-a",
-                            "pollOptionId": 636
+                            "optionDesc": "option-1",
+                            "pollOptionId": 615
                           }
                         ],
                         "answerdBy": [
                           {
                             "meetingUserId": 608,
-                            "pollOptionId": 636
+                            "pollOptionId": 612
                           }
                         ]
                       },
