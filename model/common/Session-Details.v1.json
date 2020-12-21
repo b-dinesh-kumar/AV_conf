@@ -50,5 +50,6 @@
     "uploadSpeed",
     "downloadSpeed",
     "device"
-  ]
+  ],
+  "title": "Session-details"
 }

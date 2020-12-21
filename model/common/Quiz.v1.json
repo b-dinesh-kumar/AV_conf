@@ -7,6 +7,12 @@
       "minLength": 1,
       "example": "sample quiz question ?"
     },
+    "createdDate": {
+      "type": "string",
+      "minLength": 1,
+      "format": "date-time",
+      "example": "2020-12-18T08:52:39Z"
+    },
     "quizId": {
       "type": "number",
       "example": 642
@@ -25,28 +31,10 @@
       "uniqueItems": true,
       "minItems": 1,
       "items": {
-        "type": "object",
-        "properties": {
-          "optionDesc": {
-            "type": "string",
-            "minLength": 1,
-            "example": "option-1"
-          },
-          "quizOptionId": {
-            "type": "number",
-            "example": 643
-          },
-          "isCorrectOption": {
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "optionDesc",
-          "quizOptionId",
-          "isCorrectOption"
-        ]
+        "$ref": "./QuizOptions.v1.json"
       }
     },
+    "updatedDate": {},
     "answerdBy": {
       "type": "array",
       "uniqueItems": true,
@@ -72,6 +60,7 @@
   },
   "required": [
     "quizQuestion",
+    "createdDate",
     "quizId",
     "meetingUserId",
     "meetingId",
@@ -81,16 +70,18 @@
   "x-examples": {
     "application/json": {
       "quizQuestion": "sample quiz question ?",
+      "createdDate": "2020-12-18T08:52:39Z",
       "quizId": 642,
       "meetingUserId": 606,
       "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
       "quizOptions": [
         {
-          "optionDesc": "option-1",
-          "quizOptionId": 643,
+          "optionDesc": "option-a",
+          "quizOptionId": 622,
           "isCorrectOption": true
         }
       ],
+      "updatedDate": null,
       "answerdBy": [
         {
           "quizOptionId": 643,
@@ -98,6 +89,5 @@
         }
       ]
     }
-  },
-  "title": "Quiz"
+  }
 }

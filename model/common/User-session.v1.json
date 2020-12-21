@@ -64,5 +64,6 @@
     "uploadSpeed",
     "userSessionId",
     "device"
-  ]
+  ],
+  "title": "User-session"
 }

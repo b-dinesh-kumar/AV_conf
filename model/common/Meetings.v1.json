@@ -124,5 +124,6 @@
     "isVideoUsed",
     "allowUsersInWaitRoom",
     "status"
-  ]
+  ],
+  "title": "Meetings"
 }

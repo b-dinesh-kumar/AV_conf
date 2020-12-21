@@ -21,5 +21,6 @@
   "required": [
     "optionDesc",
     "pollOptionId"
-  ]
+  ],
+  "title": "PollOptions"
 }

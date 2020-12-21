@@ -1,31 +1,16 @@
 {
   "description": "",
   "type": "object",
-  "x-examples": {
-    "application/json": {
-      "pollId": 635,
-      "meetingUserId": 606,
-      "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
-      "pollQuestion": "sample poll question ?",
-      "pollOptions": [
-        {
-          "optionDesc": "option-a",
-          "pollOptionId": 636
-        }
-      ],
-      "answerdBy": [
-        {
-          "meetingUserId": 608,
-          "pollOptionId": 636
-        }
-      ]
-    }
-  },
-  "title": "Poll",
   "properties": {
+    "createdDate": {
+      "type": "string",
+      "minLength": 1,
+      "format": "date-time",
+      "example": "2020-12-17T06:33:48Z"
+    },
     "pollId": {
       "type": "number",
-      "example": 635
+      "example": 611
     },
     "meetingUserId": {
       "type": "number",
@@ -35,6 +20,9 @@
       "type": "string",
       "minLength": 1,
       "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
+    },
+    "updatedDate": {
+      "format": "date-time"
     },
     "pollQuestion": {
       "type": "string",
@@ -46,22 +34,7 @@
       "uniqueItems": true,
       "minItems": 1,
       "items": {
-        "type": "object",
-        "properties": {
-          "optionDesc": {
-            "type": "string",
-            "minLength": 1,
-            "example": "option-a"
-          },
-          "pollOptionId": {
-            "type": "number",
-            "example": 636
-          }
-        },
-        "required": [
-          "optionDesc",
-          "pollOptionId"
-        ]
+        "$ref": "./PollOptions.v1.json"
       }
     },
     "answerdBy": {
@@ -77,7 +50,7 @@
           },
           "pollOptionId": {
             "type": "number",
-            "example": 636
+            "example": 612
           }
         },
         "required": [
@@ -88,10 +61,35 @@
     }
   },
   "required": [
+    "createdDate",
     "pollId",
     "meetingUserId",
     "meetingId",
     "pollQuestion",
-    "pollOptions"
-  ]
+    "pollOptions",
+    "answerdBy"
+  ],
+  "x-examples": {
+    "application/json": {
+      "createdDate": "2020-12-17T06:33:48Z",
+      "pollId": 611,
+      "meetingUserId": 606,
+      "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+      "updatedDate": null,
+      "pollQuestion": "sample poll question ?",
+      "pollOptions": [
+        {
+          "optionDesc": "option-1",
+          "pollOptionId": 615
+        }
+      ],
+      "answerdBy": [
+        {
+          "meetingUserId": 608,
+          "pollOptionId": 612
+        }
+      ]
+    }
+  },
+  "title": "Poll"
 }
