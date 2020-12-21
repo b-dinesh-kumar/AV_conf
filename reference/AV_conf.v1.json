@@ -5341,6 +5341,175 @@
           }
         }
       }
+    },
+    "/meeting/{id}/file": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        }
+      ],
+      "get": {
+        "summary": "Get all the files",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "$ref": "../model/common/File-details.v1.json"
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "fileName": "sample.pdf",
+                          "fileSize": 1922169,
+                          "filePath": "/files/762a8ef3-4cfd-4c71-9222-3a5849778008/sample_1608304535363.pdf",
+                          "meetingUserId": 606,
+                          "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+                          "message": "some message",
+                          "fileType": "pdf",
+                          "fileId": 649
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-id-file",
+        "description": "Retrice all the files by meeting id"
+      },
+      "post": {
+        "summary": "Upload file",
+        "operationId": "post-meeting-id-file",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/File-details.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "fileName": "sample.pdf",
+                        "fileSize": 1922169,
+                        "filePath": "/files/762a8ef3-4cfd-4c71-9222-3a5849778008/sample_1608304535363.pdf",
+                        "meetingUserId": 606,
+                        "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+                        "message": "some message",
+                        "fileType": "pdf",
+                        "fileId": 649
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To upload a file",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "meetingUserId"
+                    ],
+                    "properties": {
+                      "meetingUserId": {
+                        "type": "number",
+                        "example": 606
+                      },
+                      "message": {
+                        "type": "string",
+                        "minLength": 1,
+                        "example": "some message"
+                      }
+                    }
+                  },
+                  "file": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "file upload"
+                  }
+                },
+                "required": [
+                  "data",
+                  "file"
+                ]
+              },
+              "examples": {
+                "multipart/form-data": {
+                  "value": {
+                    "data": {
+                      "meetingUserId": 606,
+                      "message": "some message"
+                    },
+                    "file": "file upload"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {

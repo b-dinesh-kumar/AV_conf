@@ -1,0 +1,65 @@
+{
+  "description": "",
+  "type": "object",
+  "properties": {
+    "fileName": {
+      "type": "string",
+      "minLength": 1,
+      "example": "sample.pdf"
+    },
+    "fileSize": {
+      "type": "number",
+      "example": 1922169
+    },
+    "filePath": {
+      "type": "string",
+      "minLength": 1,
+      "example": "/files/762a8ef3-4cfd-4c71-9222-3a5849778008/sample_1608304535363.pdf"
+    },
+    "meetingUserId": {
+      "type": "number",
+      "example": 606
+    },
+    "meetingId": {
+      "type": "string",
+      "minLength": 1,
+      "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1,
+      "example": "some message"
+    },
+    "fileType": {
+      "type": "string",
+      "minLength": 1,
+      "example": "pdf"
+    },
+    "fileId": {
+      "type": "number",
+      "example": 649
+    }
+  },
+  "required": [
+    "fileName",
+    "fileSize",
+    "filePath",
+    "meetingUserId",
+    "meetingId",
+    "message",
+    "fileType",
+    "fileId"
+  ],
+  "x-examples": {
+    "application/json": {
+      "fileName": "sample.pdf",
+      "fileSize": 1922169,
+      "filePath": "/files/762a8ef3-4cfd-4c71-9222-3a5849778008/sample_1608304535363.pdf",
+      "meetingUserId": 606,
+      "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
+      "message": "some message",
+      "fileType": "pdf",
+      "fileId": 649
+    }
+  }
+}
