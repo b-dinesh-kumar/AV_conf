@@ -5593,6 +5593,220 @@
           }
         }
       }
+    },
+    "/meeting/{id}/chat": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        }
+      ],
+      "get": {
+        "summary": "Get all chats",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "$ref": "../model/common/Chat.v1.json"
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json (1)": {
+                    "value": {
+                      "data": [
+                        {
+                          "toUser": null,
+                          "createdDate": "2020-12-24T12:04:32Z",
+                          "chatId": 935,
+                          "messageType": {
+                            "typeName": "MESSAGE_GROUP",
+                            "typeId": 1
+                          },
+                          "fromUser": {
+                            "meetingUserId": 606
+                          },
+                          "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                          "message": "some message"
+                        }
+                      ],
+                      "status": "string"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": [
+                        {
+                          "toUser": {
+                            "meetingUserId": 610
+                          },
+                          "createdDate": "2020-12-24T12:04:32Z",
+                          "chatId": 935,
+                          "messageType": {
+                            "typeName": "MESSAGE_PRIVATE",
+                            "typeId": 2
+                          },
+                          "fromUser": {
+                            "meetingUserId": 606
+                          },
+                          "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                          "message": "some message"
+                        }
+                      ],
+                      "status": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-id-chat",
+        "description": "Retrieve all the chats by meeting id"
+      },
+      "post": {
+        "summary": "Save chat",
+        "operationId": "post-meeting-id-chat",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/Chat.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "application/json (1)": {
+                    "value": {
+                      "data": {
+                        "toUser": null,
+                        "createdDate": "2020-12-24T12:04:32Z",
+                        "chatId": 935,
+                        "messageType": {
+                          "typeName": "MESSAGE_GROUP",
+                          "typeId": 1
+                        },
+                        "fromUser": {
+                          "meetingUserId": 606
+                        },
+                        "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                        "message": "some message"
+                      },
+                      "status": "success"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": {
+                        "toUser": {
+                          "meetingUserId": 606
+                        },
+                        "createdDate": "2020-12-24T12:04:32Z",
+                        "chatId": 935,
+                        "messageType": {
+                          "typeName": "MESSAGE_PRIVATE",
+                          "typeId": 2
+                        },
+                        "fromUser": {
+                          "meetingUserId": 606
+                        },
+                        "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                        "message": "some message"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To save the chat details",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "some message"
+                  },
+                  "typeId": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "fromUserId": {
+                    "type": "number",
+                    "example": 606
+                  },
+                  "toUserId": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "message",
+                  "typeId",
+                  "fromUserId"
+                ]
+              },
+              "examples": {
+                "application/json (1)": {
+                  "value": {
+                    "message": "some message",
+                    "typeId": 1,
+                    "fromUserId": 606
+                  }
+                },
+                "application/json (2)": {
+                  "value": {
+                    "message": "some message",
+                    "typeId": 1,
+                    "fromUserId": 606,
+                    "toUserId": 610
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
