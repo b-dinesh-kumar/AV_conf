@@ -4596,37 +4596,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "quizQuestion": {
-                            "type": "string",
-                            "example": "sample quiz question?"
-                          },
-                          "createdDate": {
-                            "type": "string",
-                            "format": "date-time",
-                            "example": "2020-12-17T06:34:58Z"
-                          },
-                          "quizId": {
-                            "type": "number",
-                            "example": 619
-                          },
-                          "meetingUserId": {
-                            "type": "number",
-                            "example": 606
-                          },
-                          "meetingId": {
-                            "type": "string",
-                            "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
-                          },
-                          "quizOptions": {
-                            "type": "array",
-                            "items": {
-                              "$ref": "../model/common/QuizOptions.v1.json"
-                            }
-                          },
-                          "updatedDate": {}
-                        }
+                        "$ref": "../model/common/Quiz.v1.json"
                       }
                     },
                     "status": {
@@ -4645,9 +4615,9 @@
                     "value": {
                       "data": [
                         {
-                          "quizQuestion": "sample quiz question?",
-                          "createdDate": "2020-12-17T06:34:58Z",
-                          "quizId": 619,
+                          "quizQuestion": "sample quiz question ?",
+                          "createdDate": "2020-12-18T08:52:39Z",
+                          "quizId": 642,
                           "meetingUserId": 606,
                           "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
                           "quizOptions": [
@@ -4657,7 +4627,13 @@
                               "isCorrectOption": true
                             }
                           ],
-                          "updatedDate": null
+                          "updatedDate": null,
+                          "answerdBy": [
+                            {
+                              "quizOptionId": 643,
+                              "meetingUserId": 608
+                            }
+                          ]
                         }
                       ],
                       "status": "success"
@@ -4909,49 +4885,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "type": "object",
-                        "properties": {
-                          "createdDate": {
-                            "type": "string",
-                            "minLength": 1,
-                            "format": "date-time",
-                            "example": "2020-12-17T06:33:48Z"
-                          },
-                          "pollId": {
-                            "type": "number",
-                            "example": 611
-                          },
-                          "meetingUserId": {
-                            "type": "number",
-                            "example": 606
-                          },
-                          "meetingId": {
-                            "type": "string",
-                            "minLength": 1,
-                            "example": "762a8ef3-4cfd-4c71-9222-3a5849778008"
-                          },
-                          "updatedDate": {},
-                          "pollQuestion": {
-                            "type": "string",
-                            "minLength": 1,
-                            "example": "sample poll question 1?"
-                          },
-                          "pollOptions": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "minItems": 1,
-                            "items": {
-                              "$ref": "../model/common/PollOptions.v1.json"
-                            }
-                          }
-                        },
-                        "required": [
-                          "createdDate",
-                          "pollId",
-                          "meetingUserId",
-                          "meetingId",
-                          "pollQuestion"
-                        ]
+                        "$ref": "../model/common/Poll.v1.json"
                       }
                     },
                     "status": {
@@ -4975,11 +4909,17 @@
                           "meetingUserId": 606,
                           "meetingId": "762a8ef3-4cfd-4c71-9222-3a5849778008",
                           "updatedDate": null,
-                          "pollQuestion": "sample poll question 1?",
+                          "pollQuestion": "sample poll question ?",
                           "pollOptions": [
                             {
                               "optionDesc": "option-1",
                               "pollOptionId": 615
+                            }
+                          ],
+                          "answerdBy": [
+                            {
+                              "meetingUserId": 608,
+                              "pollOptionId": 612
                             }
                           ]
                         }
