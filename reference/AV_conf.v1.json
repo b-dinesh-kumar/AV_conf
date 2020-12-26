@@ -5549,19 +5549,17 @@
                     "value": {
                       "data": [
                         {
-                          "toUser": null,
-                          "createdDate": "2020-12-24T12:04:32Z",
-                          "chatId": 935,
+                          "createdDate": "2020-12-26T06:21:01Z",
+                          "chatId": 957,
                           "messageType": {
                             "typeName": "MESSAGE_GROUP",
                             "typeId": 1
                           },
-                          "fromUser": {
-                            "meetingUserId": 606
-                          },
+                          "fromUserId": 606,
                           "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
                           "id": null,
-                          "message": "some message"
+                          "message": "Hello😊",
+                          "toUserId": null
                         }
                       ],
                       "status": "success"
@@ -5571,21 +5569,17 @@
                     "value": {
                       "data": [
                         {
-                          "toUser": {
-                            "meetingUserId": 610
-                          },
-                          "createdDate": "2020-12-24T12:04:32Z",
-                          "chatId": 935,
+                          "createdDate": "2020-12-26T06:21:01Z",
+                          "chatId": 957,
                           "messageType": {
-                            "typeName": "MESSAGE_PRIVATE",
-                            "typeId": 2
+                            "typeName": "MESSAGE_GROUP",
+                            "typeId": 1
                           },
-                          "fromUser": {
-                            "meetingUserId": 606
-                          },
+                          "fromUserId": 606,
                           "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
-                          "id": "a3f244nf92",
-                          "message": "some message"
+                          "id": "a34f3r53fe",
+                          "message": "Hello😊",
+                          "toUserId": 610
                         }
                       ],
                       "status": "success"
@@ -5623,19 +5617,17 @@
                   "application/json (1)": {
                     "value": {
                       "data": {
-                        "toUser": null,
-                        "createdDate": "2020-12-24T12:04:32Z",
-                        "chatId": 935,
+                        "createdDate": "2020-12-26T06:21:01Z",
+                        "chatId": 957,
                         "messageType": {
                           "typeName": "MESSAGE_GROUP",
                           "typeId": 1
                         },
-                        "fromUser": {
-                          "meetingUserId": 606
-                        },
+                        "fromUserId": 606,
                         "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
                         "id": null,
-                        "message": "some message"
+                        "message": "Hello😊",
+                        "toUserId": null
                       },
                       "status": "success"
                     }
@@ -5643,21 +5635,17 @@
                   "application/json (2)": {
                     "value": {
                       "data": {
-                        "toUser": {
-                          "meetingUserId": 606
-                        },
-                        "createdDate": "2020-12-24T12:04:32Z",
-                        "chatId": 935,
+                        "createdDate": "2020-12-26T06:21:01Z",
+                        "chatId": 957,
                         "messageType": {
-                          "typeName": "MESSAGE_PRIVATE",
-                          "typeId": 2
+                          "typeName": "MESSAGE_GROUP",
+                          "typeId": 1
                         },
-                        "fromUser": {
-                          "meetingUserId": 606
-                        },
+                        "fromUserId": 606,
                         "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
-                        "id": "a3f244nf92",
-                        "message": "some message"
+                        "id": "aefer3434",
+                        "message": "Hello😊",
+                        "toUserId": 610
                       },
                       "status": "success"
                     }

@@ -1,17 +1,18 @@
 {
   "description": "",
   "type": "object",
+  "x-examples": {},
+  "title": "Chat",
   "properties": {
-    "toUser": {},
     "createdDate": {
       "type": "string",
       "minLength": 1,
       "format": "date-time",
-      "example": "2020-12-26T07:13:08Z"
+      "example": "2020-12-26T06:21:01Z"
     },
     "chatId": {
       "type": "number",
-      "example": 990
+      "example": 957
     },
     "messageType": {
       "type": "object",
@@ -31,36 +32,29 @@
         }
       }
     },
-    "fromUser": {
-      "type": "object",
-      "required": [
-        "meetingUserId"
-      ],
-      "properties": {
-        "meetingUserId": {
-          "type": "number",
-          "example": 606
-        }
-      }
+    "fromUserId": {
+      "type": "number",
+      "example": 606
     },
     "meetingId": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "example": "a1c88018-4b28-45b0-aa66-dc3886442530"
     },
     "id": {},
     "message": {
       "type": "string",
       "minLength": 1,
-      "example": "Hello 😊"
-    }
+      "example": "Hello😊"
+    },
+    "toUserId": {}
   },
   "required": [
     "createdDate",
     "chatId",
     "messageType",
-    "fromUser",
+    "fromUserId",
     "meetingId",
     "message"
-  ],
-  "x-examples": {}
+  ]
 }
