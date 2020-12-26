@@ -5535,7 +5535,8 @@
                     },
                     "status": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "example": "success"
                     }
                   },
                   "required": [
@@ -5559,10 +5560,11 @@
                             "meetingUserId": 606
                           },
                           "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                          "id": null,
                           "message": "some message"
                         }
                       ],
-                      "status": "string"
+                      "status": "success"
                     }
                   },
                   "application/json (2)": {
@@ -5582,10 +5584,11 @@
                             "meetingUserId": 606
                           },
                           "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                          "id": "a3f244nf92",
                           "message": "some message"
                         }
                       ],
-                      "status": "string"
+                      "status": "success"
                     }
                   }
                 }
@@ -5631,6 +5634,7 @@
                           "meetingUserId": 606
                         },
                         "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                        "id": null,
                         "message": "some message"
                       },
                       "status": "success"
@@ -5652,6 +5656,7 @@
                           "meetingUserId": 606
                         },
                         "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                        "id": "a3f244nf92",
                         "message": "some message"
                       },
                       "status": "success"
@@ -5685,6 +5690,15 @@
                   },
                   "toUserId": {
                     "type": "number"
+                  },
+                  "id": {
+                    "type": "string",
+                    "example": "a3f244nf92"
+                  },
+                  "createdDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2020-12-26T05:51:50Z"
                   }
                 },
                 "required": [
@@ -5707,6 +5721,16 @@
                     "typeId": 1,
                     "fromUserId": 606,
                     "toUserId": 610
+                  }
+                },
+                "application/json (3)": {
+                  "value": {
+                    "message": "some message",
+                    "typeId": 1,
+                    "fromUserId": 606,
+                    "toUserId": 610,
+                    "id": "a3f244nf92",
+                    "createdDate": "2020-12-26T05:51:50Z"
                   }
                 }
               }
