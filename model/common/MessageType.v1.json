@@ -1,0 +1,28 @@
+{
+  "description": "",
+  "type": "object",
+  "properties": {
+    "typeName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "typeId": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "typeName",
+    "typeId"
+  ],
+  "x-examples": {
+    "example-1": {
+      "typeName": "MESSAGE_GROUP",
+      "typeId": 1
+    },
+    "example-2": {
+      "typeName": "MESSAGE_PRIVATE",
+      "typeId": 2
+    }
+  },
+  "title": "MessageType"
+}

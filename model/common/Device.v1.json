@@ -1,20 +1,35 @@
 {
   "title": "Device",
   "type": "object",
+  "x-examples": {
+    "example-1": {
+      "deviceId": 1,
+      "deviceName": "Web"
+    },
+    "example-2": {
+      "deviceId": 2,
+      "deviceName": "Desktop"
+    },
+    "example-3": {
+      "deviceId": 3,
+      "deviceName": "Android"
+    },
+    "example-4": {
+      "deviceId": 4,
+      "deviceName": "IOS"
+    }
+  },
   "properties": {
     "deviceId": {
       "type": "number",
-      "example": 3
+      "example": 3,
+      "minimum": 1,
+      "exclusiveMinimum": false
     },
     "deviceName": {
       "type": "string",
       "example": "Mobile"
     }
   },
-  "x-examples": {
-    "application/json": {
-      "deviceId": 3,
-      "deviceName": "Mobile"
-    }
-  }
+  "description": ""
 }

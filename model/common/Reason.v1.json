@@ -2,9 +2,17 @@
   "title": "Reason",
   "type": "object",
   "x-examples": {
-    "application/json": {
+    "example-1": {
       "reasonId": 1,
       "reasonName": "Disconnected"
+    },
+    "example-2": {
+      "reasonId": 2,
+      "reasonName": "Left the call"
+    },
+    "example-3": {
+      "reasonId": 3,
+      "reasonName": "Call ended"
     }
   },
   "properties": {
