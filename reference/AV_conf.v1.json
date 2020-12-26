@@ -1249,18 +1249,7 @@
         },
         "operationId": "get-meeting-id-participants-meetingUserId",
         "description": "Retrieve the user session details",
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
-          }
-        ]
+        "parameters": []
       },
       "post": {
         "summary": "Create user session",
@@ -1351,18 +1340,7 @@
           },
           "description": ""
         },
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
-          }
-        ]
+        "parameters": []
       },
       "patch": {
         "summary": "Update user session",
@@ -1421,18 +1399,7 @@
             "description": "Unauthorized"
           }
         },
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
-          }
-        ]
+        "parameters": []
       }
     },
     "/meeting/{id}/statistics": {
