@@ -5514,7 +5514,7 @@
         }
       ],
       "get": {
-        "summary": "Get all messages",
+        "summary": "Get all the messages",
         "tags": [],
         "responses": {
           "200": {
