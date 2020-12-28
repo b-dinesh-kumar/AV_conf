@@ -961,6 +961,9 @@
                         "userId"
                       ]
                     }
+                  },
+                  "isInvitationNeed": {
+                    "type": "boolean"
                   }
                 },
                 "required": [
@@ -976,7 +979,8 @@
                         "isOrganizer": true,
                         "userId": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
                       }
-                    ]
+                    ],
+                    "isInvitationNeed": true
                   }
                 }
               }
@@ -4513,6 +4517,9 @@
                         "userId"
                       ]
                     }
+                  },
+                  "isInvitationNeed": {
+                    "type": "boolean"
                   }
                 },
                 "required": [
@@ -4557,7 +4564,8 @@
                         "isOrganizer": true,
                         "userId": "430810f6-a2bb-4eb4-a1ab-526629892e78"
                       }
-                    ]
+                    ],
+                    "isInvitationNeed": true
                   }
                 }
               }
