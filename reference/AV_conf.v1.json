@@ -5501,7 +5501,7 @@
         }
       }
     },
-    "/meeting/{id}/chat": {
+    "/meeting/{id}/message": {
       "parameters": [
         {
           "schema": {
@@ -5514,7 +5514,7 @@
         }
       ],
       "get": {
-        "summary": "Get all chats",
+        "summary": "Get all messages",
         "tags": [],
         "responses": {
           "200": {
@@ -5550,12 +5550,12 @@
                       "data": [
                         {
                           "createdDate": "2020-12-26T06:21:01Z",
-                          "chatId": 957,
                           "messageType": {
                             "typeName": "MESSAGE_GROUP",
                             "typeId": 1
                           },
                           "fromUserId": 606,
+                          "messageId": 957,
                           "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
                           "id": null,
                           "message": "Hello😊",
@@ -5570,12 +5570,12 @@
                       "data": [
                         {
                           "createdDate": "2020-12-26T06:21:01Z",
-                          "chatId": 957,
                           "messageType": {
                             "typeName": "MESSAGE_GROUP",
                             "typeId": 1
                           },
                           "fromUserId": 606,
+                          "messageId": 957,
                           "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
                           "id": "a34f3r53fe",
                           "message": "Hello😊",
@@ -5591,10 +5591,10 @@
           }
         },
         "operationId": "get-meeting-id-chat",
-        "description": "Retrieve all the chats by meeting id"
+        "description": "Retrieve all the messages by meeting id"
       },
       "post": {
-        "summary": "Save chat",
+        "summary": "Save message",
         "operationId": "post-meeting-id-chat",
         "responses": {
           "201": {
@@ -5618,12 +5618,12 @@
                     "value": {
                       "data": {
                         "createdDate": "2020-12-26T06:21:01Z",
-                        "chatId": 957,
                         "messageType": {
                           "typeName": "MESSAGE_GROUP",
                           "typeId": 1
                         },
                         "fromUserId": 606,
+                        "messageId": 957,
                         "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
                         "id": null,
                         "message": "Hello😊",
@@ -5636,12 +5636,12 @@
                     "value": {
                       "data": {
                         "createdDate": "2020-12-26T06:21:01Z",
-                        "chatId": 957,
                         "messageType": {
                           "typeName": "MESSAGE_GROUP",
                           "typeId": 1
                         },
                         "fromUserId": 606,
+                        "messageId": 957,
                         "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
                         "id": "aefer3434",
                         "message": "Hello😊",
@@ -5655,7 +5655,7 @@
             }
           }
         },
-        "description": "To save the chat details",
+        "description": "To save the message details",
         "requestBody": {
           "content": {
             "application/json": {

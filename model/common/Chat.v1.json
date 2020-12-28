@@ -4,19 +4,19 @@
   "x-examples": {
     "application/json": {
       "createdDate": "2020-12-26T06:21:01Z",
-      "chatId": 957,
       "messageType": {
         "typeName": "MESSAGE_GROUP",
         "typeId": 1
       },
       "fromUserId": 606,
+      "messageId": 957,
       "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
       "id": null,
       "message": "Hello😊",
       "toUserId": null
     }
   },
-  "title": "Chat",
+  "title": "Message",
   "properties": {
     "createdDate": {
       "type": "string",
@@ -24,7 +24,7 @@
       "format": "date-time",
       "example": "2020-12-26T06:21:01Z"
     },
-    "chatId": {
+    "messageId": {
       "type": "number",
       "example": 957
     },
@@ -65,7 +65,7 @@
   },
   "required": [
     "createdDate",
-    "chatId",
+    "messageId",
     "messageType",
     "fromUserId",
     "meetingId",
