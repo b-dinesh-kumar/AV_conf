@@ -5530,7 +5530,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "$ref": "../model/common/Chat.v1.json"
+                        "$ref": "../model/common/Message.v1.json"
                       }
                     },
                     "status": {
@@ -5605,7 +5605,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "../model/common/Chat.v1.json"
+                      "$ref": "../model/common/Message.v1.json"
                     },
                     "status": {
                       "type": "string",

@@ -1,19 +1,6 @@
 {
   "description": "",
   "type": "object",
-  "properties": {
-    "typeName": {
-      "type": "string",
-      "minLength": 1
-    },
-    "typeId": {
-      "type": "number"
-    }
-  },
-  "required": [
-    "typeName",
-    "typeId"
-  ],
   "x-examples": {
     "example-1": {
       "typeName": "MESSAGE_GROUP",
@@ -24,5 +11,19 @@
       "typeId": 2
     }
   },
-  "title": "MessageType"
+  "title": "MessageType",
+  "properties": {
+    "typeName": {
+      "type": "string",
+      "minLength": 1,
+      "example": "MESSAGE_GROUP"
+    },
+    "typeId": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "typeName",
+    "typeId"
+  ]
 }
