@@ -4700,7 +4700,7 @@
         }
       ],
       "get": {
-        "summary": "Get quiz by id",
+        "summary": "Get the quiz by id",
         "tags": [],
         "responses": {
           "200": {
@@ -4761,7 +4761,7 @@
         "description": "Retrieve quiz by quiz id"
       },
       "delete": {
-        "summary": "",
+        "summary": "Delete the quiz by id",
         "operationId": "delete-meeting-id-quiz-quizId",
         "responses": {
           "204": {
@@ -4786,6 +4786,76 @@
           }
         },
         "description": "Delete the quiz by id"
+      },
+      "patch": {
+        "summary": "Update the quiz by id",
+        "operationId": "patch-meeting-id-quiz-quizId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Update-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "message": "Updated successfully"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Update the quiz by id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "quizQuestion": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "update quiz question ?"
+                  },
+                  "quizOptions": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "../model/common/QuizOptions.v1.json"
+                    }
+                  },
+                  "isArchived": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "quizQuestion": "How to update a quiz question ?",
+                    "quizOptions": [
+                      {
+                        "optionDesc": "option-a",
+                        "quizOptionId": 622,
+                        "isCorrectOption": true
+                      }
+                    ],
+                    "isArchived": true
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/meeting/{id}/poll": {
@@ -4996,7 +5066,7 @@
         }
       ],
       "get": {
-        "summary": "Get poll by id",
+        "summary": "Get the poll by id",
         "tags": [],
         "responses": {
           "200": {
@@ -5056,7 +5126,7 @@
         "description": "Get poll by poll id"
       },
       "delete": {
-        "summary": "",
+        "summary": "Delete the poll by id",
         "operationId": "delete-meeting-id-poll-pollId",
         "responses": {
           "204": {
@@ -5081,6 +5151,75 @@
           }
         },
         "description": "Delete the poll by id"
+      },
+      "patch": {
+        "summary": "Update the poll by id",
+        "operationId": "patch-meeting-id-poll-pollId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Update-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "message": "Updated successfully"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Update the poll by id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "pollQuestion": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "How to update a poll question?"
+                  },
+                  "pollOptions": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "../model/common/PollOptions.v1.json"
+                    }
+                  },
+                  "isArchived": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "pollQuestion": "How to update a poll question?",
+                    "pollOptions": [
+                      {
+                        "optionDesc": "option-1",
+                        "pollOptionId": 615
+                      }
+                    ],
+                    "isArchived": true
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/quiz/{quizId}/answer": {

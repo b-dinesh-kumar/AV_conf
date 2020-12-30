@@ -1,6 +1,14 @@
 {
   "description": "",
   "type": "object",
+  "x-examples": {
+    "application/json": {
+      "optionDesc": "option-a",
+      "quizOptionId": 622,
+      "isCorrectOption": true
+    }
+  },
+  "title": "QuizOptions",
   "properties": {
     "optionDesc": {
       "type": "string",
@@ -14,18 +22,5 @@
     "isCorrectOption": {
       "type": "boolean"
     }
-  },
-  "required": [
-    "optionDesc",
-    "quizOptionId",
-    "isCorrectOption"
-  ],
-  "x-examples": {
-    "application/json": {
-      "optionDesc": "option-a",
-      "quizOptionId": 622,
-      "isCorrectOption": true
-    }
-  },
-  "title": "QuizOptions"
+  }
 }
