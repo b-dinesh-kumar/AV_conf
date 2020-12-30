@@ -211,14 +211,7 @@
             "description": "Filter the meetings by the organizer"
           },
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           },
           {
             "schema": {
@@ -436,14 +429,7 @@
         },
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       }
@@ -560,14 +546,7 @@
         "description": "Retrieve the meeting details by id",
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       },
@@ -602,14 +581,7 @@
         "description": "Delete the meeting by id.",
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       },
@@ -724,14 +696,7 @@
         },
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       }
@@ -874,14 +839,7 @@
         "description": "Retrieve list of participants of the meeting",
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       },
@@ -990,14 +948,7 @@
         },
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       },
@@ -1085,14 +1036,7 @@
         },
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       },
@@ -1155,14 +1099,7 @@
         },
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       }
@@ -1574,14 +1511,7 @@
         "description": "Retrieve the meeting statistics",
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       }
@@ -1677,14 +1607,7 @@
         },
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       },
@@ -1753,14 +1676,7 @@
         },
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       }
@@ -3798,14 +3714,7 @@
         "description": "Retrieve all the recordings by meeting id",
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ]
       },
@@ -3967,14 +3876,7 @@
         "description": "To update a meeting recording",
         "parameters": [
           {
-            "schema": {
-              "type": "string",
-              "example": "bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
-            },
-            "in": "header",
-            "name": "Authorization",
-            "description": "bearer token",
-            "required": true
+            "$ref": "#/components/parameters/authorization"
           }
         ],
         "requestBody": {
@@ -5845,6 +5747,18 @@
         ]
       }
     },
-    "securitySchemes": {}
+    "securitySchemes": {},
+    "parameters": {
+      "authorization": {
+        "name": "Authorization",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "example": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2ZDIwZjI0My05NDdjLTQ0YjQtYmMyNy1iMjljZjFlZGY4MGUiLCJleHAiOjE2MDkzMjg3NzIsImlhdCI6MTYwOTE1NTk3Mn0.syoc5DEIIw2daQC11MqLjbiqq5NNE2_N5-mgr9A-xiZLq9pjhDXlkQ69LBGe_7MIH9CaQu1JgJYlUyypqpMEbg"
+        },
+        "description": "Bearer token"
+      }
+    }
   }
 }
