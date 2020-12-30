@@ -3874,11 +3874,7 @@
           }
         },
         "description": "To update a meeting recording",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/authorization"
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/json": {
