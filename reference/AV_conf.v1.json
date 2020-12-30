@@ -4759,6 +4759,33 @@
         },
         "operationId": "get-meeting-id-quiz-quizId",
         "description": "Retrieve quiz by quiz id"
+      },
+      "delete": {
+        "summary": "",
+        "operationId": "delete-meeting-id-quiz-quizId",
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delete-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "message": "Deleted successfully",
+                        "status": "success"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Delete the quiz by id"
       }
     },
     "/meeting/{id}/poll": {
@@ -5027,6 +5054,33 @@
         },
         "operationId": "get-meeting-id-poll-pollId",
         "description": "Get poll by poll id"
+      },
+      "delete": {
+        "summary": "",
+        "operationId": "delete-meeting-id-poll-pollId",
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Delete-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "message": "Deleted successfully",
+                        "status": "success"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Delete the poll by id"
       }
     },
     "/quiz/{quizId}/answer": {
