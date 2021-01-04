@@ -5825,6 +5825,227 @@
           }
         }
       }
+    },
+    "/meetingLogs": {
+      "get": {
+        "summary": "Get all the users meeting logs",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "$ref": "../model/common/Pagination.v1.json"
+                    },
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "role": {
+                            "type": "object",
+                            "properties": {
+                              "roleId": {
+                                "type": "number",
+                                "example": 2
+                              },
+                              "roleName": {
+                                "type": "string",
+                                "example": "BE admin"
+                              }
+                            }
+                          },
+                          "emailId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "hugh.j@tra-augment.com"
+                          },
+                          "meetings": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "meetingName": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "example": "Sprint meeting"
+                                },
+                                "meetingId": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "example": "a1c88018-4b28-45b0-aa66-dc3886442530"
+                                },
+                                "status": {
+                                  "$ref": "../model/common/Status.v1.json"
+                                },
+                                "statistics": {
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                  "minItems": 1,
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "exitTime": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "example": "2020-12-26T08:35:30Z",
+                                        "format": "date-time"
+                                      },
+                                      "joinTime": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "format": "date-time",
+                                        "example": "2020-12-26T08:35:15Z"
+                                      }
+                                    },
+                                    "required": [
+                                      "exitTime",
+                                      "joinTime"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "meetingName",
+                                "meetingId"
+                              ]
+                            }
+                          },
+                          "userName": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Hugh Jackman"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "6a2097f6-4d1b-4a44-a232-fb73db138ee9"
+                          }
+                        },
+                        "required": [
+                          "emailId",
+                          "userName",
+                          "userId"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "pagination",
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "pagination": {
+                        "totalRecords": 10,
+                        "limit": 5,
+                        "page": 1
+                      },
+                      "data": [
+                        {
+                          "role": {
+                            "roleId": 2,
+                            "roleName": "BE admin"
+                          },
+                          "emailId": "hugh.j@tra-augment.com",
+                          "meetings": [
+                            {
+                              "meetingName": "Sprint meeting",
+                              "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
+                              "status": {
+                                "statusId": 3,
+                                "statusName": "Completed"
+                              },
+                              "statistics": [
+                                {
+                                  "exitTime": "2020-12-26T08:35:30Z",
+                                  "joinTime": "2020-12-26T08:35:15Z"
+                                }
+                              ]
+                            }
+                          ],
+                          "userName": "Hugh Jackman",
+                          "userId": "6a2097f6-4d1b-4a44-a232-fb73db138ee9"
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meetingLogs",
+        "description": "To retrive the list of users meeting logs",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "1"
+            },
+            "in": "query",
+            "name": "page",
+            "description": "Filter the data by the given page no"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "5"
+            },
+            "in": "query",
+            "name": "size",
+            "description": "Limit the size of the data"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "2020-12-07"
+            },
+            "in": "query",
+            "name": "from",
+            "description": "Filter the data by the start date"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "2020-12-10"
+            },
+            "in": "query",
+            "name": "to",
+            "description": "Filter the data by the end date"
+          },
+          {
+            "schema": {
+              "type": "array",
+              "example": "userId=hughjackman&userId=christianbale"
+            },
+            "in": "query",
+            "name": "userId",
+            "description": "Filter the data by the user ids"
+          }
+        ]
+      }
     }
   },
   "components": {
