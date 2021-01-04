@@ -158,7 +158,7 @@
             },
             "in": "query",
             "name": "from",
-            "description": "Filter based on given start date"
+            "description": "Filter the data by the start date"
           },
           {
             "schema": {
@@ -168,7 +168,7 @@
             },
             "in": "query",
             "name": "to",
-            "description": "Filter the meetings by the given end date"
+            "description": "Filter the data by the end date"
           },
           {
             "schema": {
