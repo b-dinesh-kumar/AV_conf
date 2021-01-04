@@ -5997,7 +5997,14 @@
         "description": "To retrive the list of users meeting logs",
         "parameters": [
           {
-            "$ref": "#/components/parameters/authorization"
+            "in": "header",
+            "name": "Authorization",
+            "schema": {
+              "type": "string",
+              "example": "rajeshkumar"
+            },
+            "description": "Be user id",
+            "required": true
           },
           {
             "schema": {
@@ -6037,8 +6044,8 @@
           },
           {
             "schema": {
-              "type": "array",
-              "example": "userId=hughjackman&userId=christianbale"
+              "type": "string",
+              "example": "hughjackman,christianbale"
             },
             "in": "query",
             "name": "userId",
