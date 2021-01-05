@@ -6053,6 +6053,220 @@
           }
         ]
       }
+    },
+    "/meeting/{id}/room": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "07735a16-313d-493a-811e-2a732c8bdf5s"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        }
+      ],
+      "get": {
+        "summary": "Get all the breakout rooms",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/BreakoutRooms.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "breakoutRoomId": 1647,
+                          "countdownTimerStartsAt": 60,
+                          "createdDate": "2021-01-05T06:29:42Z",
+                          "breakoutRoomName": "room-1",
+                          "createdBy": {
+                            "meetingUserId": 106,
+                            "userName": "Dinesh Kumar"
+                          },
+                          "closeAfter": 600,
+                          "waitRoomId": "dfd2f395db0",
+                          "canReturnToMainSession": true,
+                          "meetingId": "07735a16-313d-493a-811e-2a732c8bdf5s",
+                          "users": [
+                            {
+                              "exitTime": "2021-01-05T07:29:42Z",
+                              "createdDate": "2021-01-05T06:29:42Z",
+                              "joinTime": "2021-01-05T07:35:42Z",
+                              "breakoutRoomUserId": 1648,
+                              "meetingUser": {
+                                "meetingUserId": 1605,
+                                "userName": "Christian Bale"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-id-room",
+        "description": "To retrieve all the breakout rooms by meeting id"
+      },
+      "post": {
+        "summary": "Create breakout rooms",
+        "operationId": "post-meeting-id-room",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/BreakoutRooms.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "success"
+                    }
+                  }
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "breakoutRoomId": 1647,
+                          "countdownTimerStartsAt": 60,
+                          "createdDate": "2021-01-05T06:29:42Z",
+                          "breakoutRoomName": "room-1",
+                          "createdBy": {
+                            "meetingUserId": 106,
+                            "userName": "Dinesh Kumar"
+                          },
+                          "closeAfter": 600,
+                          "waitRoomId": "dfd2f395db0",
+                          "canReturnToMainSession": true,
+                          "meetingId": "07735a16-313d-493a-811e-2a732c8bdf5s",
+                          "users": [
+                            {
+                              "exitTime": null,
+                              "createdDate": "2021-01-05T06:29:42Z",
+                              "joinTime": null,
+                              "breakoutRoomUserId": 1648,
+                              "meetingUser": {
+                                "meetingUserId": 1605,
+                                "userName": "Christian Bale"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create breakout rooms",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "meetingUserId": {
+                    "type": "number",
+                    "example": 1492
+                  },
+                  "breakoutRooms": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "breakoutRoomName": {
+                          "type": "string",
+                          "minLength": 1,
+                          "example": "room-1"
+                        },
+                        "canReturnToMainsession": {
+                          "type": "boolean"
+                        },
+                        "countdownTimerStartsAt": {
+                          "type": "number",
+                          "example": 60
+                        },
+                        "closeAfter": {
+                          "type": "number",
+                          "example": 600
+                        },
+                        "userIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "number",
+                            "example": 1605
+                          }
+                        }
+                      },
+                      "required": [
+                        "breakoutRoomName",
+                        "canReturnToMainsession",
+                        "countdownTimerStartsAt",
+                        "closeAfter"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "meetingUserId",
+                  "breakoutRooms"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "meetingUserId": 1492,
+                    "breakoutRooms": [
+                      {
+                        "breakoutRoomName": "room-1",
+                        "canReturnToMainsession": true,
+                        "countdownTimerStartsAt": 60,
+                        "closeAfter": 600,
+                        "userIds": [
+                          1605
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {

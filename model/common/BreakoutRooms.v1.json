@@ -1,0 +1,150 @@
+{
+  "type": "array",
+  "description": "",
+  "minItems": 1,
+  "uniqueItems": true,
+  "items": {
+    "type": "object",
+    "properties": {
+      "breakoutRoomId": {
+        "type": "number",
+        "example": 1647
+      },
+      "countdownTimerStartsAt": {
+        "type": "number",
+        "example": 60
+      },
+      "createdDate": {
+        "type": "string",
+        "minLength": 1,
+        "format": "date-time",
+        "example": "2021-01-05T06:29:42Z"
+      },
+      "breakoutRoomName": {
+        "type": "string",
+        "minLength": 1,
+        "example": "room-1"
+      },
+      "createdBy": {
+        "type": "object",
+        "required": [
+          "meetingUserId",
+          "userName"
+        ],
+        "properties": {
+          "meetingUserId": {
+            "type": "number",
+            "example": 106
+          },
+          "userName": {
+            "type": "string",
+            "minLength": 1,
+            "example": "Dinesh Kumar"
+          }
+        }
+      },
+      "closeAfter": {
+        "type": "number",
+        "example": 600
+      },
+      "waitRoomId": {
+        "type": "string",
+        "minLength": 1,
+        "example": "dfd2f395db0"
+      },
+      "canReturnToMainSession": {
+        "type": "boolean"
+      },
+      "meetingId": {
+        "type": "string",
+        "minLength": 1,
+        "example": "07735a16-313d-493a-811e-2a732c8bdf5s"
+      },
+      "users": {
+        "type": "array",
+        "uniqueItems": true,
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "properties": {
+            "exitTime": {},
+            "createdDate": {
+              "type": "string",
+              "minLength": 1,
+              "example": "2021-01-05T06:29:42Z"
+            },
+            "joinTime": {},
+            "breakoutRoomUserId": {
+              "type": "number",
+              "example": 1648
+            },
+            "meetingUser": {
+              "type": "object",
+              "properties": {
+                "meetingUserId": {
+                  "type": "number",
+                  "example": 1605
+                },
+                "userName": {
+                  "type": "string",
+                  "minLength": 1,
+                  "example": "Christian Bale"
+                }
+              },
+              "required": [
+                "meetingUserId",
+                "userName"
+              ]
+            }
+          },
+          "required": [
+            "createdDate",
+            "breakoutRoomUserId"
+          ]
+        }
+      }
+    },
+    "required": [
+      "breakoutRoomId",
+      "countdownTimerStartsAt",
+      "createdDate",
+      "breakoutRoomName",
+      "createdBy",
+      "closeAfter",
+      "waitRoomId",
+      "canReturnToMainSession",
+      "meetingId",
+      "users"
+    ]
+  },
+  "x-examples": {
+    "application/json": [
+      {
+        "breakoutRoomId": 1647,
+        "countdownTimerStartsAt": 60,
+        "createdDate": "2021-01-05T06:29:42Z",
+        "breakoutRoomName": "room-1",
+        "createdBy": {
+          "meetingUserId": 106,
+          "userName": "Dinesh Kumar"
+        },
+        "closeAfter": 600,
+        "waitRoomId": "dfd2f395db0",
+        "canReturnToMainSession": true,
+        "meetingId": "07735a16-313d-493a-811e-2a732c8bdf5s",
+        "users": [
+          {
+            "exitTime": "2021-01-05T07:29:42Z",
+            "createdDate": "2021-01-05T06:29:42Z",
+            "joinTime": "2021-01-05T07:35:42Z",
+            "breakoutRoomUserId": 1648,
+            "meetingUser": {
+              "meetingUserId": 1605,
+              "userName": "Christian Bale"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
