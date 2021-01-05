@@ -6212,7 +6212,7 @@
                           "minLength": 1,
                           "example": "room-1"
                         },
-                        "canReturnToMainsession": {
+                        "canReturnToMainSession": {
                           "type": "boolean"
                         },
                         "countdownTimerStartsAt": {
@@ -6233,7 +6233,7 @@
                       },
                       "required": [
                         "breakoutRoomName",
-                        "canReturnToMainsession",
+                        "canReturnToMainSession",
                         "countdownTimerStartsAt",
                         "closeAfter"
                       ]
@@ -6252,7 +6252,7 @@
                     "breakoutRooms": [
                       {
                         "breakoutRoomName": "room-1",
-                        "canReturnToMainsession": true,
+                        "canReturnToMainSession": true,
                         "countdownTimerStartsAt": 60,
                         "closeAfter": 600,
                         "userIds": [
