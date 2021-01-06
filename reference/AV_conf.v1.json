@@ -492,6 +492,7 @@
                         ],
                         "isWaitRoomEnabled": true,
                         "meetingName": "Sprint Meeting",
+                        "waitRoomId": "025c44b020a",
                         "isRecordingUsed": true,
                         "isAudioUsed": true,
                         "meetingDesc": "This meeting is about sprint 2",

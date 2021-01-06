@@ -41,6 +41,8 @@
     },
     "meetingTimings": {
       "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
       "items": {
         "$ref": "./MeetingTiming.v1.json"
       }
@@ -52,6 +54,11 @@
       "type": "string",
       "minLength": 1,
       "example": "Sprint Meeting"
+    },
+    "waitRoomId": {
+      "type": "string",
+      "minLength": 1,
+      "example": "025c44b020a"
     },
     "isRecordingUsed": {
       "type": "boolean"
@@ -87,6 +94,7 @@
     "meetingTimings",
     "isWaitRoomEnabled",
     "meetingName",
+    "waitRoomId",
     "isRecordingUsed",
     "isAudioUsed",
     "meetingDesc",
@@ -111,12 +119,13 @@
       "isScreenshareUsed": true,
       "meetingTimings": [
         {
-          "actStartTime": "2020-11-04T10:30:00Z",
-          "actEndTime": "2020-11-04T11:30:00Z"
+          "actStartTime": "2020-10-28T15:20:00Z",
+          "actEndTime": "2020-10-28T16:15:00Z"
         }
       ],
       "isWaitRoomEnabled": true,
       "meetingName": "Sprint Meeting",
+      "waitRoomId": "025c44b020a",
       "isRecordingUsed": true,
       "isAudioUsed": true,
       "meetingDesc": "This meeting is about sprint 2",
@@ -127,6 +136,5 @@
         "statusName": "Completed"
       }
     }
-  },
-  "title": "Meeting"
+  }
 }
