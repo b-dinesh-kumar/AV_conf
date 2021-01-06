@@ -25,7 +25,9 @@
     "/meeting": {
       "get": {
         "summary": "Get all the meeting details",
-        "tags": [],
+        "tags": [
+          "get-meetings"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -431,6 +433,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "create-meeting"
         ]
       }
     },
@@ -448,7 +453,9 @@
       ],
       "get": {
         "summary": "Get meeting details by id",
-        "tags": [],
+        "tags": [
+          "get-meeting-by-id"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -584,6 +591,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "delete-meeting-by-id"
         ]
       },
       "patch": {
@@ -699,6 +709,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "update-meeting-by-id"
         ]
       }
     },
@@ -716,7 +729,9 @@
       ],
       "get": {
         "summary": "Get all the participants",
-        "tags": [],
+        "tags": [
+          "get-partcipants"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -951,6 +966,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "create-partcipants"
         ]
       },
       "patch": {
@@ -1039,6 +1057,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "update-partcipants"
         ]
       },
       "delete": {
@@ -1102,6 +1123,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "delete-partcipants"
         ]
       }
     },
@@ -1128,7 +1152,9 @@
       ],
       "get": {
         "summary": "Get user sessions",
-        "tags": [],
+        "tags": [
+          "get-user-session"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1282,7 +1308,10 @@
           },
           "description": ""
         },
-        "parameters": []
+        "parameters": [],
+        "tags": [
+          "create-user-session"
+        ]
       },
       "patch": {
         "summary": "Update user session",
@@ -1341,7 +1370,10 @@
             "description": "Unauthorized"
           }
         },
-        "parameters": []
+        "parameters": [],
+        "tags": [
+          "update-user-session"
+        ]
       }
     },
     "/meeting/{id}/statistics": {
@@ -1358,7 +1390,9 @@
       ],
       "get": {
         "summary": "Get meeting statistics",
-        "tags": [],
+        "tags": [
+          "get-meeting-statistics"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1610,6 +1644,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "create-meeting-timing"
         ]
       },
       "patch": {
@@ -1679,6 +1716,9 @@
           {
             "$ref": "#/components/parameters/authorization"
           }
+        ],
+        "tags": [
+          "update-meeting-timing"
         ]
       }
     },
@@ -1696,7 +1736,9 @@
       ],
       "get": {
         "summary": "Get all the users",
-        "tags": [],
+        "tags": [
+          "get-users-by-be-id"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2113,7 +2155,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "generate-token"
+        ]
       }
     },
     "/meeting/validateUser": {
@@ -2440,6 +2485,9 @@
             "name": "Authorization",
             "description": "Bearer token"
           }
+        ],
+        "tags": [
+          "validate-token"
         ]
       }
     },
@@ -2457,7 +2505,9 @@
       ],
       "get": {
         "summary": "Get meeting details by token",
-        "tags": [],
+        "tags": [
+          "get-meeting-details-by-token"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2808,7 +2858,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "get-user-session"
+        ]
       }
     },
     "/entity/{beId}": {
@@ -2825,7 +2878,6 @@
       ],
       "get": {
         "summary": "Get business entity details by id",
-        "tags": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -2871,13 +2923,18 @@
           }
         },
         "operationId": "get-entity-beId",
-        "description": "Retrive business entity details by id"
+        "description": "Retrive business entity details by id",
+        "tags": [
+          "get-entity-by-id"
+        ]
       }
     },
     "/entity": {
       "get": {
         "summary": "Get business entity details",
-        "tags": [],
+        "tags": [
+          "get-entity-by-id"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3138,7 +3195,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-entity"
+        ]
       }
     },
     "/meeting/{id}/addParticipants": {
@@ -3292,13 +3352,18 @@
             }
           },
           "description": ""
-        }
+        },
+        "tags": [
+          "add-participants"
+        ]
       }
     },
     "/handleVerification": {
       "get": {
         "summary": "Validate verification id",
-        "tags": [],
+        "tags": [
+          "validate-verification-id"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3577,7 +3642,10 @@
             }
           }
         },
-        "description": "To generate verification id "
+        "description": "To generate verification id ",
+        "tags": [
+          "generate-verification-id"
+        ]
       }
     },
     "/meeting/{id}/recording": {
@@ -3595,7 +3663,9 @@
       ],
       "get": {
         "summary": "Get all the recordings by meeting id",
-        "tags": [],
+        "tags": [
+          "get-meeting-recording"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3823,7 +3893,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-meeting-recording"
+        ]
       }
     },
     "/meeting/{id}/recording/{recId}": {
@@ -3923,7 +3996,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "update-meeting-recording"
+        ]
       }
     },
     "/recording/{recId}/bookmark": {
@@ -3941,7 +4017,9 @@
       ],
       "get": {
         "summary": "Get all the bookmarks",
-        "tags": [],
+        "tags": [
+          "get-bookmark"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4100,7 +4178,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-bookmark"
+        ]
       }
     },
     "/meeting/recurring": {
@@ -4470,7 +4551,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-meeting-recurring"
+        ]
       }
     },
     "/meeting/{id}/quiz": {
@@ -4488,7 +4572,9 @@
       ],
       "get": {
         "summary": "Get all the quiz",
-        "tags": [],
+        "tags": [
+          "get-quiz"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4674,7 +4760,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-quiz"
+        ]
       }
     },
     "/meeting/{id}/quiz/{quizId}": {
@@ -4702,7 +4791,9 @@
       ],
       "get": {
         "summary": "Get the quiz by id",
-        "tags": [],
+        "tags": [
+          "get-quiz-by-id"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -4786,7 +4877,10 @@
             }
           }
         },
-        "description": "Delete the quiz by id"
+        "description": "Delete the quiz by id",
+        "tags": [
+          "delete-quiz-by-id"
+        ]
       },
       "patch": {
         "summary": "Update the quiz by id",
@@ -4856,7 +4950,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "update-quiz-by-id"
+        ]
       }
     },
     "/meeting/{id}/poll": {
@@ -4874,7 +4971,9 @@
       ],
       "get": {
         "summary": "Get all the polls",
-        "tags": [],
+        "tags": [
+          "get-poll"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5040,7 +5139,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-poll"
+        ]
       }
     },
     "/meeting/{id}/poll/{pollId}": {
@@ -5068,7 +5170,9 @@
       ],
       "get": {
         "summary": "Get the poll by id",
-        "tags": [],
+        "tags": [
+          "get-poll-by-id"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5151,7 +5255,10 @@
             }
           }
         },
-        "description": "Delete the poll by id"
+        "description": "Delete the poll by id",
+        "tags": [
+          "delete-poll-by-id"
+        ]
       },
       "patch": {
         "summary": "Update the poll by id",
@@ -5220,7 +5327,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "update-poll-by-id"
+        ]
       }
     },
     "/quiz/{quizId}/answer": {
@@ -5325,7 +5435,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-quiz-answer"
+        ]
       }
     },
     "/poll/{pollId}/answer": {
@@ -5429,7 +5542,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-poll-answer"
+        ]
       }
     },
     "/meeting/{id}/file": {
@@ -5447,7 +5563,9 @@
       ],
       "get": {
         "summary": "Get all the files",
-        "tags": [],
+        "tags": [
+          "get-file"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5598,7 +5716,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "upload-file"
+        ]
       }
     },
     "/meeting/{id}/message": {
@@ -5615,7 +5736,9 @@
       ],
       "get": {
         "summary": "Get all the messages",
-        "tags": [],
+        "tags": [
+          "get-message"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5690,12 +5813,12 @@
             }
           }
         },
-        "operationId": "get-meeting-id-chat",
+        "operationId": "get-meeting-id-message",
         "description": "Retrieve all the messages by meeting id"
       },
       "post": {
         "summary": "Save message",
-        "operationId": "post-meeting-id-chat",
+        "operationId": "post-meeting-id-message",
         "responses": {
           "201": {
             "description": "Created",
@@ -5824,13 +5947,18 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "update-message"
+        ]
       }
     },
     "/meetingLogs": {
       "get": {
         "summary": "Get all the users meeting logs",
-        "tags": [],
+        "tags": [
+          "get-meeting-logs"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -6070,7 +6198,9 @@
       ],
       "get": {
         "summary": "Get all the breakout rooms",
-        "tags": [],
+        "tags": [
+          "get-breakout-room"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -6266,7 +6396,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-breakout-room"
+        ]
       }
     },
     "/meeting/{id}/room/{roomId}": {
@@ -6292,7 +6425,9 @@
       ],
       "get": {
         "summary": "Get the breakout room by id",
-        "tags": [],
+        "tags": [
+          "get-breakout-room-by-id"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -6588,7 +6723,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "update-breakout-room-by-id"
+        ]
       },
       "delete": {
         "summary": "Delete the breakout room by id",
@@ -6615,7 +6753,10 @@
             }
           }
         },
-        "description": "To delete the breakout room by id"
+        "description": "To delete the breakout room by id",
+        "tags": [
+          "delete-breakout-room-by-id"
+        ]
       }
     },
     "/room/{roomId}/user": {
@@ -6734,7 +6875,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "create-breakout-room-user"
+        ]
       },
       "patch": {
         "summary": "Update the users in the breakout room",
@@ -6845,7 +6989,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "update-breakout-room-user"
+        ]
       },
       "delete": {
         "summary": "Delete the users in the breakout room",
@@ -6903,7 +7050,10 @@
               }
             }
           }
-        }
+        },
+        "tags": [
+          "delete-breakout-room-user"
+        ]
       }
     }
   },
@@ -7029,5 +7179,172 @@
         "description": "Bearer token"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "get-entity-by-id"
+    },
+    {
+      "name": "create-entity"
+    },
+    {
+      "name": "validate-verification-id"
+    },
+    {
+      "name": "generate-verification-id"
+    },
+    {
+      "name": "get-meetings"
+    },
+    {
+      "name": "create-meeting"
+    },
+    {
+      "name": "get-meeting-by-id"
+    },
+    {
+      "name": "update-meeting-by-id"
+    },
+    {
+      "name": "delete-meeting-by-id"
+    },
+    {
+      "name": "get-partcipants"
+    },
+    {
+      "name": "create-partcipants"
+    },
+    {
+      "name": "update-partcipants"
+    },
+    {
+      "name": "delete-partcipants"
+    },
+    {
+      "name": "get-user-session"
+    },
+    {
+      "name": "create-user-session"
+    },
+    {
+      "name": "update-user-session"
+    },
+    {
+      "name": "get-meeting-statistics"
+    },
+    {
+      "name": "create-meeting-timing"
+    },
+    {
+      "name": "update-meeting-timing"
+    },
+    {
+      "name": "generate-token"
+    },
+    {
+      "name": "validate-token"
+    },
+    {
+      "name": "get-meeting-details-by-token"
+    },
+    {
+      "name": "add-participants"
+    },
+    {
+      "name": "get-meeting-recording"
+    },
+    {
+      "name": "create-meeting-recording"
+    },
+    {
+      "name": "update-meeting-recording"
+    },
+    {
+      "name": "create-meeting-recurring"
+    },
+    {
+      "name": "get-quiz"
+    },
+    {
+      "name": "create-quiz"
+    },
+    {
+      "name": "get-quiz-by-id"
+    },
+    {
+      "name": "update-quiz-by-id"
+    },
+    {
+      "name": "delete-quiz-by-id"
+    },
+    {
+      "name": "get-poll"
+    },
+    {
+      "name": "create-poll"
+    },
+    {
+      "name": "get-poll-by-id"
+    },
+    {
+      "name": "update-poll-by-id"
+    },
+    {
+      "name": "delete-poll-by-id"
+    },
+    {
+      "name": "get-file"
+    },
+    {
+      "name": "upload-file"
+    },
+    {
+      "name": "get-message"
+    },
+    {
+      "name": "update-message"
+    },
+    {
+      "name": "get-meeting-logs"
+    },
+    {
+      "name": "get-breakout-room"
+    },
+    {
+      "name": "create-breakout-room"
+    },
+    {
+      "name": "get-breakout-room-by-id"
+    },
+    {
+      "name": "update-breakout-room-by-id"
+    },
+    {
+      "name": "delete-breakout-room-by-id"
+    },
+    {
+      "name": "create-poll-answer"
+    },
+    {
+      "name": "create-quiz-answer"
+    },
+    {
+      "name": "get-bookmark"
+    },
+    {
+      "name": "create-bookmark"
+    },
+    {
+      "name": "create-breakout-room-user"
+    },
+    {
+      "name": "update-breakout-room-user"
+    },
+    {
+      "name": "delete-breakout-room-user"
+    },
+    {
+      "name": "get-users-by-be-id"
+    }
+  ]
 }
