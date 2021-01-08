@@ -1,0 +1,48 @@
+{
+  "description": "",
+  "type": "object",
+  "x-examples": {
+    "application/json": {
+      "anonymousId": 1675,
+      "createdDate": "dk@gmail.com",
+      "emailId": "string",
+      "userName": "Dineshkumar B",
+      "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOGQ5ZDIzMjUiLCJleHAiOjE2MTAxMDk2NDcsInVzZXJJZCI6IjZkMjBmMjQzLTk0N2MtNDRiNC1iYzI3LWIyOWNmMWVkZjgwZSIsImlhdCI6MTYxMDEwODc0N30.cgtNfOgYtCtn1WxOMdM_V0bEaWi1aF40U6jLL-fR9Ys69gem8BsA14I38lWZ5xpcCiCRk3cEH6j-a8UYUovi4Q"
+    }
+  },
+  "title": "AnonymousUser",
+  "properties": {
+    "anonymousId": {
+      "type": "number",
+      "example": 1675
+    },
+    "createdDate": {
+      "type": "string",
+      "minLength": 1,
+      "format": "date-time",
+      "example": "2021-01-08T12:02:47Z"
+    },
+    "emailId": {
+      "type": "string",
+      "minLength": 1,
+      "example": "dk@gmail.com"
+    },
+    "userName": {
+      "type": "string",
+      "minLength": 1,
+      "example": "Dineshkumar B"
+    },
+    "token": {
+      "type": "string",
+      "minLength": 1,
+      "example": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOGQ5ZDIzMjUiLCJleHAiOjE2MTAxMDk2NDcsInVzZXJJZCI6IjZkMjBmMjQzLTk0N2MtNDRiNC1iYzI3LWIyOWNmMWVkZjgwZSIsImlhdCI6MTYxMDEwODc0N30.cgtNfOgYtCtn1WxOMdM_V0bEaWi1aF40U6jLL-fR9Ys69gem8BsA14I38lWZ5xpcCiCRk3cEH6j-a8UYUovi4Q"
+    }
+  },
+  "required": [
+    "anonymousId",
+    "createdDate",
+    "emailId",
+    "userName",
+    "token"
+  ]
+}

@@ -2133,15 +2133,8 @@
                 },
                 "application/json (2)": {
                   "value": {
-                    "meetingToken": "c22936942",
-                    "firstName": "Dinesh",
-                    "lastName": "kumar"
-                  }
-                },
-                "application/json (3)": {
-                  "value": {
                     "anonymousUserId": 180,
-                    "meetingToken": "1b12a1273"
+                    "meetingToken": "c22936942"
                   }
                 }
               }
@@ -7047,6 +7040,171 @@
           "delete-breakout-room-user"
         ]
       }
+    },
+    "/meeting/anonymous-user": {
+      "get": {
+        "summary": "Get anonymous user",
+        "tags": [
+          "anonymous-user"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/Anonymous-user.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "anonymousId": 1675,
+                        "createdDate": "2021-01-08T12:02:47Z",
+                        "emailId": "dk@gmail.com",
+                        "userName": "Dineshkumar B",
+                        "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOGQ5ZDIzMjUiLCJleHAiOjE2MTAxMDk2NDcsInVzZXJJZCI6IjZkMjBmMjQzLTk0N2MtNDRiNC1iYzI3LWIyOWNmMWVkZjgwZSIsImlhdCI6MTYxMDEwODc0N30.cgtNfOgYtCtn1WxOMdM_V0bEaWi1aF40U6jLL-fR9Ys69gem8BsA14I38lWZ5xpcCiCRk3cEH6j-a8UYUovi4Q"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Invalid Credential!",
+                          "errorCode": "401"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-anonymous-user",
+        "description": "To retrive the anonymous user",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create anonymous user",
+        "operationId": "post-meeting-anonymous-user",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "../model/common/Anonymous-user.v1.json"
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "anonymousId": 1675,
+                        "createdDate": "2021-01-08T12:02:47Z",
+                        "emailId": "dk@gmail.com",
+                        "userName": "Dineshkumar B",
+                        "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwOGQ5ZDIzMjUiLCJleHAiOjE2MTAxMDk2NDcsInVzZXJJZCI6IjZkMjBmMjQzLTk0N2MtNDRiNC1iYzI3LWIyOWNmMWVkZjgwZSIsImlhdCI6MTYxMDEwODc0N30.cgtNfOgYtCtn1WxOMdM_V0bEaWi1aF40U6jLL-fR9Ys69gem8BsA14I38lWZ5xpcCiCRk3cEH6j-a8UYUovi4Q"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create an anonymous user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "emailId": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "firstName",
+                  "lastName"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "firstName": "Dineshkumar",
+                    "lastName": "B",
+                    "emailId": "dk@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "anonymous-user"
+        ]
+      }
     }
   },
   "components": {
@@ -7337,6 +7495,9 @@
     },
     {
       "name": "get-users-by-be-id"
+    },
+    {
+      "name": "anonymous-user"
     }
   ]
 }
