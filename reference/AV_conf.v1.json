@@ -1640,11 +1640,7 @@
           },
           "description": ""
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/authorization"
-          }
-        ],
+        "parameters": [],
         "tags": [
           "create-meeting-timing"
         ]
@@ -1712,11 +1708,7 @@
             }
           }
         },
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/authorization"
-          }
-        ],
+        "parameters": [],
         "tags": [
           "update-meeting-timing"
         ]
