@@ -4164,7 +4164,9 @@
             }
           }
         },
-        "tags": []
+        "tags": [
+          "Bookmark"
+        ]
       }
     },
     "/meeting/recurring": {
