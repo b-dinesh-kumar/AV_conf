@@ -5546,7 +5546,9 @@
       ],
       "get": {
         "summary": "Get all the files",
-        "tags": [],
+        "tags": [
+          "Files"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -5698,7 +5700,9 @@
             }
           }
         },
-        "tags": []
+        "tags": [
+          "Files"
+        ]
       }
     },
     "/meeting/{id}/message": {
@@ -6969,7 +6973,9 @@
             }
           }
         },
-        "tags": []
+        "tags": [
+          "BreakoutRoomUser"
+        ]
       },
       "delete": {
         "summary": "Delete the users in the breakout room",
@@ -7028,7 +7034,9 @@
             }
           }
         },
-        "tags": []
+        "tags": [
+          "BreakoutRoomUser"
+        ]
       }
     },
     "/meeting/anonymous-user": {
@@ -7383,6 +7391,9 @@
     },
     {
       "name": "User"
+    },
+    {
+      "name": "Files"
     }
   ]
 }
