@@ -26,6 +26,7 @@
       "get": {
         "summary": "Get all the meeting details",
         "tags": [
+          "Meeting"
         ],
         "responses": {
           "200": {
@@ -434,6 +435,7 @@
           }
         ],
         "tags": [
+          "Meeting"
         ]
       }
     },
@@ -452,6 +454,7 @@
       "get": {
         "summary": "Get meeting details by id",
         "tags": [
+          "Meeting"
         ],
         "responses": {
           "200": {
@@ -590,6 +593,7 @@
           }
         ],
         "tags": [
+          "Meeting"
         ]
       },
       "patch": {
@@ -707,6 +711,7 @@
           }
         ],
         "tags": [
+          "Meeting"
         ]
       }
     },
@@ -725,6 +730,7 @@
       "get": {
         "summary": "Get all the participants",
         "tags": [
+          "Partcipants"
         ],
         "responses": {
           "200": {
@@ -962,6 +968,7 @@
           }
         ],
         "tags": [
+          "Partcipants"
         ]
       },
       "patch": {
@@ -1052,6 +1059,7 @@
           }
         ],
         "tags": [
+          "Partcipants"
         ]
       },
       "delete": {
@@ -1117,6 +1125,7 @@
           }
         ],
         "tags": [
+          "Partcipants"
         ]
       }
     },
@@ -1144,6 +1153,7 @@
       "get": {
         "summary": "Get user sessions",
         "tags": [
+          "UserSession"
         ],
         "responses": {
           "200": {
@@ -1300,6 +1310,7 @@
         },
         "parameters": [],
         "tags": [
+          "UserSession"
         ]
       },
       "patch": {
@@ -1361,6 +1372,7 @@
         },
         "parameters": [],
         "tags": [
+          "UserSession"
         ]
       }
     },
@@ -1379,6 +1391,7 @@
       "get": {
         "summary": "Get meeting statistics",
         "tags": [
+          "Statistics"
         ],
         "responses": {
           "200": {
@@ -1629,6 +1642,7 @@
         },
         "parameters": [],
         "tags": [
+          "MeetingTiming"
         ]
       },
       "patch": {
@@ -1696,6 +1710,7 @@
         },
         "parameters": [],
         "tags": [
+          "MeetingTiming"
         ]
       }
     },
@@ -1713,8 +1728,6 @@
       ],
       "get": {
         "summary": "Get all the users",
-        "tags": [
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1870,6 +1883,9 @@
             "description": "bearer token",
             "required": true
           }
+        ],
+        "tags": [
+          "User"
         ]
       }
     },
@@ -2126,6 +2142,7 @@
           }
         },
         "tags": [
+          "Token"
         ]
       }
     },
@@ -2455,6 +2472,7 @@
           }
         ],
         "tags": [
+          "Token"
         ]
       }
     },
@@ -2473,6 +2491,7 @@
       "get": {
         "summary": "Get meeting details by token",
         "tags": [
+          "Meeting"
         ],
         "responses": {
           "200": {
@@ -2826,6 +2845,7 @@
           }
         },
         "tags": [
+          "User"
         ]
       }
     },
@@ -2888,13 +2908,18 @@
           }
         },
         "operationId": "get-entity-beId",
-        "description": "Retrive business entity details by id"
+        "description": "Retrive business entity details by id",
+        "tags": [
+          "BusinessEntity"
+        ]
       }
     },
     "/entity": {
       "get": {
         "summary": "Get business entity details",
-        "tags": [],
+        "tags": [
+          "BusinessEntity"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -3157,6 +3182,7 @@
           }
         },
         "tags": [
+          "BusinessEntity"
         ]
       }
     },
@@ -3313,6 +3339,7 @@
           "description": ""
         },
         "tags": [
+          "Partcipants"
         ]
       }
     },
@@ -3320,6 +3347,7 @@
       "get": {
         "summary": "Validate verification id",
         "tags": [
+          "HandleVerfication"
         ],
         "responses": {
           "200": {
@@ -3601,6 +3629,7 @@
         },
         "description": "To generate verification id ",
         "tags": [
+          "HandleVerfication"
         ]
       }
     },
@@ -3620,6 +3649,7 @@
       "get": {
         "summary": "Get all the recordings by meeting id",
         "tags": [
+          "Recording"
         ],
         "responses": {
           "200": {
@@ -3850,6 +3880,7 @@
           }
         },
         "tags": [
+          "Recording"
         ]
       }
     },
@@ -3952,6 +3983,7 @@
           }
         },
         "tags": [
+          "Recording"
         ]
       }
     },
@@ -3971,6 +4003,7 @@
       "get": {
         "summary": "Get all the bookmarks",
         "tags": [
+          "Bookmark"
         ],
         "responses": {
           "200": {
@@ -4131,8 +4164,7 @@
             }
           }
         },
-        "tags": [
-        ]
+        "tags": []
       }
     },
     "/meeting/recurring": {
@@ -4504,6 +4536,7 @@
           }
         },
         "tags": [
+          "RecurringMeeting"
         ]
       }
     },
@@ -4523,6 +4556,7 @@
       "get": {
         "summary": "Get all the quiz",
         "tags": [
+          "Quiz"
         ],
         "responses": {
           "200": {
@@ -4711,6 +4745,7 @@
           }
         },
         "tags": [
+          "Quiz"
         ]
       }
     },
@@ -4740,6 +4775,7 @@
       "get": {
         "summary": "Get the quiz by id",
         "tags": [
+          "Quiz"
         ],
         "responses": {
           "200": {
@@ -4826,6 +4862,7 @@
         },
         "description": "Delete the quiz by id",
         "tags": [
+          "Quiz"
         ]
       },
       "patch": {
@@ -4898,6 +4935,7 @@
           }
         },
         "tags": [
+          "Quiz"
         ]
       }
     },
@@ -4917,6 +4955,7 @@
       "get": {
         "summary": "Get all the polls",
         "tags": [
+          "Poll"
         ],
         "responses": {
           "200": {
@@ -5085,6 +5124,7 @@
           }
         },
         "tags": [
+          "Poll"
         ]
       }
     },
@@ -5114,6 +5154,7 @@
       "get": {
         "summary": "Get the poll by id",
         "tags": [
+          "Poll"
         ],
         "responses": {
           "200": {
@@ -5199,6 +5240,7 @@
         },
         "description": "Delete the poll by id",
         "tags": [
+          "Poll"
         ]
       },
       "patch": {
@@ -5270,6 +5312,7 @@
           }
         },
         "tags": [
+          "Poll"
         ]
       }
     },
@@ -5377,6 +5420,7 @@
           }
         },
         "tags": [
+          "QuizAnswer"
         ]
       }
     },
@@ -5483,6 +5527,7 @@
           }
         },
         "tags": [
+          "PollAnswer"
         ]
       }
     },
@@ -5501,8 +5546,7 @@
       ],
       "get": {
         "summary": "Get all the files",
-        "tags": [
-        ],
+        "tags": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -5654,8 +5698,7 @@
             }
           }
         },
-        "tags": [
-        ]
+        "tags": []
       }
     },
     "/meeting/{id}/message": {
@@ -5673,6 +5716,7 @@
       "get": {
         "summary": "Get all the messages",
         "tags": [
+          "Messages"
         ],
         "responses": {
           "200": {
@@ -5884,6 +5928,7 @@
           }
         },
         "tags": [
+          "Messages"
         ]
       }
     },
@@ -5891,6 +5936,7 @@
       "get": {
         "summary": "Get all the users meeting logs",
         "tags": [
+          "MeetingLogs"
         ],
         "responses": {
           "200": {
@@ -6132,6 +6178,7 @@
       "get": {
         "summary": "Get all the breakout rooms",
         "tags": [
+          "BreakoutRoom"
         ],
         "responses": {
           "200": {
@@ -6330,6 +6377,7 @@
           }
         },
         "tags": [
+          "BreakoutRoom"
         ]
       }
     },
@@ -6357,6 +6405,7 @@
       "get": {
         "summary": "Get the breakout room by id",
         "tags": [
+          "BreakoutRoom"
         ],
         "responses": {
           "200": {
@@ -6655,6 +6704,7 @@
           }
         },
         "tags": [
+          "BreakoutRoom"
         ]
       },
       "delete": {
@@ -6684,6 +6734,7 @@
         },
         "description": "To delete the breakout room by id",
         "tags": [
+          "BreakoutRoom"
         ]
       }
     },
@@ -6805,6 +6856,7 @@
           }
         },
         "tags": [
+          "BreakoutRoomUser"
         ]
       },
       "patch": {
@@ -6917,8 +6969,7 @@
             }
           }
         },
-        "tags": [
-        ]
+        "tags": []
       },
       "delete": {
         "summary": "Delete the users in the breakout room",
@@ -6977,14 +7028,14 @@
             }
           }
         },
-        "tags": [
-        ]
+        "tags": []
       }
     },
     "/meeting/anonymous-user": {
       "get": {
         "summary": "Get anonymous user",
         "tags": [
+          "AnonymousUser"
         ],
         "responses": {
           "200": {
@@ -7141,6 +7192,7 @@
           }
         },
         "tags": [
+          "AnonymousUser"
         ]
       }
     }
@@ -7268,5 +7320,69 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "BusinessEntity"
+    },
+    {
+      "name": "HandleVerfication"
+    },
+    {
+      "name": "Meeting"
+    },
+    {
+      "name": "Partcipants"
+    },
+    {
+      "name": "UserSession"
+    },
+    {
+      "name": "Statistics"
+    },
+    {
+      "name": "MeetingTiming"
+    },
+    {
+      "name": "Token"
+    },
+    {
+      "name": "Recording"
+    },
+    {
+      "name": "RecurringMeeting"
+    },
+    {
+      "name": "Quiz"
+    },
+    {
+      "name": "Poll"
+    },
+    {
+      "name": "Messages"
+    },
+    {
+      "name": "MeetingLogs"
+    },
+    {
+      "name": "BreakoutRoom"
+    },
+    {
+      "name": "AnonymousUser"
+    },
+    {
+      "name": "PollAnswer"
+    },
+    {
+      "name": "QuizAnswer"
+    },
+    {
+      "name": "Bookmark"
+    },
+    {
+      "name": "BreakoutRoomUser"
+    },
+    {
+      "name": "User"
+    }
+  ]
 }
