@@ -3508,7 +3508,8 @@
             },
             "in": "header",
             "name": "Authorization",
-            "description": "verificationId"
+            "description": "verificationId",
+            "required": true
           }
         ]
       },
