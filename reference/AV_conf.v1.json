@@ -6299,6 +6299,29 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "A breakout room with the same name already exist",
+                          "errorCode": "120"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "description": "To create breakout rooms",
