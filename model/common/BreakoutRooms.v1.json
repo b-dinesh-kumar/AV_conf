@@ -1,151 +1,125 @@
 {
-  "type": "array",
   "description": "",
-  "minItems": 1,
-  "uniqueItems": true,
-  "items": {
-    "type": "object",
-    "properties": {
-      "breakoutRoomId": {
-        "type": "number",
-        "example": 1647
-      },
-      "countdownTimerStartsAt": {
-        "type": "number",
-        "example": 60
-      },
-      "createdDate": {
-        "type": "string",
-        "minLength": 1,
-        "format": "date-time",
-        "example": "2021-01-05T06:29:42Z"
-      },
-      "breakoutRoomName": {
-        "type": "string",
-        "minLength": 1,
-        "example": "room-1"
-      },
-      "createdBy": {
+  "type": "object",
+  "properties": {
+    "breakoutRoomId": {
+      "type": "number",
+      "example": 2555
+    },
+    "countdownTimerStartsAt": {
+      "type": "number",
+      "example": 60
+    },
+    "createdDate": {
+      "type": "string",
+      "minLength": 1,
+      "format": "date-time",
+      "example": "2021-01-12T12:49:23Z"
+    },
+    "breakoutRoomName": {
+      "type": "string",
+      "minLength": 1,
+      "example": "room-1"
+    },
+    "createdBy": {
+      "type": "object",
+      "required": [
+        "userName",
+        "userId"
+      ],
+      "properties": {
+        "userName": {
+          "type": "string",
+          "minLength": 1,
+          "example": "Dinesh Kumar"
+        },
+        "userId": {
+          "type": "string",
+          "minLength": 1,
+          "example": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0b"
+        }
+      }
+    },
+    "closeAfter": {
+      "type": "number",
+      "example": 600
+    },
+    "waitRoomId": {
+      "type": "string",
+      "minLength": 1,
+      "example": "c48c2503c3d"
+    },
+    "canReturnToMainSession": {
+      "type": "boolean"
+    },
+    "meetingId": {
+      "type": "string",
+      "minLength": 1,
+      "example": "751528be-c409-455c-9ed8-f78b48c84b7b"
+    },
+    "users": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
         "type": "object",
-        "required": [
-          "meetingUserId",
-          "userName"
-        ],
         "properties": {
           "meetingUserId": {
             "type": "number",
-            "example": 106
+            "example": 2557
           },
           "userName": {
             "type": "string",
             "minLength": 1,
-            "example": "Dinesh Kumar"
-          }
-        }
-      },
-      "closeAfter": {
-        "type": "number",
-        "example": 600
-      },
-      "waitRoomId": {
-        "type": "string",
-        "minLength": 1,
-        "example": "dfd2f395db0"
-      },
-      "canReturnToMainSession": {
-        "type": "boolean"
-      },
-      "meetingId": {
-        "type": "string",
-        "minLength": 1,
-        "example": "07735a16-313d-493a-811e-2a732c8bdf5s"
-      },
-      "users": {
-        "type": "array",
-        "uniqueItems": true,
-        "minItems": 1,
-        "items": {
-          "type": "object",
-          "properties": {
-            "exitTime": {},
-            "createdDate": {
-              "type": "string",
-              "minLength": 1,
-              "example": "2021-01-05T06:29:42Z"
-            },
-            "joinTime": {},
-            "breakoutRoomUserId": {
-              "type": "number",
-              "example": 1648
-            },
-            "meetingUser": {
-              "type": "object",
-              "properties": {
-                "meetingUserId": {
-                  "type": "number",
-                  "example": 1605
-                },
-                "userName": {
-                  "type": "string",
-                  "minLength": 1,
-                  "example": "Christian Bale"
-                }
-              },
-              "required": [
-                "meetingUserId",
-                "userName"
-              ]
-            }
+            "example": "Hugh Jackman"
           },
-          "required": [
-            "createdDate",
-            "breakoutRoomUserId"
-          ]
-        }
-      }
-    },
-    "required": [
-      "breakoutRoomId",
-      "countdownTimerStartsAt",
-      "createdDate",
-      "breakoutRoomName",
-      "createdBy",
-      "closeAfter",
-      "waitRoomId",
-      "canReturnToMainSession",
-      "meetingId",
-      "users"
-    ]
-  },
-  "x-examples": {
-    "application/json": [
-      {
-        "breakoutRoomId": 1647,
-        "countdownTimerStartsAt": 60,
-        "createdDate": "2021-01-05T06:29:42Z",
-        "breakoutRoomName": "room-1",
-        "createdBy": {
-          "meetingUserId": 106,
-          "userName": "Dinesh Kumar"
-        },
-        "closeAfter": 600,
-        "waitRoomId": "dfd2f395db0",
-        "canReturnToMainSession": true,
-        "meetingId": "07735a16-313d-493a-811e-2a732c8bdf5s",
-        "users": [
-          {
-            "exitTime": "2021-01-05T07:29:42Z",
-            "createdDate": "2021-01-05T06:29:42Z",
-            "joinTime": "2021-01-05T07:35:42Z",
-            "breakoutRoomUserId": 1648,
-            "meetingUser": {
-              "meetingUserId": 1605,
-              "userName": "Christian Bale"
-            }
+          "mainSessionMeetingUserId": {
+            "type": "number",
+            "example": 2490
           }
+        },
+        "required": [
+          "meetingUserId",
+          "userName",
+          "mainSessionMeetingUserId"
         ]
       }
-    ]
+    }
   },
-  "title": "BreakoutRooms"
+  "required": [
+    "breakoutRoomId",
+    "countdownTimerStartsAt",
+    "createdDate",
+    "breakoutRoomName",
+    "createdBy",
+    "closeAfter",
+    "waitRoomId",
+    "canReturnToMainSession",
+    "meetingId",
+    "users"
+  ],
+  "x-examples": {
+    "application/json": {
+      "breakoutRoomId": 2555,
+      "countdownTimerStartsAt": 60,
+      "createdDate": "2021-01-12T12:49:23Z",
+      "breakoutRoomName": "room-1",
+      "createdBy": {
+        "userName": "Dinesh Kumar",
+        "userId": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0b"
+      },
+      "closeAfter": 600,
+      "waitRoomId": "c48c2503c3d",
+      "canReturnToMainSession": true,
+      "meetingId": "751528be-c409-455c-9ed8-f78b48c84b7b",
+      "users": [
+        {
+          "meetingUserId": 2557,
+          "userName": "Hugh Jackman",
+          "mainSessionMeetingUserId": 2490
+        }
+      ]
+    }
+  },
+  "title": "BreakoutRoom"
 }
