@@ -6805,6 +6805,129 @@
           "AnonymousUser"
         ]
       }
+    },
+    "/meeting/{id}/file/{fileId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "example": "93635e95-e974-4567-bfec-4fbbad8a1b93"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Meeting id"
+        },
+        {
+          "schema": {
+            "type": "number",
+            "example": 164649
+          },
+          "name": "fileId",
+          "in": "path",
+          "required": true,
+          "description": "File id"
+        }
+      ],
+      "get": {
+        "summary": "Get the file by id",
+        "tags": [
+          "Files"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json (1)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "No Records",
+                          "errorCode": "105"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "The session does not exist!",
+                          "errorCode": "119"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json (1)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Unable to get the JWT Token",
+                          "errorCode": "401"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Invalid Credential!",
+                          "errorCode": "401"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-id-file-fileId",
+        "description": "Retrive the file by id",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2ZDIwZjI0My05NDdjLTQ0YjQtYmMyNy1iMjljZjFlZGY4MGUiLCJleHAiOjE2MDkzMjg3NzIsImlhdCI6MTYwOTE1NTk3Mn0.syoc5DEIIw2daQC11MqLjbiqq5NNE2_N5-mgr9A-xiZLq9pjhDXlkQ69LBGe_7MIH9CaQu1JgJYlUyypqpMEbg"
+            },
+            "in": "query",
+            "name": "token",
+            "description": "token",
+            "required": true
+          }
+        ]
+      }
     }
   },
   "components": {
