@@ -635,14 +635,18 @@
                   "schStartTime": {
                     "type": "string",
                     "minLength": 1,
-                    "example": "2020-11-02T10:30:00Z",
-                    "format": "date-time"
+                    "format": "date-time",
+                    "example": "2020-11-02T10:30:00Z"
                   },
                   "schEndTime": {
                     "type": "string",
                     "minLength": 1,
                     "format": "date-time",
                     "example": "2020-11-02T11:30:00Z"
+                  },
+                  "statusId": {
+                    "type": "number",
+                    "example": 4
                   },
                   "meetingName": {
                     "type": "string",
@@ -681,13 +685,30 @@
                   "showRecording": {
                     "type": "boolean"
                   }
-                }
+                },
+                "required": [
+                  "schStartTime",
+                  "schEndTime",
+                  "statusId",
+                  "meetingName",
+                  "meetingDesc",
+                  "isWaitRoomEnabled",
+                  "allowAnonymousUsers",
+                  "isScreenshareUsed",
+                  "isRecordingUsed",
+                  "isAudioUsed",
+                  "allowUsersInWaitRoom",
+                  "isVideoUsed",
+                  "isAutoRecEnabled",
+                  "showRecording"
+                ]
               },
               "examples": {
                 "application/json": {
                   "value": {
                     "schStartTime": "2020-11-02T10:30:00Z",
                     "schEndTime": "2020-11-02T11:30:00Z",
+                    "statusId": 4,
                     "meetingName": "Sprint Meeting",
                     "meetingDesc": "This meeting is about sprint 2",
                     "isWaitRoomEnabled": true,
