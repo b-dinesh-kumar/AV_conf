@@ -6238,23 +6238,52 @@
                     "value": {
                       "data": [
                         {
-                          "breakoutRoomId": 2555,
+                          "breakoutRoomId": 2567,
                           "countdownTimerStartsAt": 60,
-                          "createdDate": "2021-01-12T12:49:23Z",
-                          "breakoutRoomName": "room-1",
                           "createdBy": {
                             "userName": "Dinesh Kumar",
                             "userId": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0b"
                           },
                           "closeAfter": 600,
-                          "waitRoomId": "c48c2503c3d",
                           "canReturnToMainSession": true,
-                          "meetingId": "751528be-c409-455c-9ed8-f78b48c84b7b",
+                          "meeting": {
+                            "allowAnonymousUsers": true,
+                            "meetingId": "85571e49-aa3e-4a0f-aa95-15b87793d01b",
+                            "schEndTime": "2020-11-04T11:30:00Z",
+                            "showRecording": true,
+                            "schStartTime": "2020-11-04T10:30:00Z",
+                            "isAutoRecEnabled": true,
+                            "businessEntity": {
+                              "businessEnitytId": 1,
+                              "businessEnityName": "Focus",
+                              "logo": "/business/focus.jpg"
+                            },
+                            "meetingUrl": "https://video.3edge.in:5000/a2f987292",
+                            "isScreenshareUsed": true,
+                            "meetingTimings": [
+                              {
+                                "actStartTime": "2020-10-28T15:20:00Z",
+                                "actEndTime": "2020-10-28T16:15:00Z"
+                              }
+                            ],
+                            "isWaitRoomEnabled": true,
+                            "meetingName": "Sprint Meeting",
+                            "waitRoomId": "025c44b020a",
+                            "isRecordingUsed": true,
+                            "isAudioUsed": true,
+                            "meetingDesc": "This meeting is about sprint 2",
+                            "isVideoUsed": true,
+                            "allowUsersInWaitRoom": true,
+                            "status": {
+                              "statusId": 1,
+                              "statusName": "Scheduled"
+                            }
+                          },
                           "users": [
                             {
-                              "meetingUserId": 2557,
+                              "meetingUserId": 2569,
                               "userName": "Hugh Jackman",
-                              "mainSessionMeetingUserId": 2490
+                              "mainSessionMeetingUserId": 2560
                             }
                           ]
                         }
@@ -6298,23 +6327,52 @@
                     "value": {
                       "data": [
                         {
-                          "breakoutRoomId": 2555,
+                          "breakoutRoomId": 2567,
                           "countdownTimerStartsAt": 60,
-                          "createdDate": "2021-01-12T12:49:23Z",
-                          "breakoutRoomName": "room-1",
                           "createdBy": {
                             "userName": "Dinesh Kumar",
                             "userId": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0b"
                           },
                           "closeAfter": 600,
-                          "waitRoomId": "c48c2503c3d",
                           "canReturnToMainSession": true,
-                          "meetingId": "751528be-c409-455c-9ed8-f78b48c84b7b",
+                          "meeting": {
+                            "allowAnonymousUsers": true,
+                            "meetingId": "85571e49-aa3e-4a0f-aa95-15b87793d01b",
+                            "schEndTime": "2020-11-04T11:30:00Z",
+                            "showRecording": true,
+                            "schStartTime": "2020-11-04T10:30:00Z",
+                            "isAutoRecEnabled": true,
+                            "businessEntity": {
+                              "businessEnitytId": 1,
+                              "businessEnityName": "Focus",
+                              "logo": "/business/focus.jpg"
+                            },
+                            "meetingUrl": "https://video.3edge.in:5000/a2f987292",
+                            "isScreenshareUsed": true,
+                            "meetingTimings": [
+                              {
+                                "actStartTime": "2020-10-28T15:20:00Z",
+                                "actEndTime": "2020-10-28T16:15:00Z"
+                              }
+                            ],
+                            "isWaitRoomEnabled": true,
+                            "meetingName": "Sprint Meeting",
+                            "waitRoomId": "025c44b020a",
+                            "isRecordingUsed": true,
+                            "isAudioUsed": true,
+                            "meetingDesc": "This meeting is about sprint 2",
+                            "isVideoUsed": true,
+                            "allowUsersInWaitRoom": true,
+                            "status": {
+                              "statusId": 1,
+                              "statusName": "Scheduled"
+                            }
+                          },
                           "users": [
                             {
-                              "meetingUserId": 2557,
+                              "meetingUserId": 2569,
                               "userName": "Hugh Jackman",
-                              "mainSessionMeetingUserId": 2490
+                              "mainSessionMeetingUserId": 2560
                             }
                           ]
                         }
@@ -6486,23 +6544,52 @@
                   "application/json": {
                     "value": {
                       "data": {
-                        "breakoutRoomId": 2555,
+                        "breakoutRoomId": 2567,
                         "countdownTimerStartsAt": 60,
-                        "createdDate": "2021-01-12T12:49:23Z",
-                        "breakoutRoomName": "room-1",
                         "createdBy": {
                           "userName": "Dinesh Kumar",
                           "userId": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0b"
                         },
                         "closeAfter": 600,
-                        "waitRoomId": "c48c2503c3d",
                         "canReturnToMainSession": true,
-                        "meetingId": "751528be-c409-455c-9ed8-f78b48c84b7b",
+                        "meeting": {
+                          "allowAnonymousUsers": true,
+                          "meetingId": "85571e49-aa3e-4a0f-aa95-15b87793d01b",
+                          "schEndTime": "2020-11-04T11:30:00Z",
+                          "showRecording": true,
+                          "schStartTime": "2020-11-04T10:30:00Z",
+                          "isAutoRecEnabled": true,
+                          "businessEntity": {
+                            "businessEnitytId": 1,
+                            "businessEnityName": "Focus",
+                            "logo": "/business/focus.jpg"
+                          },
+                          "meetingUrl": "https://video.3edge.in:5000/a2f987292",
+                          "isScreenshareUsed": true,
+                          "meetingTimings": [
+                            {
+                              "actStartTime": "2020-10-28T15:20:00Z",
+                              "actEndTime": "2020-10-28T16:15:00Z"
+                            }
+                          ],
+                          "isWaitRoomEnabled": true,
+                          "meetingName": "Sprint Meeting",
+                          "waitRoomId": "025c44b020a",
+                          "isRecordingUsed": true,
+                          "isAudioUsed": true,
+                          "meetingDesc": "This meeting is about sprint 2",
+                          "isVideoUsed": true,
+                          "allowUsersInWaitRoom": true,
+                          "status": {
+                            "statusId": 1,
+                            "statusName": "Scheduled"
+                          }
+                        },
                         "users": [
                           {
-                            "meetingUserId": 2557,
+                            "meetingUserId": 2569,
                             "userName": "Hugh Jackman",
-                            "mainSessionMeetingUserId": 2490
+                            "mainSessionMeetingUserId": 2560
                           }
                         ]
                       },
