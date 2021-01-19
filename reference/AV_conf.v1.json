@@ -2211,7 +2211,7 @@
                               },
                               "meetingUserId": {
                                 "type": "number",
-                                "example": 688
+                                "example": 2570
                               },
                               "userName": {
                                 "type": "string",
@@ -2240,6 +2240,7 @@
                             "isScreenshareUsed",
                             "isWaitRoomEnabled",
                             "meetingName",
+                            "isBreakoutRoom",
                             "waitRoomId",
                             "isRecordingUsed",
                             "isAudioUsed",
@@ -2252,29 +2253,54 @@
                             "allowAnonymousUsers": {
                               "type": "boolean"
                             },
+                            "breakoutRoom": {
+                              "anyOf": []
+                            },
                             "meetingId": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "6f9e6516-f5a9-470d-b9ae-e684bc9f9c62"
+                              "example": "5742baf4-cac5-4fb5-b8d8-4a79719699c7"
                             },
                             "schEndTime": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "2020-12-30T12:30:00Z",
-                              "format": "date-time"
+                              "format": "date-time",
+                              "example": "2021-01-30T12:30:00Z"
                             },
                             "schStartTime": {
                               "type": "string",
                               "minLength": 1,
-                              "format": "date-time"
+                              "format": "date-time",
+                              "example": "2021-01-12T14:53:40Z"
                             },
                             "businessEntity": {
-                              "$ref": "../model/common/Business-entity.v1.json"
+                              "type": "object",
+                              "required": [
+                                "businessEntityId",
+                                "logo",
+                                "businessEntityName"
+                              ],
+                              "properties": {
+                                "businessEntityId": {
+                                  "type": "number",
+                                  "example": 2
+                                },
+                                "logo": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "example": "/conference/images/default.png"
+                                },
+                                "businessEntityName": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "example": "AV conference"
+                                }
+                              }
                             },
                             "meetingUrl": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "https://video.3edge.in/ef48d0eed"
+                              "example": "https://video.3edge.in/8fa006eac"
                             },
                             "isScreenshareUsed": {
                               "type": "boolean"
@@ -2285,12 +2311,14 @@
                             "meetingName": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "test-meeting"
+                              "example": "Test meeting"
+                            },
+                            "isBreakoutRoom": {
+                              "type": "boolean"
                             },
                             "waitRoomId": {
                               "type": "string",
-                              "minLength": 1,
-                              "example": "7efa14c82d2"
+                              "minLength": 1
                             },
                             "isRecordingUsed": {
                               "type": "boolean"
@@ -2301,7 +2329,7 @@
                             "meetingDesc": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "The test meeting"
+                              "example": "The Test meeting"
                             },
                             "isVideoUsed": {
                               "type": "boolean"
@@ -2317,32 +2345,39 @@
                         "meetingUser": {
                           "type": "object",
                           "required": [
+                            "stealthMode",
                             "isOrganizer",
                             "meetingUserId",
                             "emailId",
-                            "userName"
+                            "userName",
+                            "userId"
                           ],
                           "properties": {
+                            "stealthMode": {
+                              "type": "boolean"
+                            },
                             "isOrganizer": {
                               "type": "boolean"
                             },
                             "meetingUserId": {
                               "type": "number",
-                              "example": 688
+                              "example": 2568
                             },
                             "anonymousUserId": {},
                             "emailId": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "brad.p@tra-augment.com"
+                              "example": "dinesh.b@tra-augment.com"
                             },
                             "userName": {
                               "type": "string",
                               "minLength": 1,
-                              "example": "Brad Pitt"
+                              "example": "Dinesh Kumar"
                             },
                             "userId": {
-                              "example": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                              "type": "string",
+                              "minLength": 1,
+                              "example": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0s"
                             }
                           }
                         }
@@ -2366,44 +2401,52 @@
                         "allMeetingUser": [
                           {
                             "stealthMode": true,
-                            "isAnonymous": false,
+                            "isAnonymous": true,
                             "isOrganizer": true,
-                            "meetingUserId": 688,
+                            "meetingUserId": 2570,
                             "userName": "Brad Pitt"
                           }
                         ],
                         "meeting": {
                           "allowAnonymousUsers": true,
-                          "meetingId": "6f9e6516-f5a9-470d-b9ae-e684bc9f9c62",
-                          "schEndTime": "2020-12-30T12:30:00Z",
-                          "schStartTime": "2019-08-24T14:15:22Z",
-                          "businessEntity": {
-                            "businessEnitytId": 1,
-                            "businessEnityName": "Focus",
-                            "logo": "/business/focus.jpg"
+                          "breakoutRoom": {
+                            "breakoutRoomId": 2567,
+                            "countdownTimerStartsAt": 60,
+                            "closeAfter": 600,
+                            "canReturnToMainSession": true
                           },
-                          "meetingUrl": "https://video.3edge.in/ef48d0eed",
+                          "meetingId": "5742baf4-cac5-4fb5-b8d8-4a79719699c7",
+                          "schEndTime": "2021-01-30T12:30:00Z",
+                          "schStartTime": "2021-01-12T14:53:40Z",
+                          "businessEntity": {
+                            "businessEntityId": 2,
+                            "logo": "/conference/images/default.png",
+                            "businessEntityName": "AV conference"
+                          },
+                          "meetingUrl": "https://video.3edge.in/8fa006eac",
                           "isScreenshareUsed": true,
                           "isWaitRoomEnabled": true,
-                          "meetingName": "test-meeting",
-                          "waitRoomId": "7efa14c82d2",
+                          "meetingName": "Test meeting",
+                          "isBreakoutRoom": true,
+                          "waitRoomId": "dw3vjvv32d",
                           "isRecordingUsed": true,
                           "isAudioUsed": true,
-                          "meetingDesc": "The test meeting",
+                          "meetingDesc": "The Test meeting",
                           "isVideoUsed": true,
                           "allowUsersInWaitRoom": true,
                           "status": {
-                            "statusId": 3,
-                            "statusName": "Completed"
+                            "statusId": 1,
+                            "statusName": "Scheduled"
                           }
                         },
                         "meetingUser": {
+                          "stealthMode": true,
                           "isOrganizer": true,
-                          "meetingUserId": 688,
+                          "meetingUserId": 2568,
                           "anonymousUserId": null,
-                          "emailId": "brad.p@tra-augment.com",
-                          "userName": "Brad Pitt",
-                          "userId": "d035ccbb-e4cc-44e2-ae21-b61928813f04"
+                          "emailId": "dinesh.b@tra-augment.com",
+                          "userName": "Dinesh Kumar",
+                          "userId": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0s"
                         }
                       },
                       "status": "success"
@@ -2417,41 +2460,96 @@
                             "stealthMode": true,
                             "isAnonymous": true,
                             "isOrganizer": true,
-                            "meetingUserId": 688,
+                            "meetingUserId": 2570,
                             "userName": "Brad Pitt"
                           }
                         ],
                         "meeting": {
                           "allowAnonymousUsers": true,
-                          "meetingId": "6f9e6516-f5a9-470d-b9ae-e684bc9f9c62",
-                          "schEndTime": "2020-12-30T12:30:00Z",
-                          "schStartTime": "2019-08-24T14:15:22Z",
+                          "breakoutRoom": null,
+                          "meetingId": "5742baf4-cac5-4fb5-b8d8-4a79719699c7",
+                          "schEndTime": "2021-01-30T12:30:00Z",
+                          "schStartTime": "2021-01-12T14:53:40Z",
                           "businessEntity": {
-                            "businessEnitytId": 1,
-                            "businessEnityName": "Focus",
-                            "logo": "/business/focus.jpg"
+                            "businessEntityId": 2,
+                            "logo": "/conference/images/default.png",
+                            "businessEntityName": "AV conference"
                           },
-                          "meetingUrl": "https://video.3edge.in/ef48d0eed",
+                          "meetingUrl": "https://video.3edge.in/8fa006eac",
                           "isScreenshareUsed": true,
                           "isWaitRoomEnabled": true,
-                          "meetingName": "test-meeting",
-                          "waitRoomId": "7efa14c82d2",
+                          "meetingName": "Test meeting",
+                          "isBreakoutRoom": false,
+                          "waitRoomId": "dw3vjvv32d",
                           "isRecordingUsed": true,
                           "isAudioUsed": true,
-                          "meetingDesc": "The test meeting",
+                          "meetingDesc": "The Test meeting",
                           "isVideoUsed": true,
                           "allowUsersInWaitRoom": true,
                           "status": {
-                            "statusId": 3,
-                            "statusName": "Completed"
+                            "statusId": 1,
+                            "statusName": "Scheduled"
                           }
                         },
                         "meetingUser": {
+                          "stealthMode": true,
                           "isOrganizer": true,
-                          "meetingUserId": 688,
-                          "anonymousUserId": 651,
-                          "emailId": "brad.p@tra-augment.com",
-                          "userName": "Brad Pitt",
+                          "meetingUserId": 2568,
+                          "anonymousUserId": null,
+                          "emailId": "dinesh.b@tra-augment.com",
+                          "userName": "Dinesh Kumar",
+                          "userId": "736d4d98-5bd9-4e47-8fb9-fa5fa0754f0s"
+                        }
+                      },
+                      "status": "success"
+                    }
+                  },
+                  "application/json (3)": {
+                    "value": {
+                      "data": {
+                        "allMeetingUser": [
+                          {
+                            "stealthMode": true,
+                            "isAnonymous": true,
+                            "isOrganizer": true,
+                            "meetingUserId": 2570,
+                            "userName": "Brad Pitt"
+                          }
+                        ],
+                        "meeting": {
+                          "allowAnonymousUsers": true,
+                          "breakoutRoom": null,
+                          "meetingId": "5742baf4-cac5-4fb5-b8d8-4a79719699c7",
+                          "schEndTime": "2021-01-30T12:30:00Z",
+                          "schStartTime": "2021-01-12T14:53:40Z",
+                          "businessEntity": {
+                            "businessEntityId": 2,
+                            "logo": "/conference/images/default.png",
+                            "businessEntityName": "AV conference"
+                          },
+                          "meetingUrl": "https://video.3edge.in/8fa006eac",
+                          "isScreenshareUsed": true,
+                          "isWaitRoomEnabled": true,
+                          "meetingName": "Test meeting",
+                          "isBreakoutRoom": true,
+                          "waitRoomId": "string",
+                          "isRecordingUsed": true,
+                          "isAudioUsed": true,
+                          "meetingDesc": "The Test meeting",
+                          "isVideoUsed": true,
+                          "allowUsersInWaitRoom": true,
+                          "status": {
+                            "statusId": 1,
+                            "statusName": "Scheduled"
+                          }
+                        },
+                        "meetingUser": {
+                          "stealthMode": true,
+                          "isOrganizer": true,
+                          "meetingUserId": 2568,
+                          "anonymousUserId": 3110051,
+                          "emailId": "dinesh.b@tra-augment.com",
+                          "userName": "Dinesh Kumar",
                           "userId": null
                         }
                       },
