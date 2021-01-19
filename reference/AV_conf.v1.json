@@ -2532,7 +2532,7 @@
                           "isWaitRoomEnabled": true,
                           "meetingName": "Test meeting",
                           "isBreakoutRoom": true,
-                          "waitRoomId": "string",
+                          "waitRoomId": "dw3vjvv32d",
                           "isRecordingUsed": true,
                           "isAudioUsed": true,
                           "meetingDesc": "The Test meeting",
