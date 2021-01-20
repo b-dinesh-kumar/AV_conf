@@ -7125,11 +7125,11 @@
           {
             "schema": {
               "type": "string",
-              "example": "(This token can be generated using the create user session API) eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2ZDIwZjI0My05NDdjLTQ0YjQtYmMyNy1iMjljZjFlZGY4MGUiLCJleHAiOjE2MDkzMjg3NzIsImlhdCI6MTYwOTE1NTk3Mn0.syoc5DEIIw2daQC11MqLjbiqq5NNE2_N5-mgr9A-xiZLq9pjhDXlkQ69LBGe_7MIH9CaQu1JgJYlUyypqpMEbg"
+              "example": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2ZDIwZjI0My05NDdjLTQ0YjQtYmMyNy1iMjljZjFlZGY4MGUiLCJleHAiOjE2MDkzMjg3NzIsImlhdCI6MTYwOTE1NTk3Mn0.syoc5DEIIw2daQC11MqLjbiqq5NNE2_N5-mgr9A-xiZLq9pjhDXlkQ69LBGe_7MIH9CaQu1JgJYlUyypqpMEbg"
             },
             "in": "query",
             "name": "token",
-            "description": "token",
+            "description": "This token can be generated using the create user session API",
             "required": true
           }
         ]
