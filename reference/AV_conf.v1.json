@@ -7134,6 +7134,185 @@
           }
         ]
       }
+    },
+    "/meeting/participants/statistics": {
+      "get": {
+        "summary": "Get participants statistics",
+        "tags": [
+          "Statistics"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "meetingUserId": {
+                            "type": "number",
+                            "example": 114499
+                          },
+                          "meetingId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "93635e95-e974-4567-bfec-4fbbad8a1b93"
+                          },
+                          "userName": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Christoper Nolan"
+                          },
+                          "statistics": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "exitTime": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "format": "date-time",
+                                  "example": "2021-01-18T14:45:00Z"
+                                },
+                                "joinTime": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "format": "date-time",
+                                  "example": "2021-01-18T14:30:00Z"
+                                },
+                                "users": {
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                  "minItems": 1,
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "timeSpent": {
+                                        "type": "number",
+                                        "example": 900
+                                      },
+                                      "meetingUserId": {
+                                        "type": "number",
+                                        "example": 115416
+                                      },
+                                      "userName": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "example": "Dinesh Kumar"
+                                      }
+                                    },
+                                    "required": [
+                                      "timeSpent",
+                                      "meetingUserId",
+                                      "userName"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "exitTime",
+                                "joinTime"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "meetingUserId",
+                          "meetingId",
+                          "userName"
+                        ]
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "example": "success"
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "meetingUserId": 114499,
+                          "meetingId": "93635e95-e974-4567-bfec-4fbbad8a1b93",
+                          "userName": "Christoper Nolan",
+                          "statistics": [
+                            {
+                              "exitTime": "2021-01-18T14:45:00Z",
+                              "joinTime": "2021-01-18T14:30:00Z",
+                              "users": [
+                                {
+                                  "timeSpent": 900,
+                                  "meetingUserId": 115416,
+                                  "userName": "Dinesh Kumar"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Required query param is missing",
+                          "errorCode": "121"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-meeting-participants-statistics",
+        "description": "Retrieve the given participants statistics",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "1234,64446,46646"
+            },
+            "in": "query",
+            "required": true,
+            "name": "muIds",
+            "description": "Meeting user ids"
+          }
+        ]
+      }
     }
   },
   "components": {
