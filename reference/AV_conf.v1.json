@@ -7313,6 +7313,188 @@
           }
         ]
       }
+    },
+    "/user/create": {
+      "post": {
+        "summary": "Create user",
+        "operationId": "post-user-create",
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "userId": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "userId"
+                      ]
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": {
+                        "userId": "e96b3jv39y9y4g34v3v4343b"
+                      },
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json (1)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "The Role does not exist!",
+                          "errorCode": "122"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (2)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "The Role does not exist!",
+                          "errorCode": "123"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  },
+                  "application/json (3)": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Record Saved Failed",
+                          "errorCode": "111"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Access Denied",
+                          "errorCode": "403"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "To create a new user in the business entity",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/authorization"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "userName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "dinesh"
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Dinesh"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Kumar"
+                  },
+                  "email": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "dinesh.b@gmail.com"
+                  },
+                  "roleId": {
+                    "type": "number",
+                    "example": 3
+                  }
+                },
+                "required": [
+                  "userName",
+                  "firstName",
+                  "lastName",
+                  "email",
+                  "roleId"
+                ]
+              },
+              "examples": {
+                "application/json": {
+                  "value": {
+                    "userName": "dinesh",
+                    "firstName": "Dinesh",
+                    "lastName": "Kumar",
+                    "email": "dinesh.b@gmail.com",
+                    "roleId": 3
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
     }
   },
   "components": {
