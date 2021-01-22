@@ -6079,108 +6079,131 @@
                   "type": "object",
                   "properties": {
                     "pagination": {
-                      "$ref": "../model/common/Pagination.v1.json"
+                      "type": "object",
+                      "properties": {
+                        "totalRecords": {
+                          "type": "number"
+                        },
+                        "limit": {
+                          "type": "number"
+                        },
+                        "page": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "totalRecords",
+                        "limit",
+                        "page"
+                      ]
                     },
                     "data": {
                       "type": "array",
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "type": "object",
+                        "required": [
+                          "emailId",
+                          "userName",
+                          "userId"
+                        ],
                         "properties": {
                           "role": {
                             "type": "object",
                             "properties": {
                               "roleId": {
-                                "type": "number",
-                                "example": 2
+                                "type": "number"
                               },
                               "roleName": {
                                 "type": "string",
-                                "example": "BE admin"
+                                "minLength": 1
                               }
-                            }
+                            },
+                            "required": [
+                              "roleId",
+                              "roleName"
+                            ]
                           },
                           "emailId": {
                             "type": "string",
-                            "minLength": 1,
-                            "example": "hugh.j@tra-augment.com"
+                            "minLength": 1
                           },
                           "meetings": {
                             "type": "array",
                             "uniqueItems": true,
                             "minItems": 1,
                             "items": {
-                              "type": "object",
+                              "required": [
+                                "meetingName",
+                                "meetingUserId",
+                                "meetingId"
+                              ],
                               "properties": {
                                 "meetingName": {
                                   "type": "string",
-                                  "minLength": 1,
-                                  "example": "Sprint meeting"
+                                  "minLength": 1
+                                },
+                                "meetingUserId": {
+                                  "type": "number"
                                 },
                                 "meetingId": {
                                   "type": "string",
-                                  "minLength": 1,
-                                  "example": "a1c88018-4b28-45b0-aa66-dc3886442530"
+                                  "minLength": 1
                                 },
                                 "status": {
-                                  "$ref": "../model/common/Status.v1.json"
+                                  "type": "object",
+                                  "properties": {
+                                    "statusId": {
+                                      "type": "number"
+                                    },
+                                    "statusName": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "statusId",
+                                    "statusName"
+                                  ]
                                 },
                                 "statistics": {
                                   "type": "array",
                                   "uniqueItems": true,
                                   "minItems": 1,
                                   "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "exitTime": {
-                                        "type": "string",
-                                        "minLength": 1,
-                                        "example": "2020-12-26T08:35:30Z",
-                                        "format": "date-time"
-                                      },
-                                      "joinTime": {
-                                        "type": "string",
-                                        "minLength": 1,
-                                        "format": "date-time",
-                                        "example": "2020-12-26T08:35:15Z"
-                                      }
-                                    },
                                     "required": [
                                       "exitTime",
                                       "joinTime"
-                                    ]
+                                    ],
+                                    "properties": {
+                                      "exitTime": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "joinTime": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      }
+                                    }
                                   }
                                 }
-                              },
-                              "required": [
-                                "meetingName",
-                                "meetingId"
-                              ]
+                              }
                             }
                           },
                           "userName": {
                             "type": "string",
-                            "minLength": 1,
-                            "example": "Hugh Jackman"
+                            "minLength": 1
                           },
                           "userId": {
                             "type": "string",
-                            "minLength": 1,
-                            "example": "6a2097f6-4d1b-4a44-a232-fb73db138ee9"
+                            "minLength": 1
                           }
-                        },
-                        "required": [
-                          "emailId",
-                          "userName",
-                          "userId"
-                        ]
+                        }
                       }
                     },
                     "status": {
                       "type": "string",
-                      "minLength": 1,
-                      "example": "success"
+                      "minLength": 1
                     }
                   },
                   "required": [
@@ -6207,6 +6230,7 @@
                           "meetings": [
                             {
                               "meetingName": "Sprint meeting",
+                              "meetingUserId": 2643,
                               "meetingId": "a1c88018-4b28-45b0-aa66-dc3886442530",
                               "status": {
                                 "statusId": 3,
