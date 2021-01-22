@@ -2137,18 +2137,11 @@
                     "type": "string",
                     "minLength": 1,
                     "example": "1b12a1273"
-                  },
-                  "firstName": {
-                    "type": "string",
-                    "minLength": 1,
-                    "example": "Rajesh"
-                  },
-                  "lastName": {
-                    "type": "string",
-                    "minLength": 1,
-                    "example": "Mohanan"
                   }
-                }
+                },
+                "required": [
+                  "meetingToken"
+                ]
               },
               "examples": {
                 "application/json (1)": {
@@ -7517,6 +7510,314 @@
         },
         "tags": [
           "User"
+        ]
+      }
+    },
+    "/entity/meetingLogs": {
+      "get": {
+        "summary": "Get all meeting logs",
+        "tags": [
+          "MeetingLogs"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "totalRecords": {
+                          "type": "number"
+                        },
+                        "limit": {
+                          "type": "number"
+                        },
+                        "page": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "totalRecords",
+                        "limit",
+                        "page"
+                      ]
+                    },
+                    "data": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "emailId",
+                          "userName",
+                          "userId"
+                        ],
+                        "properties": {
+                          "role": {
+                            "type": "object",
+                            "properties": {
+                              "roleId": {
+                                "type": "number"
+                              },
+                              "roleName": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "roleId",
+                              "roleName"
+                            ]
+                          },
+                          "emailId": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "meetings": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "items": {
+                              "required": [
+                                "meetingName",
+                                "meetingUserId",
+                                "meetingId"
+                              ],
+                              "properties": {
+                                "meetingName": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "meetingUserId": {
+                                  "type": "number"
+                                },
+                                "meetingId": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "status": {
+                                  "type": "object",
+                                  "properties": {
+                                    "statusId": {
+                                      "type": "number"
+                                    },
+                                    "statusName": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "statusId",
+                                    "statusName"
+                                  ]
+                                },
+                                "statistics": {
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                  "minItems": 1,
+                                  "items": {
+                                    "required": [
+                                      "exitTime",
+                                      "joinTime"
+                                    ],
+                                    "properties": {
+                                      "exitTime": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "joinTime": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "users": {
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                        "minItems": 1,
+                                        "items": {
+                                          "required": [
+                                            "timeSpent",
+                                            "meetingUserId",
+                                            "userName"
+                                          ],
+                                          "properties": {
+                                            "timeSpent": {
+                                              "type": "number"
+                                            },
+                                            "meetingUserId": {
+                                              "type": "number"
+                                            },
+                                            "userName": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "userName": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "userId": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "pagination",
+                    "data",
+                    "status"
+                  ]
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "pagination": {
+                        "totalRecords": 10,
+                        "limit": 5,
+                        "page": 1
+                      },
+                      "data": [
+                        {
+                          "role": {
+                            "roleId": 2,
+                            "roleName": "BE admin"
+                          },
+                          "emailId": "hugh.j@tra-augment.com",
+                          "meetings": [
+                            {
+                              "meetingName": "Test meeting",
+                              "meetingUserId": 2643,
+                              "meetingId": "93635e95-e974-4567-bfec-4fbbad8a1b93",
+                              "status": {
+                                "statusId": 3,
+                                "statusName": "Completed"
+                              },
+                              "statistics": [
+                                {
+                                  "exitTime": "2020-12-26T08:35:30Z",
+                                  "joinTime": "2020-12-26T08:35:15Z",
+                                  "users": [
+                                    {
+                                      "timeSpent": 900,
+                                      "meetingUserId": 115416,
+                                      "userName": "Dinesh Kumar"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "userName": "Hugh Jackman",
+                          "userId": "6a2097f6-4d1b-4a44-a232-fb73db138ee9"
+                        }
+                      ],
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error-response"
+                },
+                "examples": {
+                  "application/json": {
+                    "value": {
+                      "data": [
+                        {
+                          "errorMessage": "Invalid Credential!",
+                          "errorCode": "401"
+                        }
+                      ],
+                      "status": "error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-entity-meetingLogs",
+        "description": "Retrieve the list of users meeting logs in a business entity",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "example": "rajeshkumar"
+            },
+            "in": "header",
+            "name": "Authorization",
+            "description": "Be user id",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "2020-12-07"
+            },
+            "in": "query",
+            "name": "from",
+            "description": "Filter the data by the start date"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "1"
+            },
+            "in": "query",
+            "name": "page",
+            "description": "Filter the data by the given page no"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "5"
+            },
+            "in": "query",
+            "name": "size",
+            "description": "Limit the size of the data"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "2020-12-10"
+            },
+            "in": "query",
+            "name": "to",
+            "description": "Filter the data by the end date"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "hughjackman,christianbale"
+            },
+            "in": "query",
+            "name": "userId",
+            "description": "Filter the data by the user ids"
+          }
         ]
       }
     }
