@@ -6938,7 +6938,14 @@
         "description": "To retrive the anonymous user",
         "parameters": [
           {
-            "$ref": "#/components/parameters/authorization"
+            "in": "header",
+            "schema": {
+              "type": "string",
+              "example": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTQyOGIwNS00ZGE1LTQ1ZTItYjNhZS05MTAyMjA4NGMyMzQiLCJleHAiOjE2MDcwOTUxMDQsImlhdCI6MTYwNjkyMjMwNH0.1YDMiaCXjH5UYxpE_RTJtQPb_eiteJY6Umy7JVOD5gpvwv0_d-bEdSPllqvU9H6eSCRGGk9VQbo5bsWVyu5wzw"
+            },
+            "name": "Authorization",
+            "description": "Bearer token ",
+            "required": true
           }
         ]
       },
